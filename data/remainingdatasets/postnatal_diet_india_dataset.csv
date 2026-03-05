@@ -1,0 +1,24 @@
+Phase,Duration,Region,Type,Food_or_Practice,Description,Recommended_Intake,Health_Benefit
+Postnatal,All,General,Do,Adequate Rest,Postpartum period requires deep rest and rejuvenation,Daily,Supports physical and mental recovery
+Postnatal,All,General,Do,Warm Nutritious Diet,Food acts as medicine during confinement period,Regular meals,Improves digestion and strength
+Postnatal,0–6 months,North India,Do,Water Intake,Drink plenty of water to increase breast milk and prevent dehydration,Frequent,Prevents UTI and fatigue
+Postnatal,0–6 months,North India,Do,Ghee,Use pure ghee in meals to improve digestion and recovery,Moderate,Lubricates joints
+Postnatal,0–6 months,North India,Do,Turmeric Milk,Drink turmeric milk to heal internal wounds,1 cup/day,Anti-inflammatory
+Postnatal,0–6 months,North India,Do,Gond Ladoo,Consume gond ladoo for joint pain relief and strength,1–2/day,Good in winters
+Postnatal,0–6 months,North India,Do,Methi Ladoo,Consume methi ladoo to improve milk supply,1/day,Reduces back pain
+Postnatal,0–6 months,North India,Do,Sesame Ladoo,Consume sesame ladoo for calcium and bowel movement,1/day,Rich in minerals
+Postnatal,0–6 months,North India,Do,Bajra Roti,Consume bajra roti for energy and digestion,1–2/day,High fiber
+Postnatal,0–6 months,North India,Do,Ajwain Paratha,Eat ajwain paratha to aid digestion and uterine cleansing,Occasional,Improves lactation
+Postnatal,0–6 months,North India,Do,Ajwain Water,Drink ajwain water to relieve gas and improve milk supply,1 glass/day,Cooling effect
+Postnatal,0–6 months,North India,Do,Fennel Water,Drink fennel water to increase breast milk,1–2 glasses/day,Aids digestion
+Postnatal,0–6 months,North India,Do,Fenugreek Seeds,Consume fenugreek seeds to boost lactation,Soaked/boiled,Rich in iron
+Postnatal,0–6 months,North India,Do,Jeera Water,Drink jeera water to prevent infection and gas,Daily,Supports digestion
+Postnatal,0–6 months,North India,Do,Garlic Milk,Consume garlic milk to improve lactation,1 cup/day,Traditional remedy
+Postnatal,0–6 months,North India,Do,Panjiri,Consume panjiri for energy and uterine cleansing,Moderate,Heat-generating food
+Postnatal,0–45 days,South India,Do,Pathiya Samayal,Traditional postpartum meals to improve milk supply,As prescribed,Prepared by elders
+Postnatal,0–45 days,South India,Do,Kalathu Powder,Spice mix used in curries to improve digestion,Small quantity,Contains pepper and hing
+Postnatal,0–45 days,South India,Do,Angaya Powder,Powder served with rice and ghee for stomach health,1 serving/day,Improves digestion
+Postnatal,0–45 days,South India,Do,Manathakkali Sadham,Rice preparation to improve haemoglobin,1 serving/day,Iron-rich
+Postnatal,0–45 days,South India,Do,Parippu Thuvayal,Dal-based dish rich in protein,Moderate,Protein source
+Postnatal,0–45 days,South India,Do,Parboiled Rice Porridge,Carbohydrate-rich porridge suitable for mother and baby,1 bowl/day,Energy food
+Postnatal,After 1 month,South India,Do,Ezhai Marundhu,Traditional herbal medicine for newborn digestion and immunity,Alternate days,Mixed with breast milk

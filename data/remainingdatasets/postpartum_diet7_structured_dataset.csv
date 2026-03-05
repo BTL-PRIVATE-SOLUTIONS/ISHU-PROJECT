@@ -1,0 +1,29 @@
+Category,Phase,Recommendation_Type,Food_Item,Description,Recommended_Intake,Health_Impact
+Postnatal Diet,Postpartum,Do,Whole Grain Cereal,High fiber cereals like oats for energy and constipation relief,1 bowl/day,Improves digestion & energy
+Postnatal Diet,Postpartum,Do,Green Vegetables,Leafy greens rich in vitamins and antioxidants,2–3 servings/day,Weight control & vitamin A
+Postnatal Diet,Postpartum,Do,Citrus Fruits,Vitamin C rich fruits for breastfeeding mothers,1–2 fruits/day,Boosts immunity
+Postnatal Diet,Postpartum,Do,Lean Meat,"Lean red meat rich in protein, iron, B12",2–3 servings/week,Reduces fatigue
+Postnatal Diet,Postpartum,Do,Low-Fat Dairy,"Milk, yogurt, cheese for calcium and protein",3 servings/day,Bone health
+Postnatal Diet,Postpartum,Do,Pulses,Protein and fiber rich vegetarian option,1 bowl/day,Energy & digestion
+Postnatal Diet,Postpartum,Do,Legumes,Beans rich in plant protein,1 bowl/day,Supports recovery
+Postnatal Diet,Postpartum,Do,Blueberries,Antioxidant rich berries,½ cup/day,Energy boost
+Postnatal Diet,Postpartum,Do,Salmon,DHA rich fish for infant brain development,2 servings/week,Neural development
+Postnatal Diet,Postpartum,Do,Whole Wheat Bread,Fortified bread with folic acid,2 slices/day,Iron & folate
+Postnatal Diet,Postpartum,Do,Water,Essential hydration during breastfeeding,3–4 liters/day,Milk production
+Postnatal Diet,Postpartum,Do,Sesame Seeds,Mineral rich seeds for bowel movement,1 tbsp/day,Calcium & iron
+Postnatal Diet,Postpartum,Do,Avocado,Healthy fats and fiber,½ fruit/day,Heart health
+Postnatal Diet,Postpartum,Do,Sweet Potato,Vitamin A and potassium source,1 medium/day,Immunity
+Postnatal Diet,Postpartum,Do,Fenugreek Seeds,Traditional lactation booster,1 tsp/day,Milk supply
+Postnatal Diet,Postpartum,Do,Almonds,Nutrient dense dry fruit,5–6/day,Postpartum recovery
+Postnatal Diet,Postpartum,Do,Finger Millet,Iron and calcium rich grain,1 serving/day,Strength restoration
+Postnatal Diet,Postpartum,Do,Carom Seeds,Digestive and lactation aid,1 tsp/day,Gas relief
+Postnatal Diet,Postpartum,Do,Turmeric,Anti-inflammatory spice,½ tsp/day,Wound healing
+Postnatal Diet,Postpartum,Do,Eggs,High quality protein,1–2/day,Muscle recovery
+Postnatal Diet,Postpartum,Do,Dry Ginger Powder,Anti-inflammatory spice,¼ tsp/day,Digestion
+Postnatal Diet,Postpartum,Don't,Garlic,May alter milk taste,Avoid,Feeding refusal
+Postnatal Diet,Postpartum,Don't,Coffee,Caffeine affects baby sleep,Limit,Baby irritability
+Postnatal Diet,Postpartum,Don't,Alcohol,Affects milk supply & baby health,Avoid,Developmental risk
+Postnatal Diet,Postpartum,Don't,Peanuts,May cause allergy,Avoid,Allergic reaction
+Postnatal Diet,Postpartum,Don't,Oily & Gassy Foods,Hard to digest,Avoid,Infant discomfort
+Postnatal Diet,Postpartum,Don't,Carbonated Drinks,Causes bloating,Avoid,Digestive issues
+Postnatal Diet,Postpartum,Don't,High Mercury Fish,Mercury affects brain,Avoid,Neurotoxicity

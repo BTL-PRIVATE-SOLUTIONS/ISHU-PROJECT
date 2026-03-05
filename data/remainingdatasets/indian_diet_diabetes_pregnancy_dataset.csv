@@ -1,0 +1,28 @@
+Category,Subcategory,Food_or_Concept,Portion_or_GI_Information,Medical_Recommendation,Clinical_Notes
+Diet Principle,GI Concept,Low GI carbohydrates,Slow glucose release,Prefer,Helps control blood glucose
+Diet Principle,Meal Pattern,Regular meals & snacks,3 meals + 2–3 snacks/day,Recommended,Prevents glucose spikes
+Diet Principle,Cooking Fat,Fried foods & ghee,High fat,Limit,Use olive/rapeseed/canola oil
+Carbohydrates (Better Choices),Breads & Flours,Wholegrain / multiseed bread,≤15g carbs/slice,Choose,Low GI
+Carbohydrates (Better Choices),Breads & Flours,Chapatti (whole wheat/gram/barley),½ of 8-inch,Choose,High fibre
+Carbohydrates (Better Choices),Rice & Grains,Basmati / brown / red rice,½ cup cooked,Choose,Moderate GI
+Carbohydrates (Better Choices),Rice & Grains,Millet / ragi (soaked),½ cup cooked,Choose,Improves tolerance
+Carbohydrates (Better Choices),Cereals,Jumbo oats / Shredded Wheat,30g,Choose,High fibre
+Fruits,Low GI Fruits,"Apple, pear, berries",1 portion at a time,Choose,Avoid at breakfast
+Fruits,Citrus,"Orange, grapefruit",1 medium,Choose,Vitamin C source
+Dairy,Milk & Yogurt,Plain curd / yogurt,125g,Choose,No added sugar
+Dairy,Milk,Milk / buttermilk / lassi,200ml,Choose,Unsweetened
+Snacks,Healthy Snacks,"Wholewheat crackers, popcorn",Small portions,Choose,Avoid added salt
+Snacks,Protein Snacks,"Egg, paneer, nuts",Moderate,Choose,Carb-free options
+Foods to Limit,High GI Foods,"Naan, paratha, appam, jowar",Rapid glucose rise,Limit,Raises blood sugar
+Foods to Limit,Fried Snacks,"Samosa, pakora, bhaji",High fat,Avoid,Insulin resistance risk
+Foods to Limit,Salty Snacks,Bombay mix,High sodium,Avoid,Raises BP
+Foods to Limit,Sugary Foods,"Dried fruits, evaporated milk",High sugar,Avoid,Rapid glucose rise
+Carbohydrate Portions,Starch,Rice / pasta / poha / idli,½ cup cooked = 1 choice,Limit portions,Portion control
+Carbohydrate Portions,Bread,Wholegrain bread,1 slice = 1 choice,Limit portions,Meal balancing
+Carbohydrate Portions,Fruit,Apple / orange,1 medium = 1 choice,Limit portions,One at a time
+Meal Planning,Breakfast,Roti / idli / oats + protein,1–2 carb choices,Recommended,Morning insulin resistance
+Meal Planning,Lunch,Chapatti/rice + curry + veg,3–4 carb choices,Recommended,Balanced plate
+Meal Planning,Dinner,Chapatti/rice + protein + veg,3–4 carb choices,Recommended,Avoid overeating
+Meal Planning,Snacks,Fruit/dairy/protein snacks,1 carb choice,Recommended,Blood sugar control
+Carbohydrate-Free Foods,Vegetables,"Palak, gobi, bhindi, karela",Free foods,Encourage,Unlimited non-starchy veg
+Carbohydrate-Free Foods,Proteins,"Eggs, paneer, cottage cheese",Free foods,Encourage,Satiety

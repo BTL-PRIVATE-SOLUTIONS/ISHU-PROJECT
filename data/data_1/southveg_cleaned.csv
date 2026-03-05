@@ -1,0 +1,779 @@
+Day,Meal Type,Food,Regional Type,Food Type,Trimester
+Monday,Breakfast,Rava Idli,South Indian,Veg,Trimester 1
+Monday,Snack,Roasted Makhana,South Indian,Veg,Trimester 1
+Monday,Snack,Fruit Bowl (apple + banana),South Indian,Veg,Trimester 1
+Sunday,Snack,Boiled Sweet Corn,South Indian,Veg,Trimester 1
+Sunday,Snack,Paneer Cubes (light sautéed),South Indian,Veg,Trimester 1
+Sunday,Snack,Poha (small portion),South Indian,Veg,Trimester 1
+Monday,Lunch,Steamed Rice + Vegetable Sambar,South Indian,Veg,Trimester 1
+Monday,Lunch,Carrot Beans Poriyal,South Indian,Veg,Trimester 1
+Monday,Lunch,Curd (small bowl),South Indian,Veg,Trimester 1
+Sunday,Breakfast,Vada,South Indian,Veg,Trimester 1
+Sunday,Snack,Vegetable Upma (Small Portion),South Indian,Veg,Trimester 1
+Tuesday,Snack,Roasted Makhana,South Indian,Veg,Trimester 1
+Tuesday,Snack,Onion Pakoda,South Indian,Veg,Trimester 1
+Tuesday,Lunch,Vegetable Rice (mild),South Indian,Veg,Trimester 1
+Tuesday,Lunch,Vegetable Sambar,South Indian,Veg,Trimester 1
+Tuesday,Lunch,Beans Poriyal,South Indian,Veg,Trimester 1
+Wednesday,Breakfast,Vegetable Upma,South Indian,Veg,Trimester 1
+Wednesday,Snack,Moong Dal Chaat (steamed),South Indian,Veg,Trimester 1
+Wednesday,Snack,Roasted Chana,South Indian,Veg,Trimester 1
+Wednesday,Snack,Curd (small bowl),South Indian,Veg,Trimester 1
+Wednesday,Dinner,Soft Idli with Coconut Chutney,South Indian,Veg,Trimester 1
+Wednesday,Lunch,Steamed Rice + Vegetable Sambar,South Indian,Veg,Trimester 1
+Wednesday,Lunch,Carrot Beans Poriyal,South Indian,Veg,Trimester 1
+Wednesday,Lunch,Curd (small bowl),South Indian,Veg,Trimester 1
+Thursday,Breakfast,Rava Dosa (plain),South Indian,Veg,Trimester 1
+Thursday,Snack,Paneer Cubes,South Indian,Veg,Trimester 1
+Thursday,Snack,Boiled Sweet Corn,South Indian,Veg,Trimester 1
+Thursday,Snack,Fruit Bowl,South Indian,Veg,Trimester 1
+Thursday,Snack,Vegetable Poha (small portion),South Indian,Veg,Trimester 1
+Thursday,Lunch,Steamed Rice + Vegetable Sambar,South Indian,Veg,Trimester 1
+Thursday,Lunch,Carrot Beans Poriyal,South Indian,Veg,Trimester 1
+Sunday,Lunch,Veg Biryani,South Indian,Veg,Trimester 1
+Sunday,Lunch,Coconut Rice,South Indian,Veg,Trimester 1
+Sunday,Lunch,Ladyfinger fry,South Indian,Veg,Trimester 1
+Sunday,Lunch,Vegtable Kurma,South Indian,Veg,Trimester 1
+Sunday,Lunch,Paneer Curry,South Indian,Veg,Trimester 1
+Friday,Breakfast,Rava Idli with Coconut Chutney,South Indian,Veg,Trimester 1
+Friday,Breakfast,Fruit Bowl (banana + apple),South Indian,Veg,Trimester 1
+Friday,Snack,Boiled Sweet Corn,South Indian,Veg,Trimester 1
+Friday,Snack,Roasted Makhana,South Indian,Veg,Trimester 1
+Friday,Snack,Steamed Sprouts Sundal,South Indian,Veg,Trimester 1
+Friday,Lunch,Steamed Rice + Tomato Rasam,South Indian,Veg,Trimester 1
+Friday,Lunch,Black Eyed Peas Curry (mild),South Indian,Veg,Trimester 1
+Friday,Lunch,Brinjal Poriyal,South Indian,Veg,Trimester 1
+Friday,Lunch,Sambar Rice,South Indian,Veg,Trimester 1
+Saturday,Breakfast,Vegetable Upma,South Indian,Veg,Trimester 1
+Saturday,Breakfast,Plain Dosa with Coconut Chutney,South Indian,Veg,Trimester 1
+Saturday,Snack,Soaked Almonds (4–5),South Indian,Veg,Trimester 1
+Saturday,Snack,Dried Apricot (2),South Indian,Veg,Trimester 1
+Saturday,Snack,Coconut Water,South Indian,Veg,Trimester 1
+Saturday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Saturday,Lunch,Vegetable Sambar,South Indian,Veg,Trimester 1
+Saturday,Lunch,Bottle Gourd Poriyal,South Indian,Veg,Trimester 1
+Saturday,Lunch,Beans,South Indian,Veg,Trimester 1
+Sunday,Dinner,Vegetable Kichadi with Coconut Chutney,South Indian,Veg,Trimester 1
+Sunday,Dinner,Chapati with Ridge Gourd Dal & Carrot Stir Fry,South Indian,Veg,Trimester 1
+Sunday,Dinner,Curd Rice with Pomegranate & Beetroot Poriyal,South Indian,Veg,Trimester 1
+Monday,Dinner,Jeera Rice with Mixed Veg Korma,South Indian,Veg,Trimester 1
+Monday,Dinner,Vegetable Pongal with Ghee & Pepper Rasam,South Indian,Veg,Trimester 1
+Monday,Dinner,Chapati with Paneer Butter Masala (light),South Indian,Veg,Trimester 1
+Tuesday,Dinner,Rice with Tomato Rasam & Beans Poriyal,South Indian,Veg,Trimester 1
+Tuesday,Dinner,Idli with Vegetable Stew,South Indian,Veg,Trimester 1
+Tuesday,Dinner,Lemon Sevai with Coconut Chutney,South Indian,Veg,Trimester 1
+Wednesday,Dinner,Ragi Mudde with Vegetable Sambar,South Indian,Veg,Trimester 1
+Wednesday,Dinner,Chapati with Aloo Gobi Curry,South Indian,Veg,Trimester 1
+Wednesday,Dinner,Curd Rice with Cucumber & Carrot Kosambari,South Indian,Veg,Trimester 1
+Thursday,Dinner,Vangi Bath with Onion Raita,South Indian,Veg,Trimester 1
+Thursday,Dinner,Vegetable Pulao with Plain Curd,South Indian,Veg,Trimester 1
+Thursday,Dinner,Idiyappam with Vegetable Kurma,South Indian,Veg,Trimester 1
+Friday,Dinner,Rice with Pumpkin Sambar & Cabbage Poriyal,South Indian,Veg,Trimester 1
+Friday,Dinner,Ragi Roti with Coconut Chutney & Tomato Thokku,South Indian,Veg,Trimester 1
+Friday,Dinner,Curd Rice with Grape & Peanut Tadka,South Indian,Veg,Trimester 1
+Saturday,Dinner,Plain Dosa,South Indian,Veg,Trimester 1
+Saturday,Dinner,Semolina (Rava) Idli,South Indian,Veg,Trimester 1
+Saturday,Dinner,Chapati,South Indian,Veg,Trimester 1
+Saturday,Dinner,Parotta,South Indian,Veg,Trimester 1
+Saturday,Dinner,Drumstick Sambar,South Indian,Veg,Trimester 1
+Saturday,Dinner,Carrot Sambar,South Indian,Veg,Trimester 1
+Saturday,Dinner,Chickpea Curry,South Indian,Veg,Trimester 1
+Saturday,Dinner,Kidney Beans Curry,South Indian,Veg,Trimester 1
+Saturday,Dinner,Beetroot Poriyal,South Indian,Veg,Trimester 1
+Sunday,Dinner,Mixed Vegetable Palya/Poriyal,South Indian,Veg,Trimester 1
+Sunday,Dinner,Coconut Chutney,South Indian,Veg,Trimester 1
+Sunday,Dinner,Tomato Chutney,South Indian,Veg,Trimester 1
+Sunday,Dinner,Steamed Rice,South Indian,Veg,Trimester 1
+Sunday,Dinner,Vegetable Kurma (mild),South Indian,Veg,Trimester 1
+Sunday,Dinner,Plain Dal,South Indian,Veg,Trimester 1
+Sunday,Dinner,Curd (side),South Indian,Veg,Trimester 1
+Sunday,Dinner,Chapathi with paneer curry,South Indian,Veg,Trimester 1
+Saturday,Dinner,Mixed Vegetable Soup,South Indian,Veg,Trimester 1
+Saturday,Dinner,Fenugreek Greens Potato Curry (Methi Aloo),South Indian,Veg,Trimester 1
+Saturday,Dinner,Finger Millet (Ragi) Roti,South Indian,Veg,Trimester 1
+Saturday,Dinner,Chapati,South Indian,Veg,Trimester 1
+Saturday,Dinner,Vegetable Kothu Parotta,South Indian,Veg,Trimester 1
+Saturday,Dinner,Parotta (small portion),South Indian,Veg,Trimester 1
+Monday,Snack,Spinach Sambar,South Indian,Veg,Trimester 1
+Monday,Snack,Soya Chunks Masala (dry),South Indian,Veg,Trimester 1
+Monday,Lunch,Spiced Vegetable Curry,South Indian,Veg,Trimester 1
+Monday,Lunch,Tamarind Rice,South Indian,Veg,Trimester 1
+Monday,Snack,Buttermilk (Moru/Majjige),South Indian,Veg,Trimester 1
+Tuesday,Breakfast,Sapota,South Indian,Veg,Trimester 1
+Tuesday,Lunch,Lemon rice,South Indian,Veg,Trimester 1
+Tuesday,Snack,Colocasia Masala (dry),South Indian,Veg,Trimester 1
+Tuesday,Snack,Steamed Sprouts Salad,South Indian,Veg,Trimester 1
+Tuesday,Snack,Spiced Lime Juice,South Indian,Veg,Trimester 1
+Tuesday,Snack,Roasted Peanuts (small portion),South Indian,Veg,Trimester 1
+Wednesday,Breakfast,Soaked Almonds,South Indian,Veg,Trimester 1
+Wednesday,Breakfast,Soaked Figs,South Indian,Veg,Trimester 1
+Wednesday,Snack,Chettinad Mushroom Masala,South Indian,Veg,Trimester 1
+Wednesday,Snack,Brinjal Fry,South Indian,Veg,Trimester 1
+Tuesday,Snack,Colocasia Masala (dry),South Indian,Veg,Trimester 1
+Tuesday,Snack,Steamed Sprouts Salad,South Indian,Veg,Trimester 1
+Tuesday,Snack,Kulukki Sarbath,South Indian,Veg,Trimester 1
+Tuesday,Snack,Roasted Peanuts (small portion),South Indian,Veg,Trimester 1
+Tuesday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Tuesday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 1
+Tuesday,Lunch,Split Bengal Gram Vada,South Indian,Veg,Trimester 1
+Tuesday,Lunch,Vegetable Poriyal (mixed),South Indian,Veg,Trimester 1
+Wednesday,Breakfast,Soaked Almonds,South Indian,Veg,Trimester 1
+Wednesday,Breakfast,Soaked Figs,South Indian,Veg,Trimester 1
+Wednesday,Snack,Chettinad Mushroom Masala,South Indian,Veg,Trimester 1
+Wednesday,Snack,Brinjal Fry (shallow oil / air-fried),South Indian,Veg,Trimester 1
+Wednesday,Snack,Kokum Sharbat,South Indian,Veg,Trimester 1
+Wednesday,Snack,Black Chickpea Sundal (small portion),South Indian,Veg,Trimester 1
+Wednesday,Lunch,Veg Biryani,South Indian,Veg,Trimester 1
+Wednesday,Lunch,Vegetable Sambar,South Indian,Veg,Trimester 1
+Wednesday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 1
+Wednesday,Lunch,Paneer Curry (mild),South Indian,Veg,Trimester 1
+Thursday,Breakfast,Guava,South Indian,Veg,Trimester 1
+Thursday,Snack,Curd (fresh),South Indian,Veg,Trimester 1
+Thursday,Snack,Buttermilk (Moru),South Indian,Veg,Trimester 1
+Sunday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Sunday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 1
+Sunday,Lunch,Drumstick Sambar,South Indian,Veg,Trimester 1
+Thursday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 1
+Wednesday,Snack,Kokum Sharbat,South Indian,Veg,Trimester 1
+Wednesday,Snack,Black Chickpea Sundal,South Indian,Veg,Trimester 1
+Thursday,Breakfast,Mysore Bajji,South Indian,Veg,Trimester 1
+Thursday,Snack,Ladies' Finger Palya/Poriyal,South Indian,Veg,Trimester 1
+Thursday,Snack,Fenugreek Greens & Pigeon Pea Palya,South Indian,Veg,Trimester 1
+Thursday,Snack,Buttermilk (Moru),South Indian,Veg,Trimester 1
+Thursday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Thursday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 1
+Thursday,Lunch,Vegetable Poriyal (mixed),South Indian,Veg,Trimester 1
+Friday,Breakfast,Rava Dosa,South Indian,Veg,Trimester 1
+Friday,Snack,Cauliflower & Broccoli Curry,South Indian,Veg,Trimester 1
+Friday,Snack,French fries,South Indian,Veg,Trimester 1
+Friday,Snack,Roasted Capsicum (light),South Indian,Veg,Trimester 1
+Friday,Snack,Finger Millet (Ragi) Roti,South Indian,Veg,Trimester 1
+Friday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Friday,Lunch,Vegetable Rice,South Indian,Veg,Trimester 1
+Friday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 1
+Saturday,Breakfast,Banana,South Indian,Veg,Trimester 1
+Saturday,Snack,Muri Mixture,South Indian,Veg,Trimester 1
+Saturday,Snack,Punugulu,South Indian,Veg,Trimester 1
+Saturday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Saturday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 1
+Saturday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 1
+Saturday,Breakfast,Dosa,Veg,South Indian,Trimester 1
+Saturday,Snack,Vegetable Clear Soup (light),South Indian,Veg,Trimester 1
+Saturday,Snack,Steamed Sprouts Salad,South Indian,Veg,Trimester 1
+Saturday,Snack,Walnuts & Almonds,South Indian,Veg,Trimester 1
+Saturday,Lunch,Brown Rice,South Indian,Veg,Trimester 1
+Saturday,Lunch,Vegetable Kootu (mild),South Indian,Veg,Trimester 1
+Saturday,Lunch,Beans & Carrot Poriyal,South Indian,Veg,Trimester 1
+Monday,Breakfast,Utthapam,South Indian,Veg,Trimester 1
+Monday,Snack,Vegetable Upma (small portion),South Indian,Veg,Trimester 1
+Monday,Snack,Coconut water,South Indian,Veg,Trimester 1
+Monday,Snack,Roasted Peanuts (small portion),South Indian,Veg,Trimester 1
+Monday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Monday,Lunch,Moong Dal Curry (mild),South Indian,Veg,Trimester 1
+Monday,Lunch,Zucchini & Cabbage Poriyal,South Indian,Veg,Trimester 1
+Tuesday,Breakfast,Set Dosa Bowl,South Indian,Veg,Trimester 1
+Tuesday,Snack,Curd with Dates (light),South Indian,Veg,Trimester 1
+Tuesday,Snack,Buttermilk (Moru),South Indian,Veg,Trimester 1
+Tuesday,Lunch,Steamed Millet Rice (Ragi/Brown),South Indian,Veg,Trimester 1
+Tuesday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 1
+Tuesday,Lunch,Drumstick & Beans Poriyal,South Indian,Veg,Trimester 1
+Tuesday,Breakfast,Mango & Banana Fruit Bowl,South Indian,Veg,Trimester 1
+Tuesday,Snack,Sweet Potato & Peas (light stir fry),South Indian,Veg,Trimester 1
+Tuesday,Snack,Snake Gourd Poriyal (light),South Indian,Veg,Trimester 1
+Tuesday,Snack,Chapati,South Indian,Veg,Trimester 1
+Tuesday,Snack,Rasam,South Indian,Veg,Trimester 1
+Tuesday,Snack,Buttermilk (Moru),South Indian,Veg,Trimester 1
+Tuesday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Tuesday,Lunch,Black Gram Curry (mild),South Indian,Veg,Trimester 1
+Tuesday,Lunch,Vada,South Indian,Veg,Trimester 1
+Sunday,Breakfast,Watermelon (ripe fruit),South Indian,Veg,Trimester 1
+Sunday,Snack,Mini Rice Idli (light),South Indian,Veg,Trimester 1
+Sunday,Snack,Bottle Gourd & Moong Dal Palya,South Indian,Veg,Trimester 1
+Wednesday,Snack,Cucumber Raita (light),South Indian,Veg,Trimester 1
+Sunday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Sunday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 1
+Sunday,Lunch,Drumstick & Beans Poriyal,South Indian,Veg,Trimester 1
+Thursday,Breakfast,Pomegranate (ripe fruit),South Indian,Veg,Trimester 1
+Thursday,Snack,Curd (fresh),South Indian,Veg,Trimester 1
+Thursday,Snack,Buttermilk (Moru),South Indian,Veg,Trimester 1
+Thursday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Thursday,Lunch,Vegetable Kootu (mild),South Indian,Veg,Trimester 1
+Thursday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 1
+Thursday,Breakfast,Oats dosa,South Indian,Veg,Trimester 1
+Thursday,Snack,Banana Chips,South Indian,Veg,Trimester 1
+Thursday,Snack,Medu vada,South Indian,Veg,Trimester 1
+Thursday,Snack,Curd (fresh),South Indian,Veg,Trimester 1
+Thursday,Lunch,Veg pongal,South Indian,Veg,Trimester 1
+Thursday,Lunch,Rasa Rice,South Indian,Veg,Trimester 1
+Thursday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 1
+Friday,Breakfast,Soaked Walnuts & Dates (small portion),South Indian,Veg,Trimester 1
+Sunday,Snack,Fruits,South Indian,Veg,Trimester 1
+Sunday,Snack,Pigeon Pea Dal (light),South Indian,Veg,Trimester 1
+Sunday,Snack,Fenugreek Greens Palya,South Indian,Veg,Trimester 1
+Friday,Snack,Chips,South Indian,Veg,Trimester 1
+Friday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Friday,Lunch,Chickpea Curry (mild),South Indian,Veg,Trimester 1
+Saturday,Breakfast,Soaked Almonds & Raisins (small portion),South Indian,Veg,Trimester 1
+Saturday,Snack,Steamed Sprouts Salad,South Indian,Veg,Trimester 1
+Saturday,Snack,Drumstick Leaves Soup,South Indian,Veg,Trimester 1
+Saturday,Snack,Curd (fresh),South Indian,Veg,Trimester 1
+Sunday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Sunday,Lunch,Vegetable Kurma,South Indian,Veg,Trimester 1
+Sunday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 1
+Saturday,Breakfast,Banana (ripe fruit) with Soaked Almonds,South Indian,Veg,Trimester 1
+Saturday,Snack,Roasted Puffed Rice with Peanuts (small portion),South Indian,Veg,Trimester 1
+Saturday,Snack,Lemon Water,South Indian,Veg,Trimester 1
+Saturday,Snack,Curd,South Indian,Veg,Trimester 1
+Saturday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Saturday,Lunch,Vegetable Kurma,South Indian,Veg,Trimester 1
+Saturday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 1
+Monday,Breakfast,Banana (ripe) with Milk (small glass),South Indian,Veg,Trimester 1
+Monday,Snack,Red Lentil Soup,South Indian,Veg,Trimester 1
+Monday,Snack,Spinach & Ash Gourd Stir Fry (small portion),South Indian,Veg,Trimester 1
+Sunday,Snack,Peanut Sundal (small portion),South Indian,Veg,Trimester 1
+Sunday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Sunday,Lunch,Mixed Vegetable Kurma (mild),South Indian,Veg,Trimester 1
+Monday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 1
+Tuesday,Breakfast,Muskmelon (ripe fruit) with Soaked Walnuts,South Indian,Veg,Trimester 1
+Tuesday,Snack,Green Gram Dal Soup,South Indian,Veg,Trimester 1
+Tuesday,Snack,Beans & Carrot Stir Fry (small portion),South Indian,Veg,Trimester 1
+Tuesday,Snack,Lemon Rasam,South Indian,Veg,Trimester 1
+Tuesday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Tuesday,Lunch,Peanut & Onion Curry,South Indian,Veg,Trimester 1
+Tuesday,Lunch,Tomato & Cucumber Salad (light),South Indian,Veg,Trimester 1
+Wednesday,Breakfast,Rava Idly,South Indian,Veg,Trimester 1
+Wednesday,Snack,Steamed Sprouts Salad,South Indian,Veg,Trimester 1
+Wednesday,Snack,Vegetable Soup,South Indian,Veg,Trimester 1
+Wednesday,Snack,Curd,South Indian,Veg,Trimester 1
+Wednesday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Wednesday,Lunch,Vegetable Kurma (mild coconut-based),South Indian,Veg,Trimester 1
+Wednesday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 1
+Thursday,Breakfast,Set Dosa,South Indian,Veg,Trimester 1
+Thursday,Snack,Drumstick Leaves Soup,South Indian,Veg,Trimester 1
+Thursday,Snack,Ladies’ Finger Stir Fry (small portion),South Indian,Veg,Trimester 1
+Thursday,Snack,Bitter Gourd Masala,South Indian,Veg,Trimester 1
+Thursday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Thursday,Lunch,Green Gram Curry (mild),South Indian,Veg,Trimester 1
+Thursday,Lunch,Cucumber & Carrot Kosambari (fresh salad),South Indian,Veg,Trimester 1
+Friday,Breakfast,Fruits,South Indian,Veg,Trimester 1
+Friday,Snack,Chilli Paneer,South Indian,Veg,Trimester 1
+Friday,Snack,Peas & Carrot Stir Fry (small portion),South Indian,Veg,Trimester 1
+Friday,Snack,Snake Gourd Poriyal (light),South Indian,Veg,Trimester 1
+Friday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Friday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 1
+Friday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 1
+Saturday,Breakfast,Pomegranate (ripe fruit) with Soaked Walnuts,South Indian,Veg,Trimester 1
+Saturday,Snack,Pumpkin Soup,South Indian,Veg,Trimester 1
+Saturday,Snack,Colocasia Stir Fry (small portion),South Indian,Veg,Trimester 1
+Saturday,Snack,Pineapple,South Indian,Veg,Trimester 1
+Saturday,Lunch,Steamed Rice,South Indian,Veg,Trimester 1
+Saturday,Lunch,Vegetable Kurma (mild coconut-based),South Indian,Veg,Trimester 1
+Saturday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 1
+Monday,Breakfast,Banana (ripe fruit) with Soaked Almonds,South Indian,Veg,Trimester 2
+Monday,Breakfast,Mango (ripe fruit),South Indian,Veg,Trimester 2
+Monday,Breakfast,Upma (Rava with vegetables),South Indian,Veg,Trimester 2
+Monday,Breakfast,Jackfruit,South Indian,Veg,Trimester 2
+Monday,Snack,Steamed Sprouts Salad,South Indian,Veg,Trimester 2
+Monday,Snack,Chickpea Sundal,South Indian,Veg,Trimester 2
+Monday,Snack,Paneer Cubes,South Indian,Veg,Trimester 2
+Monday,Snack,Fresh Fruit Bowl,South Indian,Veg,Trimester 2
+Monday,Lunch,Steamed Rice,South Indian,Veg,Trimester 2
+Monday,Lunch,Vegetable Sambar,South Indian,Veg,Trimester 2
+Sunday,Lunch,Beans & Carrot Poriyal,South Indian,Veg,Trimester 2
+Sunday,Lunch,Mixed Sprouts Curry (light),South Indian,Veg,Trimester 2
+Sunday,Lunch,Buttermilk (small cup),South Indian,Veg,Trimester 2
+Tuesday,Breakfast,Puttu,South Indian,Veg,Trimester 2
+Tuesday,Breakfast,Idli (2–3) with Coconut Chutney,South Indian,Veg,Trimester 2
+Tuesday,Breakfast,Pongal,South Indian,Veg,Trimester 2
+Tuesday,Breakfast,Masala Dosa,South Indian,Veg,Trimester 2
+Tuesday,Snack,Red Lentil Sundal (light),South Indian,Veg,Trimester 2
+Tuesday,Snack,Murukku,South Indian,Veg,Trimester 2
+Sunday,Snack,Mixture,South Indian,Veg,Trimester 2
+Sunday,Snack,MurMur,South Indian,Veg,Trimester 2
+Tuesday,Lunch,Steamed Rice,South Indian,Veg,Trimester 2
+Tuesday,Lunch,Potato Kurma,South Indian,Veg,Trimester 2
+Tuesday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 2
+Tuesday,Lunch,Brinjal Pulusu,South Indian,Veg,Trimester 2
+Tuesday,Lunch,Buttermilk (small cup),South Indian,Veg,Trimester 2
+Wednesday,Breakfast,Poori with potato Curry,South Indian,Veg,Trimester 2
+Wednesday,Breakfast,Vegetable Rava Upma (small bowl),South Indian,Veg,Trimester 2
+Sunday,Breakfast,Set Dosa with Coconut Chutney,South Indian,Veg,Trimester 2
+Sunday,Breakfast,Soft Idli with Coconut Chutney,South Indian,Veg,Trimester 2
+Wednesday,Snack,Red Lentil Sundal (small portion),South Indian,Veg,Trimester 2
+Wednesday,Snack,Potato chips,South Indian,Veg,Trimester 2
+Wednesday,Snack,Jangri,South Indian,Veg,Trimester 2
+Wednesday,Snack,Curd,South Indian,Veg,Trimester 2
+Wednesday,Lunch,Steamed Rice,South Indian,Veg,Trimester 2
+Wednesday,Lunch,Split Green Gram Curry (light),South Indian,Veg,Trimester 2
+Sunday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 2
+Sunday,Lunch,Veg Biryani,South Indian,Veg,Trimester 2
+Sunday,Lunch,Curd rice,South Indian,Veg,Trimester 2
+Thursday,Breakfast,Cheese Dosa,South Indian,Veg,Trimester 2
+Thursday,Breakfast,Walnuts & Soaked Almonds (small portion),South Indian,Veg,Trimester 2
+Thursday,Breakfast,Oats Dosa with Vegetable Kurma (light),South Indian,Veg,Trimester 2
+Thursday,Snack,Sweets,South Indian,Veg,Trimester 2
+Thursday,Snack,Banana Bajji,South Indian,Veg,Trimester 2
+Thursday,Snack,Vegetable Upma (small bowl),South Indian,Veg,Trimester 2
+Thursday,Snack,Curd,South Indian,Veg,Trimester 2
+Sunday,Lunch,Steamed Rice,South Indian,Veg,Trimester 2
+Sunday,Lunch,Vegetable Sambar,South Indian,Veg,Trimester 2
+Sunday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 2
+Thursday,Lunch,Cabbage Curry,South Indian,Veg,Trimester 2
+Thursday,Lunch,Cauli Flower curry With Rice,South Indian,Veg,Trimester 2
+Saturday,Breakfast,Moong Dal Sundal,South Indian,Veg,Trimester 2
+Saturday,Breakfast,Sprouts Upma (small bowl),South Indian,Veg,Trimester 2
+Saturday,Snack,Black-eyed Pea Sundal (small portion),South Indian,Veg,Trimester 2
+Saturday,Snack,Carrot & Cucumber Salad,South Indian,Veg,Trimester 2
+Saturday,Snack,Buttermilk (Moru) (small cup),South Indian,Veg,Trimester 2
+Saturday,Snack,Whole Wheat Chapati (small),South Indian,Veg,Trimester 2
+Saturday,Lunch,Steamed Rice,South Indian,Veg,Trimester 2
+Saturday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 2
+Saturday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 2
+Saturday,Lunch,Curd,South Indian,Veg,Trimester 2
+Saturday,Dinner,Vegetable Upma (light),South Indian,Veg,Trimester 2
+Saturday,Dinner,Plain Dosa with Coconut Chutney (1–2 pcs),South Indian,Veg,Trimester 2
+Saturday,Dinner,Ragi Dosa (1–2 pcs),South Indian,Veg,Trimester 2
+Saturday,Dinner,Idiyappam with Vegetable Stew,South Indian,Veg,Trimester 2
+Saturday,Dinner,Tomato Rasam with Steamed Rice (small portion),South Indian,Veg,Trimester 2
+Saturday,Dinner,Masala Dosa,South Indian,Veg,Trimester 2
+Saturday,Dinner,Idli with Sambar (2 pcs),South Indian,Veg,Trimester 2
+Saturday,Dinner,Appam with Coconut Stew (1–2 pcs),South Indian,Veg,Trimester 2
+Saturday,Dinner,Set Dosa or Rava Dosa (1–2 pcs),South Indian,Veg,Trimester 2
+Saturday,Dinner,Medhu Vada,South Indian,Veg,Trimester 2
+Saturday,Dinner,Bisi Bele Bath (small portion),South Indian,Veg,Trimester 2
+Saturday,Dinner,Lemon Rice (small portion),South Indian,Veg,Trimester 2
+Saturday,Dinner,Coconut Rice (small portion),South Indian,Veg,Trimester 2
+Saturday,Dinner,Curd Rice,South Indian,Veg,Trimester 2
+Saturday,Dinner,Tamarind Rice,South Indian,Veg,Trimester 2
+Saturday,Dinner,Coconut Chutney / Tomato-Onion Chutney (small portion),South Indian,Veg,Trimester 2
+Saturday,Dinner,Poriyal / Thoran (small portion),South Indian,Veg,Trimester 2
+Saturday,Dinner,Appalam,South Indian,Veg,Trimester 2
+Saturday,Dinner,Payasam (small serving),South Indian,Veg,Trimester 2
+Saturday,Dinner,Rava Laddu or Coconut Laddu (1 pc),South Indian,Veg,Trimester 2
+Saturday,Dinner,Kemari Bath / Kesari Bath (small portion),South Indian,Veg,Trimester 2
+Monday,Breakfast,Fruit Salad with Nuts,South Indian,Veg,Trimester 2
+Monday,Breakfast,Moong Dal Sundal (small portion),South Indian,Veg,Trimester 2
+Monday,Snack,Orange Slices,South Indian,Veg,Trimester 2
+Monday,Snack,Roasted Makhana (small cup),South Indian,Veg,Trimester 2
+Monday,Lunch,Steamed Rice,South Indian,Veg,Trimester 2
+Monday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 2
+Monday,Lunch,Mixed Vegetable Poriyal,South Indian,Veg,Trimester 2
+Monday,Lunch,Curd Rice (small bowl),South Indian,Veg,Trimester 2
+Monday,Dinner,Ragi Dosa (1–2 pcs) with Coconut Chutney,South Indian,Veg,Trimester 2
+Monday,Dinner,Idiyappam with Vegetable Stew (small portion),South Indian,Veg,Trimester 2
+Tuesday,Breakfast,Mango Slices with Chia Seeds,South Indian,Veg,Trimester 2
+Tuesday,Breakfast,Upma with Vegetables (small bowl),South Indian,Veg,Trimester 2
+Tuesday,Snack,Crispy Roasted Sweet Potatoes,South Indian,Veg,Trimester 2
+Tuesday,Snack,Carrot & Cucumber Salad,South Indian,Veg,Trimester 2
+Tuesday,Lunch,Steamed Rice,South Indian,Veg,Trimester 2
+Tuesday,Lunch,Mixed Sprouts Sundal,South Indian,Veg,Trimester 2
+Tuesday,Lunch,Vegetable Poriyal (Beans / Carrot),South Indian,Veg,Trimester 2
+Tuesday,Lunch,Curd Rice (small bowl),South Indian,Veg,Trimester 2
+Tuesday,Dinner,Plain Dosa with Coconut Chutney (1–2 pcs),South Indian,Veg,Trimester 2
+Tuesday,Dinner,Tomato Rasam with Steamed Rice (small portion),South Indian,Veg,Trimester 2
+Wednesday,Breakfast,Orange Slices with Walnuts,South Indian,Veg,Trimester 2
+Wednesday,Breakfast,Idli (2–3 pcs) with Coconut Chutney,South Indian,Veg,Trimester 2
+Wednesday,Snack,Roasted Chana,South Indian,Veg,Trimester 2
+Wednesday,Snack,Sweets,South Indian,Veg,Trimester 2
+Wednesday,Lunch,Steamed Rice,South Indian,Veg,Trimester 2
+Wednesday,Lunch,Oats Upma with Vegetables (small bowl),South Indian,Veg,Trimester 2
+Wednesday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 2
+Wednesday,Lunch,Curd Rice (small bowl),South Indian,Veg,Trimester 2
+Wednesday,Dinner,Ragi Dosa (1–2 pcs) with Coconut Chutney,South Indian,Veg,Trimester 2
+Wednesday,Dinner,Idiyappam with Light Vegetable Stew,South Indian,Veg,Trimester 2
+Thursday,Breakfast,Brown Rice Dosa,South Indian,Veg,Trimester 2
+Thursday,Breakfast,Rava Idli,South Indian,Veg,Trimester 2
+Thursday,Snack,Vegetable Upma (small bowl),South Indian,Veg,Trimester 2
+Thursday,Snack,Roasted Papad (1–2 pcs),South Indian,Veg,Trimester 2
+Thursday,Lunch,Steamed Rice,South Indian,Veg,Trimester 2
+Thursday,Lunch,Vegetable Biryani,South Indian,Veg,Trimester 2
+Thursday,Lunch,Spinach Curry,South Indian,Veg,Trimester 2
+Thursday,Lunch,Curd Rice (small bowl),South Indian,Veg,Trimester 2
+Thursday,Dinner,Ragi Dosa or Set Dosa (1–2 pcs) with Coconut Chutney,South Indian,Veg,Trimester 2
+Thursday,Dinner,Sabudhana Kichidi,South Indian,Veg,Trimester 2
+Friday,Breakfast,Handful of Mixed Nuts,South Indian,Veg,Trimester 2
+Friday,Breakfast,Oats Upma,South Indian,Veg,Trimester 2
+Friday,Breakfast,Seasonal Fruit,South Indian,Veg,Trimester 2
+Friday,Snack,Medu Vada (1 small piece),South Indian,Veg,Trimester 2
+Friday,Snack,Churumuri,South Indian,Veg,Trimester 2
+Friday,Snack,Masala Sundal (Chickpeas or Black-eyed peas),South Indian,Veg,Trimester 2
+Friday,Snack,Vegetable Adai (small portion),South Indian,Veg,Trimester 2
+Friday,Snack,Spiced Buttermilk (small cup),South Indian,Veg,Trimester 2
+Friday,Lunch,Green Peas,South Indian,Veg,Trimester 2
+Friday,Lunch,Beet Root curry,South Indian,Veg,Trimester 2
+Friday,Lunch,Celery Curry With Rice,South Indian,Veg,Trimester 2
+Friday,Lunch,Mixed Vegetable Sambar (small bowl),South Indian,Veg,Trimester 2
+Saturday,Breakfast,Grapes (small portion),South Indian,Veg,Trimester 2
+Saturday,Snack,Palkova,South Indian,Veg,Trimester 2
+Saturday,Snack,Halwa,South Indian,Veg,Trimester 2
+Saturday,Snack,Homemade Chat,South Indian,Veg,Trimester 2
+Saturday,Snack,Vegetable Rava Dosa (small portion),South Indian,Veg,Trimester 2
+Saturday,Snack,Spiced Buttermilk (small cup),South Indian,Veg,Trimester 2
+Saturday,Lunch,Capsicum curry With Rice,South Indian,Veg,Trimester 2
+Saturday,Lunch,Whole Wheat Rusk (1–2 pcs),South Indian,Veg,Trimester 2
+Monday,Breakfast,Paniyaram,South Indian,Veg,Trimester 2
+Monday,Breakfast,Milk With Brown Bread,South Indian,Veg,Trimester 2
+Monday,Snack,Boiled Corn,South Indian,Veg,Trimester 2
+Monday,Snack,Peanut Chikki,South Indian,Veg,Trimester 2
+Monday,Snack,Mini Medu Vada (1 piece),South Indian,Veg,Trimester 2
+Monday,Snack,Vegetable Adai (small portion),South Indian,Veg,Trimester 2
+Monday,Snack,Spiced Buttermilk (small cup),South Indian,Veg,Trimester 2
+Monday,Lunch,Millet Pongal,South Indian,Veg,Trimester 2
+Monday,Lunch,Bootle Gourd Curry With Rice,South Indian,Veg,Trimester 2
+Monday,Lunch,Chickpeas Curry,South Indian,Veg,Trimester 2
+Tuesday,Breakfast,Upma Dosa,South Indian,Veg,Trimester 2
+Tuesday,Breakfast,salad,South Indian,Veg,Trimester 2
+Tuesday,Snack,Samai,South Indian,Veg,Trimester 2
+Tuesday,Snack,Paneer Stuffed Dosa,South Indian,Veg,Trimester 2
+Tuesday,Snack,Muri Mixture,South Indian,Veg,Trimester 2
+Tuesday,Snack,Cucumber salad,South Indian,Veg,Trimester 2
+Tuesday,Lunch,Coffee,South Indian,Veg,Trimester 2
+Tuesday,Lunch,Masala vada,South Indian,Veg,Trimester 2
+Wednesday,Breakfast,Poori with Onion Curry,South Indian,Veg,Trimester 2
+Wednesday,Snack,Carrot Halwa,South Indian,Veg,Trimester 2
+Wednesday,Snack,Roasted chana,South Indian,Veg,Trimester 2
+Wednesday,Snack,Pumpkin Sundal (small portion),South Indian,Veg,Trimester 2
+Wednesday,Lunch,Millet Rice With Sambar,South Indian,Veg,Trimester 2
+Wednesday,Lunch,Lemon Rice,South Indian,Veg,Trimester 2
+Thursday,Breakfast,Set Dosa,South Indian,Veg,Trimester 2
+Thursday,Breakfast,Dosa,South Indian,Veg,Trimester 2
+Thursday,Breakfast,Fruits,South Indian,Veg,Trimester 2
+Thursday,Snack,Mushroom Sundal (small portion),South Indian,Veg,Trimester 2
+Thursday,Snack,Drumstick Leaves Palya (small portion),South Indian,Veg,Trimester 2
+Thursday,Snack,Vegetable Adai (small portion),South Indian,Veg,Trimester 2
+Thursday,Snack,Spiced Buttermilk (small cup),South Indian,Veg,Trimester 2
+Thursday,Lunch,Chapati (small) with Mixed Vegetable Curry,South Indian,Veg,Trimester 2
+Thursday,Lunch,Beetroot Poriyal (small portion),South Indian,Veg,Trimester 2
+Friday,Breakfast,Masala Dosa,South Indian,Veg,Trimester 2
+Friday,Snack,Cottage Cheese (Paneer) Sundal (small portion),South Indian,Veg,Trimester 2
+Friday,Snack,Butter Masala Mini Dosa (1 piece),South Indian,Veg,Trimester 2
+Friday,Snack,Beetroot Salad with Coconut (small portion),South Indian,Veg,Trimester 2
+Friday,Lunch,Chapati (small) with Vegetable Kurma,South Indian,Veg,Trimester 2
+Friday,Breakfast,Handful of Mixed Nuts,South Indian,Veg,Trimester 2
+Friday,Breakfast,Dried Fruits (like raisins & figs),South Indian,Veg,Trimester 2
+Friday,Breakfast,Seasonal Fruit (like Sapota),South Indian,Veg,Trimester 2
+Friday,Snack,Snake Gourd Stir-fry (small portion),South Indian,Veg,Trimester 2
+Friday,Snack,Nuts,South Indian,Veg,Trimester 2
+Friday,Snack,Fruits,South Indian,Veg,Trimester 2
+Friday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 2
+Friday,Lunch,Mixed Vegetable Sambar (small bowl),South Indian,Veg,Trimester 2
+Friday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 2
+Saturday,Breakfast,Figs (small portion),South Indian,Veg,Trimester 2
+Saturday,Breakfast,Grapes (small portion),South Indian,Veg,Trimester 2
+Saturday,Snack,Brinjal Sambhar (small bowl),South Indian,Veg,Trimester 2
+Saturday,Snack,Sweet Potato Masala (small portion),South Indian,Veg,Trimester 2
+Saturday,Snack,Roasted Gram,South Indian,Veg,Trimester 2
+Saturday,Lunch,Mango Juice,South Indian,Veg,Trimester 2
+Saturday,Lunch,Whole Wheat Rusk (1–2 pcs),South Indian,Veg,Trimester 2
+Saturday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 2
+Saturday,Lunch,Potato Fry,South Indian,Veg,Trimester 2
+Monday,Breakfast,Paneer Dosa,South Indian,Veg,Trimester 2
+Monday,Breakfast,Millets Dosa,South Indian,Veg,Trimester 2
+Monday,Breakfast,Milkshake,South Indian,Veg,Trimester 2
+Monday,Snack,Mixed Vegetable Poriyal (small portion),South Indian,Veg,Trimester 2
+Monday,Snack,Udupi Mixture,South Indian,Veg,Trimester 2
+Monday,Snack,Buttermilk,South Indian,Veg,Trimester 2
+Monday,Lunch,Vegetable sambar with Rice,South Indian,Veg,Trimester 2
+Monday,Lunch,Carrot Fry With Rice,South Indian,Veg,Trimester 2
+Tuesday,Breakfast,Orange Slices with Walnuts,South Indian,Veg,Trimester 2
+Tuesday,Snack,Fruits,South Indian,Veg,Trimester 2
+Tuesday,Lunch,Lemon Rasam with Steamed Rice (small portion),South Indian,Veg,Trimester 2
+Tuesday,Lunch,Bottle Gourd With Rice,South Indian,Veg,Trimester 2
+Wednesday,Breakfast,Idli (2 pcs) with Coconut Chutney,South Indian,Veg,Trimester 2
+Wednesday,Breakfast,Rava Upma with Vegetables (small bowl),South Indian,Veg,Trimester 2
+Wednesday,Snack,Mixed Vegetable Kofta Balls (small portion),South Indian,Veg,Trimester 2
+Wednesday,Snack,Snake Gourd Poriyal (small portion),South Indian,Veg,Trimester 2
+Wednesday,Snack,Spiced Buttermilk,South Indian,Veg,Trimester 2
+Wednesday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 2
+Wednesday,Lunch,Mixed Vegetable Sambar (small bowl),South Indian,Veg,Trimester 2
+Wednesday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 2
+Wednesday,Lunch,Carrot & Beans Poriyal (small portion),South Indian,Veg,Trimester 2
+Wednesday,Lunch,Ladies finger Pulusu,South Indian,Veg,Trimester 2
+Thursday,Breakfast,Rava Dosa with Coconut Chutney (1–2 pcs),South Indian,Veg,Trimester 2
+Thursday,Breakfast,Vegetable Pongal (small bowl),South Indian,Veg,Trimester 2
+Thursday,Snack,Pumpkin Sundal (small portion),South Indian,Veg,Trimester 2
+Thursday,Snack,Raw Banana Stir-fry (small portion),South Indian,Veg,Trimester 2
+Thursday,Snack,Cucumber & Carrot Sticks,South Indian,Veg,Trimester 2
+Thursday,Snack,Kosambari/Kosumalli (small bowl),South Indian,Veg,Trimester 2
+Thursday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 2
+Thursday,Lunch,Vegetable Kurma (mild),South Indian,Veg,Trimester 2
+Thursday,Lunch,Mixed Vegetable Sambar (small bowl),South Indian,Veg,Trimester 2
+Thursday,Lunch,Carrot & Beans Poriyal (small portion),South Indian,Veg,Trimester 2
+Thursday,Lunch,Curd,South Indian,Veg,Trimester 2
+Friday,Breakfast,Vegetable Upma (small bowl),South Indian,Veg,Trimester 2
+Friday,Breakfast,Idli with Tomato Chutney (2 pcs),South Indian,Veg,Trimester 2
+Friday,Snack,Moong Dal Sundal (small portion),South Indian,Veg,Trimester 2
+Friday,Snack,Carrot & Cucumber Salad (small bowl),South Indian,Veg,Trimester 2
+Friday,Snack,Spiced Buttermilk,South Indian,Veg,Trimester 2
+Friday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 2
+Friday,Lunch,Vegetable Avial (mixed vegetables in light coconut gravy),South Indian,Veg,Trimester 2
+Friday,Lunch,Kollu (Horse Gram) Rasam (small bowl),South Indian,Veg,Trimester 2
+Friday,Lunch,Mixed Vegetable Poriyal (Beans/Carrot),South Indian,Veg,Trimester 2
+Friday,Lunch,Curd Rice (small bowl),South Indian,Veg,Trimester 2
+Saturday,Breakfast,Vegetable Upma with Cashews (small bowl),South Indian,Veg,Trimester 2
+Saturday,Breakfast,Ragi Idli with Coconut Chutney (2 pcs),South Indian,Veg,Trimester 2
+Saturday,Snack,Black-eyed Pea Sundal (small portion),South Indian,Veg,Trimester 2
+Saturday,Snack,Beetroot & Carrot Sticks with Spiced Buttermilk (small cup),South Indian,Veg,Trimester 2
+Sunday,Lunch,Lemon Rice with Curry Leaves (small portion),South Indian,Veg,Trimester 2
+Sunday,Lunch,Snake Gourd & Coconut Curry,South Indian,Veg,Trimester 2
+Sunday,Lunch,Beans Poriyal with Mustard Seeds (small portion),South Indian,Veg,Trimester 2
+Sunday,Lunch,Tomato Rasam with Steamed Rice (small portion),South Indian,Veg,Trimester 2
+Monday,Breakfast,Rava Dosa,South Indian,Veg,Trimester 3
+Monday,Snack,Fruits,South Indian,Veg,Trimester 3
+Monday,Snack,Sweets,South Indian,Veg,Trimester 3
+Monday,Snack,Curd (small bowl),South Indian,Veg,Trimester 3
+Monday,Lunch,Veg Biryani,South Indian,Veg,Trimester 3
+Monday,Lunch,Mixed Vegetable Sambar (small bowl),South Indian,Veg,Trimester 3
+Monday,Lunch,Snake Gourd Curry,South Indian,Veg,Trimester 3
+Monday,Lunch,Carrot & Beans Poriyal (small portion),South Indian,Veg,Trimester 3
+Tuesday,Breakfast,Banana & Ragi Porridge (small bowl),South Indian,Veg,Trimester 3
+Tuesday,Snack,Punugulu,South Indian,Veg,Trimester 3
+Tuesday,Snack,Butter Milk,South Indian,Veg,Trimester 3
+Tuesday,Snack,Coconut water,South Indian,Veg,Trimester 3
+Tuesday,Lunch,Lemon Rice (small portion),South Indian,Veg,Trimester 3
+Tuesday,Lunch,Vegetable Kurma,South Indian,Veg,Trimester 3
+Tuesday,Lunch,Tomato Rasam (small bowl),South Indian,Veg,Trimester 3
+Tuesday,Lunch,Beans Poriyal (small portion),South Indian,Veg,Trimester 3
+Wednesday,Breakfast,Rava Idli with Coconut Chutney (2 pcs),South Indian,Veg,Trimester 3
+Wednesday,Breakfast,Vegetable Oats Dosa with Mint Chutney (1–2 pcs),South Indian,Veg,Trimester 3
+Wednesday,Snack,Green Gram Sundal (small portion),South Indian,Veg,Trimester 3
+Wednesday,Snack,Cucumber & Carrot Sticks with Buttermilk (small cup),South Indian,Veg,Trimester 3
+Wednesday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Wednesday,Lunch,Tamarind Vegetable Sambar (small bowl),South Indian,Veg,Trimester 3
+Wednesday,Lunch,Drumstick Curry,South Indian,Veg,Trimester 3
+Wednesday,Lunch,Beetroot & Carrot Poriyal (small portion),South Indian,Veg,Trimester 3
+Wednesday,Lunch,Curd Rice with Grated Coconut (small bowl),South Indian,Veg,Trimester 3
+Thursday,Breakfast,Moong Dal Chilla with Coconut Chutney (2 pcs),South Indian,Veg,Trimester 3
+Thursday,Breakfast,Ragi Idiyappam with Milk (small portion),South Indian,Veg,Trimester 3
+Thursday,Snack,Paneer & Capsicum Stir-fry (small portion),South Indian,Veg,Trimester 3
+Thursday,Snack,Pumpkin Sundal (small portion),South Indian,Veg,Trimester 3
+Thursday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Thursday,Lunch,Mixed Vegetable Kurma with Beans & Carrot,South Indian,Veg,Trimester 3
+Thursday,Lunch,Ladies Finger & Tomato Sambar (small bowl),South Indian,Veg,Trimester 3
+Thursday,Lunch,Cabbage & Carrot Poriyal (small portion),South Indian,Veg,Trimester 3
+Thursday,Lunch,Spiced Buttermilk,South Indian,Veg,Trimester 3
+Friday,Breakfast,Rava Pongal with Ghee & Cashews (small bowl),South Indian,Veg,Trimester 3
+Friday,Breakfast,Vegetable Ragi Dosa with Peanut Chutney (1–2 pcs),South Indian,Veg,Trimester 3
+Friday,Snack,Chickpea Sundal with Curry Leaves (small portion),South Indian,Veg,Trimester 3
+Friday,Snack,Spinach & Moong Dal Palya (small portion),South Indian,Veg,Trimester 3
+Friday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Friday,Lunch,Peas & Carrot Kurma,South Indian,Veg,Trimester 3
+Friday,Lunch,Mixed Vegetable Sambar with Drumstick & Tomato (small bowl),South Indian,Veg,Trimester 3
+Friday,Lunch,Bottle Gourd Poriyal with Grated Coconut (small portion),South Indian,Veg,Trimester 3
+Friday,Lunch,Curd Rice with Grated Carrot & Coconut (small bowl),South Indian,Veg,Trimester 3
+Saturday,Breakfast,Vegetable Oats Upma with Ghee (small bowl),South Indian,Veg,Trimester 3
+Saturday,Breakfast,Rava Idli with Tomato Chutney (2 pcs),South Indian,Veg,Trimester 3
+Saturday,Snack,Drumstick Leaves Sundal (small portion),South Indian,Veg,Trimester 3
+Saturday,Snack,Coriander Rice Balls with Grated Coconut (small portion),South Indian,Veg,Trimester 3
+Saturday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Saturday,Lunch,Beans & French Beans,South Indian,Veg,Trimester 3
+Saturday,Lunch,Snake Gourd & Tomato Poriyal with Grated Coconut (small portion),South Indian,Veg,Trimester 3
+Saturday,Lunch,Pepper Rasam (small bowl),South Indian,Veg,Trimester 3
+Saturday,Lunch,Curd Rice with Grated Carrot & Coconut (small bowl),South Indian,Veg,Trimester 3
+Saturday,Lunch,Curd Rice with Onions,South Indian,Veg,Trimester 3
+Saturday,Breakfast,Vegetable Pongal with Ghee & Cashews (small bowl),South Indian,Veg,Trimester 3
+Saturday,Breakfast,Idiyappam (Steamed String Hoppers) with Coconut Milk (small portion),South Indian,Veg,Trimester 3
+Saturday,Snack,Drumstick Leaves Sundal (small portion),South Indian,Veg,Trimester 3
+Saturday,Snack,Coriander Rice Balls (small portion),South Indian,Veg,Trimester 3
+Saturday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Saturday,Lunch,Mixed Vegetable Kurma with Carrot & Beans,South Indian,Veg,Trimester 3
+Saturday,Lunch,Snake Gourd & Tomato Poriyal (small portion),South Indian,Veg,Trimester 3
+Saturday,Lunch,Tamarind Rasam (small bowl),South Indian,Veg,Trimester 3
+Sunday,Dinner,Brown Rice with Bottle Gourd Kootu & Carrot Thoran,South Indian,Veg,Trimester 2
+Sunday,Dinner,Chapati with Mushroom Pepper Masala & Snake Gourd Stir Fry,South Indian,Veg,Trimester 2
+Sunday,Dinner,Vegetable Oats Khichdi with Mint Chutney,South Indian,Veg,Trimester 2
+Monday,Dinner,Rice with Drumstick Leaf Sambar & Pumpkin Poriyal,South Indian,Veg,Trimester 2
+Monday,Dinner,Ragi Dosa with Ridge Gourd Chutney & Vegetable Stew,South Indian,Veg,Trimester 2
+Monday,Dinner,Vegetable Semiya Upma with Coconut Chutney,South Indian,Veg,Trimester 2
+Tuesday,Dinner,Lime Rice with Sprouted Moong Sundal & Cucumber Pachadi,South Indian,Veg,Trimester 2
+Tuesday,Dinner,Chapati with Cauliflower Kurma & Beetroot Poriyal,South Indian,Veg,Trimester 2
+Tuesday,Dinner,Idli with Tomato Kurma,South Indian,Veg,Trimester 2
+Wednesday,Dinner,Rice with Brinjal Gotsu & Beans Poriyal,South Indian,Veg,Trimester 2
+Wednesday,Dinner,Ragi Rava Dosa with Coriander Chutney,South Indian,Veg,Trimester 2
+Wednesday,Dinner,Curd Rice with Grated Apple & Carrot Thoran,South Indian,Veg,Trimester 2
+Thursday,Dinner,Vegetable Coconut Milk Rice with Onion Raita,South Indian,Veg,Trimester 2
+Thursday,Dinner,Chapati with Cluster Beans Masala & Lauki Stir Fry,South Indian,Veg,Trimester 2
+Thursday,Dinner,Pesarattu with Ginger Chutney,South Indian,Veg,Trimester 2
+Friday,Dinner,Rice with Horse Gram Rasam & Ivy Gourd Poriyal,South Indian,Veg,Trimester 2
+Friday,Dinner,Vegetable Millet Pongal with Pepper Rasam,South Indian,Veg,Trimester 2
+Friday,Dinner,Curd Rice with Boiled Corn & Cucumber Salad,South Indian,Veg,Trimester 2
+Saturday,Dinner,Ragi Adai,South Indian,Veg,Trimester 3
+Saturday,Dinner,Vegetable Avial (mixed vegetables in curd-coconut gravy),South Indian,Veg,Trimester 3
+Saturday,Dinner,Beans Palya/Poriyal (small portion),South Indian,Veg,Trimester 3
+Saturday,Dinner,Spicy Yam (Suran) Curry (small portion),South Indian,Veg,Trimester 3
+Saturday,Dinner,Chapati (2 small),South Indian,Veg,Trimester 3
+Saturday,Dinner,Beetroot & Carrot Kosambari (small bowl),South Indian,Veg,Trimester 3
+Saturday,Dinner,Curd,South Indian,Veg,Trimester 3
+Saturday,Dinner,Mint Chutney (small spoon),South Indian,Veg,Trimester 3
+Monday,Breakfast,Idli with Vegetable Sambar (2 pcs),South Indian,Veg,Trimester 3
+Monday,Breakfast,Tomato Chutney (small),South Indian,Veg,Trimester 3
+Monday,Snack,Peanut & Jaggery Chikki (small piece),South Indian,Veg,Trimester 3
+Monday,Snack,Cucumber Buttermilk (small cup),South Indian,Veg,Trimester 3
+Monday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Monday,Lunch,Drumstick & Pumpkin Sambar,South Indian,Veg,Trimester 3
+Monday,Lunch,Cabbage Poriyal,South Indian,Veg,Trimester 3
+Monday,Lunch,Curd (small bowl),South Indian,Veg,Trimester 3
+Tuesday,Breakfast,Vegetable Semiya Upma (small bowl),South Indian,Veg,Trimester 3
+Tuesday,Breakfast,Coconut Chutney (small),South Indian,Veg,Trimester 3
+Tuesday,Snack,Boiled Sweet Corn with Pepper & Lemon,South Indian,Veg,Trimester 3
+Tuesday,Snack,Tender Coconut Water (small cup),South Indian,Veg,Trimester 3
+Tuesday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Tuesday,Lunch,Tomato Rasam,South Indian,Veg,Trimester 3
+Tuesday,Lunch,Cluster Beans Poriyal,South Indian,Veg,Trimester 3
+Tuesday,Lunch,Carrot Kosambari,South Indian,Veg,Trimester 3
+Wednesday,Breakfast,Set Dosa with Vegetable Kurma (2 pcs),South Indian,Veg,Trimester 3
+Wednesday,Snack,Roasted Groundnuts (small handful),South Indian,Veg,Trimester 3
+Wednesday,Snack,Guava Slices,South Indian,Veg,Trimester 3
+Wednesday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Wednesday,Lunch,Keerai Masiyal (spinach dal),South Indian,Veg,Trimester 3
+Wednesday,Lunch,Beetroot Poriyal,South Indian,Veg,Trimester 3
+Thursday,Breakfast,Vegetable Uttapam (1–2 pcs),South Indian,Veg,Trimester 3
+Thursday,Breakfast,Coconut Chutney (small),South Indian,Veg,Trimester 3
+Thursday,Snack1,Banana Peanut Milkshake (low sugar),South Indian,Veg,Trimester 3
+Thursday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Thursday,Lunch,Avial (mixed vegetables),South Indian,Veg,Trimester 3
+Thursday,Lunch,Okra (Ladies Finger) Fry (small),South Indian,Veg,Trimester 3
+Thursday,Lunch,Curd (small bowl),South Indian,Veg,Trimester 3
+Friday,Breakfast,Ragi Idiyappam with Vegetable Stew (small),South Indian,Veg,Trimester 3
+Friday,Snack,Paneer & Capsicum Tikka,South Indian,Veg,Trimester 3
+Friday,Snack,Fresh Orange Slices,South Indian,Veg,Trimester 3
+Friday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Friday,Lunch,Methi Dal,South Indian,Veg,Trimester 3
+Friday,Lunch,Carrot & Beans Poriyal,South Indian,Veg,Trimester 3
+Friday,Lunch,Buttermilk (small cup),South Indian,Veg,Trimester 3
+Saturday,Breakfast,Pesarattu (Green Gram Dosa) with Ginger Chutney (2 pcs),South Indian,Veg,Trimester 3
+Saturday,Snack,Baked Sweet Potato Chaat (small),South Indian,Veg,Trimester 3
+Saturday,Snack,Lemon Barley Water (small cup),South Indian,Veg,Trimester 3
+Saturday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Saturday,Lunch,Soya Chunk Kurma (mild),South Indian,Veg,Trimester 3
+Saturday,Lunch,Snake Gourd Poriyal,South Indian,Veg,Trimester 3
+Monday,Breakfast,Oats Vegetable Idli with Coconut Chutney (2 pcs),South Indian,Veg,Trimester 3
+Monday,Breakfast,Rava Paniyaram with Tomato Chutney (4 pcs),South Indian,Veg,Trimester 3
+Monday,Snack,Baked Banana Chips (small portion),South Indian,Veg,Trimester 3
+Monday,Snack,Herbal Jeera Water (small cup),South Indian,Veg,Trimester 3
+Monday,Snack,Steamed Sweet Corn Chaat (small bowl),South Indian,Veg,Trimester 3
+Monday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Monday,Lunch,Radish & Drumstick Sambar,South Indian,Veg,Trimester 3
+Monday,Lunch,Thoran (Cabbage with Coconut),South Indian,Veg,Trimester 3
+Monday,Lunch,Curd (small bowl),South Indian,Veg,Trimester 3
+Tuesday,Breakfast,Kambu Dosa with Garlic Chutney (2 pcs),South Indian,Veg,Trimester 3
+Tuesday,Breakfast,Vegetable Pongal (small bowl),South Indian,Veg,Trimester 3
+Tuesday,Snack,Roasted Foxnuts (Makhana),South Indian,Veg,Trimester 3
+Tuesday,Snack,Fresh Lime Water (no sugar),South Indian,Veg,Trimester 3
+Tuesday,Snack,Boiled Chickpeas with Pepper (small bowl),South Indian,Veg,Trimester 3
+Tuesday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Tuesday,Lunch,Tomato & Garlic Rasam,South Indian,Veg,Trimester 3
+Tuesday,Lunch,Brinjal Curry (mild),South Indian,Veg,Trimester 3
+Tuesday,Lunch,Carrot Beans Poriyal,South Indian,Veg,Trimester 3
+Wednesday,Breakfast,Vegetable Wheat Dosa with Coriander Chutney (2 pcs),South Indian,Veg,Trimester 3
+Wednesday,Breakfast,Ragi Rava Upma (small bowl),South Indian,Veg,Trimester 3
+Wednesday,Snack,Steamed Sundal Mix (green gram + peanuts),South Indian,Veg,Trimester 3
+Wednesday,Snack,Tender Coconut Pulp (small),South Indian,Veg,Trimester 3
+Wednesday,Snack,Boiled Tapioca Cubes with Salt & Lemon,South Indian,Veg,Trimester 3
+Wednesday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Wednesday,Lunch,Ash Gourd Kootu,South Indian,Veg,Trimester 3
+Wednesday,Lunch,Cluster Beans Poriyal,South Indian,Veg,Trimester 3
+Wednesday,Lunch,Buttermilk (small cup),South Indian,Veg,Trimester 3
+Thursday,Breakfast,Vegetable Ragi Idiyappam with Coconut Milk (small),South Indian,Veg,Trimester 3
+Thursday,Breakfast,Plain Uttapam with Onion Chutney (2 pcs),South Indian,Veg,Trimester 3
+Thursday,Snack,Homemade Poha Chivda (small portion),South Indian,Veg,Trimester 3
+Thursday,Snack,Apple Cinnamon Water (small cup),South Indian,Veg,Trimester 3
+Thursday,Snack,Boiled Sweet Potato Cubes,South Indian,Veg,Trimester 3
+Thursday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Thursday,Lunch,Bottle Gourd Kootu,South Indian,Veg,Trimester 3
+Thursday,Lunch,Beetroot Poriyal,South Indian,Veg,Trimester 3
+Thursday,Lunch,Curd (small bowl),South Indian,Veg,Trimester 3
+Friday,Breakfast,Vegetable Rava Khichdi (small bowl),South Indian,Veg,Trimester 3
+Friday,Breakfast,Masala Idli with Groundnut Chutney (2 pcs),South Indian,Veg,Trimester 3
+Friday,Snack,Roasted Corn Kernels with Pepper,South Indian,Veg,Trimester 3
+Friday,Snack,Amla Juice (diluted),South Indian,Veg,Trimester 3
+Friday,Snack,Banana Stem Soup (small cup),South Indian,Veg,Trimester 3
+Friday,Lunch,Steamed Rice (small portion),South Indian,Veg,Trimester 3
+Friday,Lunch,Vegetable Mor Kuzhambu,South Indian,Veg,Trimester 3
+Friday,Lunch,Drumstick Leaves Poriyal,South Indian,Veg,Trimester 3
+Friday,Lunch,Curd Rice (small bowl),South Indian,Veg,Trimester 3
+Friday,Lunch,Brown Rice with Lemon Pepper Rasam,South Indian,Veg,Trimester 3
+Friday,Lunch,Chow Chow Poriyal,South Indian,Veg,Trimester 3
+Saturday,Breakfast,Ragi Vegetable Idiyappam,South Indian,Veg,Trimester 3
+Saturday,Snack,Steamed Corn Sundal,South Indian,Veg,Trimester 3
+Saturday,Snack,Baked Vazhakkai Chips,South Indian,Veg,Trimester 3
+Saturday,Snack,Amla Ginger Juice,South Indian,Veg,Trimester 3
+Saturday,Snack,Avarekalu Salad,South Indian,Veg,Trimester 3
+Saturday,Snack,Paneer Cubes with Pepper,South Indian,Veg,Trimester 3
+Saturday,Lunch,Red Rice,South Indian,Veg,Trimester 3
+Saturday,Lunch,Drumstick Leaf Kootu,South Indian,Veg,Trimester 3
+Saturday,Lunch,Raw Banana Thoran,South Indian,Veg,Trimester 3
+Saturday,Lunch,Spiced Coconut Buttermilk,South Indian,Veg,Trimester 3
+Monday,Breakfast,Oats Pesarattu with Onion Chutney,South Indian,Veg,Trimester 3
+Monday,Snack,Roasted Soy Nuts,South Indian,Veg,Trimester 3
+Monday,Snack,Vegetable Poha Cutlet,South Indian,Veg,Trimester 3
+Monday,Snack,Curry Leaf Tea,South Indian,Veg,Trimester 3
+Monday,Snack,Apple Peanut Chaat,South Indian,Veg,Trimester 3
+Monday,Lunch,Little Millet Rice,South Indian,Veg,Trimester 3
+Monday,Lunch,Ridge Gourd Peerkangai Masiyal,South Indian,Veg,Trimester 3
+Monday,Lunch,Snake Gourd Poriyal,South Indian,Veg,Trimester 3
+Monday,Lunch,Jeera Spiced Curd,South Indian,Veg,Trimester 3
+Tuesday,Breakfast,Kuthiraivali (Barnyard Millet) Pongal,South Indian,Veg,Trimester 3
+Tuesday,Snack,Roasted Lotus Seeds with Turmeric,South Indian,Veg,Trimester 3
+Tuesday,Snack,Mini Vegetable Kuzhi Paniyaram,South Indian,Veg,Trimester 3
+Tuesday,Snack,Fresh Mint Lemon Water,South Indian,Veg,Trimester 3
+Tuesday,Lunch,Black Rice,South Indian,Veg,Trimester 3
+Tuesday,Lunch,Tomato Garlic Gotsu,South Indian,Veg,Trimester 3
+Tuesday,Lunch,Cluster Beans Usili,South Indian,Veg,Trimester 3
+Tuesday,Lunch,Masala Buttermilk,South Indian,Veg,Trimester 3
+Wednesday,Breakfast,Vegetable Ragi Dosa with Horsegram Chutney,South Indian,Veg,Trimester 3
+Wednesday,Snack,Sweet Corn & Pomegranate Chaat,South Indian,Veg,Trimester 3
+Wednesday,Snack,Steamed Tapioca Cubes,South Indian,Veg,Trimester 3
+Wednesday,Snack,Cardamom Milk (low sugar),South Indian,Veg,Trimester 3
+Wednesday,Lunch,Thinai (Foxtail Millet) Rice,South Indian,Veg,Trimester 3
+Wednesday,Lunch,Brinjal Gothsu,South Indian,Veg,Trimester 3
+Wednesday,Lunch,Carrot Beans Thoran,South Indian,Veg,Trimester 3
+Wednesday,Lunch,Probiotic Spiced Buttermilk,South Indian,Veg,Trimester 3
+Thursday,Breakfast,Ragi Banana Porridge,South Indian,Veg,Trimester 3
+Thursday,Snack,Steamed Vegetable Momos,South Indian,Veg,Trimester 3
+Thursday,Snack,Peanut Chaat with Lemon,South Indian,Veg,Trimester 3
+Thursday,Snack,Coconut Water with Chia Seeds,South Indian,Veg,Trimester 3
+Thursday,Lunch,Kodo Millet Vegetable Khichdi,South Indian,Veg,Trimester 3
+Thursday,Lunch,Beetroot Stir Fry,South Indian,Veg,Trimester 3
+Friday,Breakfast,Jowar Vegetable Upma,South Indian,Veg,Trimester 3
+Friday,Snack,Boiled Groundnuts with Curry Leaves,South Indian,Veg,Trimester 3
+Friday,Snack,Steamed Bottle Gourd Curry,South Indian,Veg,Trimester 3
+Friday,Snack,Tulsi Ginger Tea (mild),South Indian,Veg,Trimester 3
+Friday,Lunch,Ragi Mudde with Greens Sambar,South Indian,Veg,Trimester 3
+Friday,Lunch,Carrot Beans Thoran,South Indian,Veg,Trimester 3
+Saturday,Breakfast,Chia Fruit Bowl,South Indian,Veg,Trimester 3
+Saturday,Snack,Steamed Corn & Capsicum Chaat,South Indian,Veg,Trimester 3
+Saturday,Snack,Baked Oats & Dates Ladoo,South Indian,Veg,Trimester 3
+Saturday,Lunch,Barnyard Millet Lemon Rice,South Indian,Veg,Trimester 3
+Saturday,Lunch,Cucumber Coconut Pachadi,South Indian,Veg,Trimester 3
+Sunday,Dinner,Soft Phulka with Ridge Gourd Kootu & Carrot Beans Stir Fry,South Indian,Veg,Trimester 3
+Sunday,Dinner,Vegetable Broken Wheat Khichdi with Coriander Chutney,South Indian,Veg,Trimester 3
+Sunday,Dinner,Steamed Rice with Pumpkin Mor Kuzhambu & Snake Gourd Poriyal,South Indian,Veg,Trimester 3
+Monday,Dinner,Ragi Mudde with Mixed Vegetable Sambar & Cabbage Thoran,South Indian,Veg,Trimester 3
+Monday,Dinner,Chapati with Paneer Methi Masala & Bottle Gourd Stir Fry,South Indian,Veg,Trimester 3
+Monday,Dinner,Vegetable Aval (Poha) Upma with Peanut Chutney,South Indian,Veg,Trimester 3
+Tuesday,Dinner,Steamed Rice with Tomato Garlic Rasam & Beetroot Poriyal,South Indian,Veg,Trimester 3
+Tuesday,Dinner,Set Dosa with Vegetable Saagu,South Indian,Veg,Trimester 3
+Tuesday,Dinner,Vegetable Ragi Noodles with Coconut Chutney,South Indian,Veg,Trimester 3
+Wednesday,Dinner,Chapati with Lauki Chana Dal Curry & Spinach Stir Fry,South Indian,Veg,Trimester 3
+Wednesday,Dinner,Vegetable Wheat Rava Pongal with Jeera Rasam,South Indian,Veg,Trimester 3
+Wednesday,Dinner,Curd Rice with Steamed Vegetables & Pomegranate,South Indian,Veg,Trimester 3
+Thursday,Dinner,Rice with Drumstick Vegetable Kootu & Pumpkin Poriyal,South Indian,Veg,Trimester 3
+Thursday,Dinner,Vegetable Idiyappam with Coconut Vegetable Stew,South Indian,Veg,Trimester 3
+Thursday,Dinner,Soft Chapati with Capsicum Paneer Bhurji (light),South Indian,Veg,Trimester 3
+Friday,Dinner,Steamed Rice with Lemon Rasam & Cluster Beans Poriyal,South Indian,Veg,Trimester 3
+Friday,Dinner,Vegetable Foxtail Millet Upma with Tomato Chutney,South Indian,Veg,Trimester 3
+Friday,Dinner,Vegetable Paniyaram with Mint Coconut Chutney,South Indian,Veg,Trimester 3
+
+
+
+
+
+
+
+
+
+
+
+
+

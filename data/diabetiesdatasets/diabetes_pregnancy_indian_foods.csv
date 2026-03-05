@@ -1,0 +1,15 @@
+Food_Item,Category,GI_Level,Diabetes_Recommendation,Suitable_Meal
+Wholegrain bread,Bread,Low,Recommended,Breakfast/Lunch
+Chapatti (whole wheat),Bread,Moderate,Recommended,Lunch/Dinner
+Brown rice,Grain,Low,Recommended,Lunch/Dinner
+White rice,Grain,High,Limit,Lunch/Dinner
+Idli,Fermented grain,Moderate,Recommended,Breakfast
+Ragi (millet),Millet,Low,Recommended,Breakfast
+Paratha,Bread,High,Avoid,Any
+Samosa,Fried snack,High,Avoid,Snack
+Apple,Fruit,Low,Recommended,Snack
+Sweetened yoghurt,Dairy,High sugar,Avoid,Snack
+Plain yoghurt,Dairy,Low,Recommended,Snack
+Sweet potato,Vegetable,Moderate,Limit,Lunch/Dinner
+Paneer,Protein,Zero,Recommended,Any
+Rasam soup,Soup,Zero,Recommended,Any

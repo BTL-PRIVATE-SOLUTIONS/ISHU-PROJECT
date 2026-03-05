@@ -1,0 +1,30 @@
+Food_Category,Food_Item,Examples,Health_Risk,Medical_Recommendation,Applicable_Trimester
+Seafood & Fish,Raw or undercooked fish,"Sushi, raw fish","Salmonella, parasites",Avoid completely,All
+Seafood & Fish,High‑mercury fish,"Shark, swordfish, mackerel, tilefish",Neurodevelopmental damage,Avoid completely,All
+Seafood & Fish,Smoked/refrigerated seafood,Smoked salmon,Listeria infection,Avoid,All
+Seafood & Fish,Contaminated freshwater fish,"Bluefish, trout, striped bass",PCB exposure,Avoid,All
+Seafood & Fish,Shellfish (raw/undercooked),"Clams, mussels, oysters",Food‑borne illness,Avoid,All
+Eggs,Raw or soft‑boiled eggs,"Soft yolk eggs, mousse",Salmonella infection,Consume fully cooked only,All
+Meat,Raw or rare meat,"Undercooked chicken, mutton","Listeria, toxoplasmosis",Cook thoroughly,All
+Dairy,Unpasteurised milk,Raw milk,"Food poisoning, listeria",Use pasteurised only,All
+Dairy,Unpasteurised soft cheese,"Brie, feta, blue cheese",Listeria infection,Prefer hard pasteurised cheese,All
+Fruits & Vegetables,Unwashed produce,"Sprouts, lettuce, cabbage","Pesticides, bacteria",Wash & cook well,All
+Fruits,Unripe papaya,Raw papaya,Uterine contractions,Avoid,All
+Fruits,Pineapple (excess),Pineapple,Uterine stimulation,Limit intake,All
+Nuts & Sprouts,Raw sprouts,"Mung, alfalfa sprouts",Bacterial contamination,Cook before eating,All
+Nuts & Sprouts,Allergy‑causing nuts (excess),"Peanuts, cashews","Allergic reactions, constipation",Consume moderately,All
+Prepared Foods,Restaurant salads,Store‑bought salads,Poor hygiene,Avoid,All
+Beverages,Unpasteurised juices,Street‑extracted juice,Bacterial contamination,Prepare fresh at home,All
+Beverages,Excess caffeine,"Coffee, energy drinks","Low birth weight, miscarriage",Limit <200 mg/day,All
+Beverages,Alcohol,"Beer, wine, liquor",Foetal Alcohol Spectrum Disorder,Completely avoid,All
+Supplements,Herbal teas & supplements,"Wormwood, senna",Preterm labour risk,Avoid unless prescribed,All
+Processed Foods,Canned foods,Canned fruits/vegetables,"BPA exposure, bacteria",Prefer fresh foods,All
+Processed Foods,Nitrate‑rich foods,"Bacon, sausages",Reduced oxygen to fetus,Avoid,All
+Processed Foods,Artificial sweeteners (excess),Saccharin,Placental transfer,Limit intake,All
+Sugary Foods,Excess sugar,"Ice creams, chocolates",Gestational diabetes risk,Moderation,All
+Fatty Foods,Excess fatty foods,Fried foods,"Obesity, heart disease",Moderation,All
+Carbohydrates,Simple carbohydrates (excess),"Cookies, refined flour",Constipation,Prefer whole grains,All
+Spices,Liquorice,Liquorice root,Preterm labour,Avoid,All
+Leftovers,Leftover food,Reheated food,Bacterial growth,Eat fresh food,All
+Spices,Highly spicy food,Chilli‑rich dishes,"Heartburn, nausea",Limit intake,All
+Street Food,Street food,"Chats, fried snacks",Food poisoning risk,Avoid,All

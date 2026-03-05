@@ -1,0 +1,18 @@
+Food_Category,Food_Item,GI_or_Carb_Level,Diabetes_Recommendation,Remarks
+Bread & Flour,Wholegrain bread / chapatti,Low GI,Recommended,Prefer wholegrain/atta
+Bread & Flour,White bread / naan,High GI,Avoid,Raises blood glucose quickly
+Cereals,"Rolled oats, muesli",Low GI,Recommended,Avoid instant oats
+Cereals,"Corn flakes, rice bubbles",High GI,Avoid,Highly processed
+Rice & Grains,Basmati rice (brown/white),Low GI,Recommended,Portion control required
+Rice & Grains,Jasmine / short-grain rice,High GI,Avoid,Rapid glucose rise
+Vegetables (Starchy),"Sweet potato, corn, legumes",Moderate GI,Limit,Count as carb portions
+Vegetables (Non-starchy),"Spinach, okra, cauliflower",Low Carb,Free,Does not spike glucose
+Fruit,"Apple, pear, berries",Low GI,Recommended,1 portion at a time
+Fruit,"Watermelon, rockmelon",High GI,Limit,Raises glucose quickly
+Dairy,"Milk, yoghurt (plain)",Moderate Carb,Recommended,Unsweetened only
+Dairy,"Condensed milk, sweet yoghurt",High Sugar,Avoid,Raises blood sugar
+Snacks,"Wholegrain crackers, popcorn",Moderate Carb,Recommended,Watch portions
+Snacks,"Indian sweets, samosa",High Sugar/Fat,Avoid,Poor glucose control
+Sweeteners,"Stevia, sucralose",Low Carb,Allowed,Use in small amounts
+Drinks,"Water, soda water",Zero Carb,Recommended,Primary beverage
+Drinks,Alcohol,High Risk,Avoid,Unsafe in pregnancy

@@ -1,0 +1,431 @@
+Day,Meal Type,Food,Regional Type,Food Type,Trimester
+Monday,Breakfast,Moong Dal Chilla with Green Chutney,North Indian,Veg,Trimester 1
+Monday,Breakfast,Mango Smoothie,North Indian,Veg,Trimester 1
+Monday,Snack,Bajra (Pearl Millet) Roti with Baingan Bharta,North Indian,Veg,Trimester 1
+Monday,Snack,Roasted Makhana (Foxnuts) with Light Spices,North Indian,Veg,Trimester 1
+Monday,Lunch,Steamed Rice with Palak Dal & Carrot Beans Thoran,North Indian,Veg,Trimester 1
+Monday,Lunch,Cucumber Raita,North Indian,Veg,Trimester 1
+Monday,Dinner,Chapati with Paneer Bhurji & Lauki Sabzi,North Indian,Veg,Trimester 1
+Monday,Dinner,Vegetable Khichdi with Light Tomato Rasam,North Indian,Veg,Trimester 1
+Tuesday,Breakfast,Vegetable Poha with Peanuts,North Indian,Veg,Trimester 1
+Tuesday,Breakfast,Guava Juice,North Indian,Veg,Trimester 1
+Tuesday,Snack,Steamed Sweet Corn with Lemon,North Indian,Veg,Trimester 1
+Tuesday,Snack,Mixed Sprouts Salad with Mint,North Indian,Veg,Trimester 1
+Tuesday,Lunch,Roti with Chole Masala & Cabbage Poriyal,North Indian,Veg,Trimester 1
+Tuesday,Lunch,Carrot Raita,North Indian,Veg,Trimester 1
+Tuesday,Dinner,Bajra Roti with Lauki Methi Curry & Beetroot Thoran,North Indian,Veg,Trimester 1
+Tuesday,Dinner,Curd Rice with Grated Carrot,North Indian,Veg,Trimester 1
+Wednesday,Breakfast,Stuffed Moong Dal Paratha with Coriander Chutney,North Indian,Veg,Trimester 1
+Wednesday,Breakfast,Papaya Cubes,North Indian,Veg,Trimester 1
+Wednesday,Snack,Bhindi (Okra) Stir Fry with Chapati,North Indian,Veg,Trimester 1
+Wednesday,Snack,Roasted Chana (Chickpeas),North Indian,Veg,Trimester 1
+Wednesday,Lunch,Jeera Rice with Matar Paneer & Lauki Sabzi,North Indian,Veg,Trimester 1
+Wednesday,Lunch,Boondi Raita,North Indian,Veg,Trimester 1
+Wednesday,Dinner,Karela (Bitter Gourd) Sabzi with Chapati,North Indian,Veg,Trimester 1
+Wednesday,Dinner,Vegetable Khichdi with Spinach,North Indian,Veg,Trimester 1
+Thursday,Breakfast,Suji (Rava) Upma with Mixed Vegetables,North Indian,Veg,Trimester 1
+Thursday,Breakfast,Apple Slices with Yogurt,North Indian,Veg,Trimester 1
+Thursday,Snack,Moong Dal Sundal,North Indian,Veg,Trimester 1
+Thursday,Snack,Roasted Pumpkin Seeds,North Indian,Veg,Trimester 1
+Thursday,Lunch,Steamed Rice with Rajma Curry & Cabbage Thoran,North Indian,Veg,Trimester 1
+Thursday,Lunch,Cucumber & Carrot Raita,North Indian,Veg,Trimester 1
+Thursday,Dinner,Chapati with Methi Aloo & Lauki Sabzi,North Indian,Veg,Trimester 1
+Thursday,Dinner,Vegetable Khichdi with Light Tomato Rasam,North Indian,Veg,Trimester 1
+Friday,Breakfast,Besan Chilla with Coriander Chutney,North Indian,Veg,Trimester 1
+Friday,Breakfast,Watermelon Cubes,North Indian,Veg,Trimester 1
+Friday,Snack,Paneer Tikka (Air Fried),North Indian,Veg,Trimester 1
+Friday,Snack,Mixed Sprouts Sundal,North Indian,Veg,Trimester 1
+Friday,Lunch,Steamed Rice with Dal Tadka & Spinach Poriyal,North Indian,Veg,Trimester 1
+Friday,Lunch,Cucumber Raita,North Indian,Veg,Trimester 1
+Friday,Dinner,Bajra Roti with Pumpkin Matar Curry & Cabbage Thoran,North Indian,Veg,Trimester 1
+Friday,Dinner,Vegetable Khichdi with Yogurt,North Indian,Veg,Trimester 1
+Saturday,Breakfast,Vegetable Dalia (Broken Wheat Porridge),North Indian,Veg,Trimester 1
+Saturday,Breakfast,Grapes,North Indian,Veg,Trimester 1
+Saturday,Snack,Steamed Corn with Lemon & Salt,North Indian,Veg,Trimester 1
+Saturday,Snack,Roasted Makhana (Foxnuts),North Indian,Veg,Trimester 1
+Saturday,Lunch,Jeera Rice with Lauki Chana Dal & Carrot Beans Thoran,North Indian,Veg,Trimester 1
+Saturday,Lunch,Cucumber Raita,North Indian,Veg,Trimester 1
+Saturday,Dinner,Chapati with Paneer Capsicum Masala & Beetroot Thoran,North Indian,Veg,Trimester 1
+Saturday,Dinner,Vegetable Khichdi with Light Rasam,North Indian,Veg,Trimester 1
+Sunday,Breakfast,Poori with Aloo Sabzi,North Indian,Veg,Trimester 1
+Sunday,Breakfast,Mixed Fruit Bowl,North Indian,Veg,Trimester 1
+Sunday,Snack,Moong Dal Chilla with Mint Chutney,North Indian,Veg,Trimester 1
+Sunday,Snack,Roasted Pumpkin Seeds,North Indian,Veg,Trimester 1
+Sunday,Lunch,Steamed Rice with Matar Paneer & Spinach Poriyal,North Indian,Veg,Trimester 1
+Sunday,Lunch,Carrot Raita,North Indian,Veg,Trimester 1
+Sunday,Dinner,Bajra Roti with Lauki Methi Sabzi & Cabbage Thoran,North Indian,Veg,Trimester 1
+Sunday,Dinner,Vegetable Khichdi with Curd,North Indian,Veg,Trimester 1
+Monday,Breakfast,Vegetable Dalia (Broken Wheat Porridge),North Indian,Veg,Trimester 1
+Monday,Breakfast,Strawberry Smoothie,North Indian,Veg,Trimester 1
+Monday,Snack,Paneer Peas Tikki (Air Fried),North Indian,Veg,Trimester 1
+Monday,Snack,Steamed Sweet Corn with Lemon,North Indian,Veg,Trimester 1
+Monday,Lunch,Steamed Rice with Lauki Dal & Carrot Beans Thoran,North Indian,Veg,Trimester 1
+Monday,Lunch,Cucumber Raita with Roasted Cumin,North Indian,Veg,Trimester 1
+Tuesday,Breakfast,Moong Dal Chilla with Mint Chutney,North Indian,Veg,Trimester 1
+Tuesday,Breakfast,Apple Slices with Yogurt,North Indian,Veg,Trimester 1
+Tuesday,Snack,Roasted Makhana (Foxnuts) with Light Spices,North Indian,Veg,Trimester 1
+Tuesday,Snack,Vegetable Stuffed Paratha (Light),North Indian,Veg,Trimester 1
+Tuesday,Lunch,Roti with Chana Masala & Beetroot Poriyal,North Indian,Veg,Trimester 1
+Tuesday,Lunch,Carrot Cucumber Salad,North Indian,Veg,Trimester 1
+Wednesday,Breakfast,Besan (Gram Flour) Cheela with Coriander Chutney,North Indian,Veg,Trimester 1
+Wednesday,Breakfast,Papaya Cubes,North Indian,Veg,Trimester 1
+Wednesday,Snack,Boiled Green Moong with Lemon & Salt,North Indian,Veg,Trimester 1
+Wednesday,Snack,Steamed Pumpkin Cubes with Cumin,North Indian,Veg,Trimester 1
+Wednesday,Lunch,Steamed Rice with Matar Paneer Curry & Lauki Poriyal,North Indian,Veg,Trimester 1
+Wednesday,Lunch,Mint Yogurt Chutney,North Indian,Veg,Trimester 1
+Thursday,Breakfast,Rava Upma with Mixed Vegetables,North Indian,Veg,Trimester 1
+Thursday,Breakfast,Sapodilla Cubes (Chikoo),North Indian,Veg,Trimester 1
+Thursday,Snack,Moong Dal Sundal with Coconut,North Indian,Veg,Trimester 1
+Thursday,Snack,Beetroot Sabzi with Light Spices,North Indian,Veg,Trimester 1
+Thursday,Lunch,Roti with Tinda (Round Gourd) Curry & Cabbage Stir Fry,North Indian,Veg,Trimester 1
+Thursday,Lunch,Curd with Grated Carrot,North Indian,Veg,Trimester 1
+Friday,Breakfast,Besan (Gram Flour) Pancakes with Yogurt,North Indian,Veg,Trimester 1
+Friday,Breakfast,Banana Smoothie,North Indian,Veg,Trimester 1
+Friday,Snack,Rajma (Kidney Beans) Salad with Lemon,North Indian,Veg,Trimester 1
+Friday,Snack,Beetroot & Carrot Salad with Mint,North Indian,Veg,Trimester 1
+Friday,Lunch,Steamed Rice with Kaddu (Pumpkin) Dal & Beans Poriyal,North Indian,Veg,Trimester 1
+Friday,Lunch,Spiced Cucumber Raita,North Indian,Veg,Trimester 1
+Saturday,Breakfast,Dhokla with Green Chutney,North Indian,Veg,Trimester 1
+Saturday,Breakfast,Watermelon Cubes,North Indian,Veg,Trimester 1
+Saturday,Snack,Steamed Pigeon Peas (Arhar Dal) with Lemon,North Indian,Veg,Trimester 1
+Saturday,Snack,Green Banana Sabzi with Mild Spices,North Indian,Veg,Trimester 1
+Saturday,Lunch,Cumin Rice with Chana Dal & Lauki Thoran,North Indian,Veg,Trimester 1
+Saturday,Lunch,Roasted Corn with a Pinch of Salt,North Indian,Veg,Trimester 1
+Sunday,Breakfast,Poori with Mixed Vegetable Sabzi,North Indian,Veg,Trimester 1
+Sunday,Breakfast,Mixed Fruit Bowl,North Indian,Veg,Trimester 1
+Sunday,Snack,Moong Dal Chilla with Peanut Chutney,North Indian,Veg,Trimester 1
+Sunday,Snack,Roasted Pumpkin Seeds,North Indian,Veg,Trimester 1
+Sunday,Lunch,Steamed Rice with Palak Paneer & Carrot Beans Thoran,North Indian,Veg,Trimester 1
+Sunday,Lunch,Cucumber & Mint Yogurt Salad,North Indian,Veg,Trimester 1
+Monday,Breakfast,Muskmelon Cubes (Kharbooja),North Indian,Veg,Trimester 1
+Monday,Breakfast,Vegetable Poha with Peas and Carrot,North Indian,Veg,Trimester 1
+Monday,Snack,Besan Gatta Curry,North Indian,Veg,Trimester 1
+Monday,Snack,Palak Aloo Sabzi,North Indian,Veg,Trimester 1
+Monday,Lunch,Almond Milk,North Indian,Veg,Trimester 1
+Monday,Lunch,Chana Masala with Steamed Rice,North Indian,Veg,Trimester 1
+Monday,Lunch,Cucumber & Carrot Raita,North Indian,Veg,Trimester 1
+Tuesday,Breakfast,Sapodilla (Chikoo) Smoothie,North Indian,Veg,Trimester 1
+Tuesday,Breakfast,Ragi Dalia Porridge with Dates,North Indian,Veg,Trimester 1
+Tuesday,Snack,Rajma Salad with Lemon,North Indian,Veg,Trimester 1
+Tuesday,Snack,Karela (Bitter Gourd) Sabzi,North Indian,Veg,Trimester 1
+Tuesday,Lunch,Cumin Rice with Moong Dal Tadka,North Indian,Veg,Trimester 1
+Tuesday,Lunch,Stuffed Baingan (Brinjal) Curry,North Indian,Veg,Trimester 1
+Tuesday,Lunch,Curd with Grated Carrot,North Indian,Veg,Trimester 1
+Wednesday,Breakfast,Guava Cubes (Amrud),North Indian,Veg,Trimester 1
+Wednesday,Breakfast,Vegetable Upma with Peas,North Indian,Veg,Trimester 1
+Wednesday,Snack,Boiled Moong Dal with Lemon,North Indian,Veg,Trimester 1
+Wednesday,Snack,Sarson Ka Saag with Makki Ki Roti,North Indian,Veg,Trimester 1
+Wednesday,Lunch,Green Gram Sprouts Salad,North Indian,Veg,Trimester 1
+Wednesday,Lunch,Arbi (Colocasia) Cutlets,North Indian,Veg,Trimester 1
+Wednesday,Lunch,Mint Chutney,North Indian,Veg,Trimester 1
+Thursday,Breakfast,Orange Slices (Santara),North Indian,Veg,Trimester 1
+Thursday,Breakfast,Rava Dhokla with Green Chutney,North Indian,Veg,Trimester 1
+Thursday,Snack,Shahi Paneer Curry (Light),North Indian,Veg,Trimester 1
+Thursday,Snack,Bhindi (Okra) Sabzi,North Indian,Veg,Trimester 1
+Thursday,Lunch,Kuttu (Buckwheat) Roti with Curd,North Indian,Veg,Trimester 1
+Thursday,Lunch,Steamed Dhokla with Coriander Chutney,North Indian,Veg,Trimester 1
+Friday,Breakfast,Banana Pancakes with Honey,North Indian,Veg,Trimester 1
+Friday,Breakfast,Vegetable Sandwich with Cucumber,North Indian,Veg,Trimester 1
+Friday,Snack,Methi Matar Pulao,North Indian,Veg,Trimester 1
+Friday,Snack,Beans Sabzi with Coconut,North Indian,Veg,Trimester 1
+Friday,Lunch,Chhaach (Buttermilk),North Indian,Veg,Trimester 1
+Friday,Lunch,Walnuts & Raisins Mix,North Indian,Veg,Trimester 1
+Friday,Lunch,Steamed Corn with Lemon and Salt,North Indian,Veg,Trimester 1
+Saturday,Breakfast,Santre (Orange) Juice,North Indian,Veg,Trimester 1
+Saturday,Breakfast,Mung Bean Sprout Salad,North Indian,Veg,Trimester 1
+Saturday,Snack,Carrot Peas Sabzi,North Indian,Veg,Trimester 1
+Saturday,Snack,Onion Raita,North Indian,Veg,Trimester 1
+Saturday,Lunch,Chapati with Moong Dal Tadka,North Indian,Veg,Trimester 1
+Saturday,Lunch,Roasted Puffed Rice (Murmura) with Peanuts,North Indian,Veg,Trimester 1
+Sunday,Breakfast,Pear Slices (Nashpati),North Indian,Veg,Trimester 1
+Sunday,Breakfast,Vegetable Dalia with Milk,North Indian,Veg,Trimester 1
+Sunday,Snack,Amaranth (Chaulai) Saag,North Indian,Veg,Trimester 1
+Sunday,Snack,Tomato Chutney with Curd,North Indian,Veg,Trimester 1
+Sunday,Lunch,Mango Panna,North Indian,Veg,Trimester 1
+Sunday,Lunch,Shakarkandi (Sweet Potato) Chaat,North Indian,Veg,Trimester 1
+Sunday,Lunch,Pearl Millet (Bajra) Roti with Ghiya (Bottle Gourd) Sabzi,North Indian,Veg,Trimester 1
+Day,Meal Type,Food,Regional Type,Food Type,Trimester
+Sunday,Dinner,Vegetable Pulao with Cucumber Raita,North Indian,Veg,Trimester 1
+Sunday,Dinner,Chapati with Mixed Vegetable Korma & Stir-fried Turnip,North Indian,Veg,Trimester 1
+Sunday,Dinner,Yellow Moong Dal with Spinach & Carrot Sabzi,North Indian,Veg,Trimester 1
+Monday,Dinner,Ragi Roti with Tomato Paneer Curry,North Indian,Veg,Trimester 1
+Monday,Dinner,Chapati with Green Peas Masala & Cauliflower Sabzi,North Indian,Veg,Trimester 1
+Monday,Dinner,Steamed Rice with Mixed Dal Tadka & Bottle Gourd Sabzi,North Indian,Veg,Trimester 1
+Tuesday,Dinner,Vegetable Khichdi with Cucumber-Carrot Salad,North Indian,Veg,Trimester 1
+Tuesday,Dinner,Chapati with Rajma Curry & Ridge Gourd Sabzi,North Indian,Veg,Trimester 1
+Tuesday,Dinner,Steamed Rice with Lauki Kofta & Tomato Onion Raita,North Indian,Veg,Trimester 1
+Wednesday,Dinner,Lemon Rice with Mixed Vegetable Stir Fry,North Indian,Veg,Trimester 1
+Wednesday,Dinner,Chapati with Paneer Bhurji & Snake Gourd Sabzi,North Indian,Veg,Trimester 1
+Wednesday,Dinner,Steamed Rice with Masoor Dal & French Beans Sabzi,North Indian,Veg,Trimester 1
+Thursday,Dinner,Vegetable Oats Khichdi with Mint Raita,North Indian,Veg,Trimester 1
+Thursday,Dinner,Chapati with Mushroom Masala & Cabbage Sabzi,North Indian,Veg,Trimester 1
+Thursday,Dinner,Steamed Rice with Chole Curry & Carrot Peas Sabzi,North Indian,Veg,Trimester 1
+Friday,Dinner,Vegetable Poha with Roasted Peanuts & Lemon,North Indian,Veg,Trimester 1
+Friday,Dinner,Chapati with Beetroot & Potato Sabzi,North Indian,Veg,Trimester 1
+Friday,Dinner,Steamed Rice with Moong Dal Tadka & Spinach Sabzi,North Indian,Veg,Trimester 1
+Monday,Breakfast,Grapes (Angoor),North Indian,Veg,Trimester 2
+Monday,Breakfast,Vegetable Upma with Carrot & Beans,North Indian,Veg,Trimester 2
+Monday,Snack,Moong Dal Sprouts Salad,North Indian,Veg,Trimester 2
+Monday,Snack,Palak Aloo Sabzi,North Indian,Veg,Trimester 2
+Monday,Snack,Green Beans & Potato Sabzi,North Indian,Veg,Trimester 2
+Monday,Lunch,Lemonade (Nimbu Pani),North Indian,Veg,Trimester 2
+Monday,Lunch,Steamed Corn with Mint,North Indian,Veg,Trimester 2
+Monday,Lunch,Cucumber Raita,North Indian,Veg,Trimester 2
+Tuesday,Breakfast,Apple (Seb) Slices with Chia Seeds,North Indian,Veg,Trimester 2
+Tuesday,Breakfast,Ragi Porridge with Jaggery,North Indian,Veg,Trimester 2
+Tuesday,Snack,Soya Curry with Light Masala,North Indian,Veg,Trimester 2
+Tuesday,Snack,Ridge Gourd (Tori) Sabzi,North Indian,Veg,Trimester 2
+Tuesday,Snack,Pomegranate (Anaar) Fruit Bowl,North Indian,Veg,Trimester 2
+Tuesday,Lunch,Coconut Water (Nariyal Pani),North Indian,Veg,Trimester 2
+Tuesday,Lunch,Poha with Peas & Carrot,North Indian,Veg,Trimester 2
+Tuesday,Lunch,Mixed Vegetable Stir Fry,North Indian,Veg,Trimester 2
+Wednesday,Breakfast,Sapodilla (Chikoo) Smoothie,North Indian,Veg,Trimester 2
+Wednesday,Breakfast,Vegetable Dalia,North Indian,Veg,Trimester 2
+Wednesday,Snack,Spicy Pindi Chhole,North Indian,Veg,Trimester 2
+Wednesday,Snack,Okra (Bhindi) Sabzi,North Indian,Veg,Trimester 2
+Wednesday,Snack,Curd with Grated Carrot,North Indian,Veg,Trimester 2
+Wednesday,Lunch,Mango (Aam) Panna,North Indian,Veg,Trimester 2
+Wednesday,Lunch,Walnut (Akhrot) Mix,North Indian,Veg,Trimester 2
+Wednesday,Lunch,Vegetable Khichdi,North Indian,Veg,Trimester 2
+Thursday,Breakfast,Watermelon (Tarbooj) Cubes,North Indian,Veg,Trimester 2
+Thursday,Breakfast,Vegetable Semolina (Rava) Idli,North Indian,Veg,Trimester 2
+Thursday,Snack,Mixed Dal Soup (Milijhuli Dal),North Indian,Veg,Trimester 2
+Thursday,Snack,Baingan Bharta (Brinjal Mash),North Indian,Veg,Trimester 2
+Thursday,Snack,Cucumber & Tomato Salad,North Indian,Veg,Trimester 2
+Thursday,Lunch,Jaljeera Drink,North Indian,Veg,Trimester 2
+Thursday,Lunch,Carrot & Cucumber Sticks with Mint Dip,North Indian,Veg,Trimester 2
+Thursday,Lunch,Mung Bean Curry with Rice,North Indian,Veg,Trimester 2
+Friday,Breakfast,Ripe Papaya (Papita),North Indian,Veg,Trimester 2
+Friday,Breakfast,Ragi Dosa with Coconut Chutney,North Indian,Veg,Trimester 2
+Friday,Snack,Toor Dal (Arhar) Soup,North Indian,Veg,Trimester 2
+Friday,Snack,Beetroot (Chukandar) Sabzi,North Indian,Veg,Trimester 2
+Friday,Snack,Spring Onion Raita,North Indian,Veg,Trimester 2
+Friday,Lunch,Sattu Drink,North Indian,Veg,Trimester 2
+Friday,Lunch,Steamed Broccoli & Carrot Sabzi,North Indian,Veg,Trimester 2
+Friday,Lunch,Chapati with Moong Dal Tadka,North Indian,Veg,Trimester 2
+Saturday,Breakfast,Banana (Kela) with Almonds,North Indian,Veg,Trimester 2
+Saturday,Breakfast,Vegetable Poha,North Indian,Veg,Trimester 2
+Saturday,Snack,Palak Paneer Curry,North Indian,Veg,Trimester 2
+Saturday,Snack,Kamal Kakdi (Lotus Stem) Sabzi,North Indian,Veg,Trimester 2
+Saturday,Snack,Chapati with Curd,North Indian,Veg,Trimester 2
+Saturday,Lunch,Almond Milk (Badaam),North Indian,Veg,Trimester 2
+Saturday,Lunch,Makhana (Fox Nuts) Roasted Snack,North Indian,Veg,Trimester 2
+Saturday,Lunch,Mixed Vegetable Khichdi with Mint Raita,North Indian,Veg,Trimester 2
+Sunday,Breakfast,Pear (Nashpati) Smoothie,North Indian,Veg,Trimester 2
+Sunday,Breakfast,Vegetable Upma with Green Peas,North Indian,Veg,Trimester 2
+Sunday,Snack,Fenugreek & Potato Sabzi (Methi Aloo),North Indian,Veg,Trimester 2
+Sunday,Snack,Bitter Gourd (Karela) Sabzi,North Indian,Veg,Trimester 2
+Sunday,Snack,Black Eyed Peas (Lobia) Curry,North Indian,Veg,Trimester 2
+Sunday,Lunch,Finger Millet (Ragi) Roti,North Indian,Veg,Trimester 2
+Sunday,Lunch,Mushroom & Peas Curry (Khumb Matar),North Indian,Veg,Trimester 2
+Sunday,Lunch,Pumpkin (Kaddu) Sabzi with Chapati,North Indian,Veg,Trimester 2
+Monday,Breakfast,Muskmelon (Kharbooja),North Indian,Veg,Trimester 2
+Monday,Breakfast,Oats porridge with milk and almonds,North Indian,Veg,Trimester 2
+Monday,Snack,Horse gram (Kala Chana) Salad,North Indian,Veg,Trimester 2
+Monday,Snack,Okra (Bhindi) Sabzi,North Indian,Veg,Trimester 2
+Monday,Snack,Cucumber & Flaxseed Raita,North Indian,Veg,Trimester 2
+Monday,Lunch,Coconut water (Nariyal Pani),North Indian,Veg,Trimester 2
+Monday,Lunch,Steamed carrot & cucumber sticks,North Indian,Veg,Trimester 2
+Monday,Lunch,Vegetable pulao with peas,North Indian,Veg,Trimester 2
+Tuesday,Breakfast,Banana (Kela) with roasted seeds,North Indian,Veg,Trimester 2
+Tuesday,Breakfast,Vegetable Dalia,North Indian,Veg,Trimester 2
+Tuesday,Snack,Soya & Pea (Matar) Curry,North Indian,Veg,Trimester 2
+Tuesday,Snack,Cumin Potato (Jeera Aloo) Sabzi,North Indian,Veg,Trimester 2
+Tuesday,Lunch,Wood Apple (Bael) Sharbat,North Indian,Veg,Trimester 2
+Tuesday,Lunch,Roasted Chickpeas (Chana),North Indian,Veg,Trimester 2
+Tuesday,Lunch,Mixed Vegetable Curry with Chapati,North Indian,Veg,Trimester 2
+Wednesday,Breakfast,Ripe Papaya (Papita),North Indian,Veg,Trimester 2
+Wednesday,Breakfast,Vegetable Upma with carrot & beans,North Indian,Veg,Trimester 2
+Wednesday,Snack,Spinach (Palak) & Lentil Dal,North Indian,Veg,Trimester 2
+Wednesday,Snack,Beans & Carrot Sabzi,North Indian,Veg,Trimester 2
+Wednesday,Snack,Chapati/Rice,North Indian,Veg,Trimester 2
+Wednesday,Lunch,Puffed Rice (Murmura) with Peanuts (Moongphali),North Indian,Veg,Trimester 2
+Wednesday,Lunch,Mixed Vegetable Khichdi,North Indian,Veg,Trimester 2
+Thursday,Breakfast,Grapes (Angoor),North Indian,Veg,Trimester 2
+Thursday,Breakfast,Ragi Porridge with Jaggery,North Indian,Veg,Trimester 2
+Thursday,Snack,Green Gram (Hari Moong) Dal,North Indian,Veg,Trimester 2
+Thursday,Snack,Bottle Gourd (Lauki) Sabzi,North Indian,Veg,Trimester 2
+Thursday,Snack,Chapati/Rice,North Indian,Veg,Trimester 2
+Thursday,Lunch,Lassi,North Indian,Veg,Trimester 2
+Thursday,Lunch,Mixed Nuts,North Indian,Veg,Trimester 2
+Thursday,Lunch,Vegetable Stir Fry,North Indian,Veg,Trimester 2
+Friday,Breakfast,Apple (Seb) with Walnuts (Akhrot),North Indian,Veg,Trimester 2
+Friday,Breakfast,Ragi Dosa with Coconut Chutney,North Indian,Veg,Trimester 2
+Friday,Snack,Lemon Rice,North Indian,Veg,Trimester 2
+Friday,Snack,Drumstick (Shinghphali) Sambhar,North Indian,Veg,Trimester 2
+Friday,Snack,Green Banana (Kacha Kela) Vegetable Sabzi,North Indian,Veg,Trimester 2
+Friday,Snack,Roasted Papad,North Indian,Veg,Trimester 2
+Friday,Lunch,Chickpea (Chhole) Chaat,North Indian,Veg,Trimester 2
+Friday,Lunch,Buttermilk (Chhaach),North Indian,Veg,Trimester 2
+Saturday,Breakfast,Pomegranate (Anaar),North Indian,Veg,Trimester 2
+Saturday,Breakfast,Vegetable Poha,North Indian,Veg,Trimester 2
+Saturday,Snack,Kidney Beans (Rajma) Curry,North Indian,Veg,Trimester 2
+Saturday,Snack,Mixed Vegetable Sabzi,North Indian,Veg,Trimester 2
+Saturday,Snack,Curd (Dahi) Raita,North Indian,Veg,Trimester 2
+Saturday,Snack,Cumin Rice (Jeera Chawal),North Indian,Veg,Trimester 2
+Saturday,Lunch,Lemonade (Nimbu Pani),North Indian,Veg,Trimester 2
+Saturday,Lunch,Sesame & Sweet Potato Cutlets,North Indian,Veg,Trimester 2
+Sunday,Breakfast,Sapodilla (Chikoo) Smoothie,North Indian,Veg,Trimester 2
+Sunday,Breakfast,Guava (Amrud) Slices,North Indian,Veg,Trimester 2
+Sunday,Snack,Cottage Cheese (Paneer) Masala,North Indian,Veg,Trimester 2
+Sunday,Snack,Mushroom & Capsicum Curry,North Indian,Veg,Trimester 2
+Sunday,Snack,Chapati with Mixed Sabzi,North Indian,Veg,Trimester 2
+Sunday,Lunch,Mixed Vegetable & Sesame (Til) Tikki,North Indian,Veg,Trimester 2
+Sunday,Lunch,Roasted Chickpeas with Curd,North Indian,Veg,Trimester 2
+Sunday,Lunch,Steamed Corn & Carrot Sticks,North Indian,Veg,Trimester 2
+Day,Meal Type,Food,Regional Type,Food Type,Trimester
+Sunday,Dinner,Vegetable Pulao with Boondi Raita,North Indian,Veg,Trimester 2
+Sunday,Dinner,Chapati with Mixed Vegetable Korma & Carrot Beans Sabzi,North Indian,Veg,Trimester 2
+Sunday,Dinner,Moong Dal Tadka with Spinach Sabzi,North Indian,Veg,Trimester 2
+Monday,Dinner,Ragi Roti with Paneer Butter Masala,North Indian,Veg,Trimester 2
+Monday,Dinner,Chapati with Green Peas Masala & Cabbage Carrot Sabzi,North Indian,Veg,Trimester 2
+Monday,Dinner,Steamed Rice with Masoor Dal & Bottle Gourd Sabzi,North Indian,Veg,Trimester 2
+Tuesday,Dinner,Vegetable Khichdi with Tomato Cucumber Salad,North Indian,Veg,Trimester 2
+Tuesday,Dinner,Chapati with Rajma Curry & Ridge Gourd Sabzi,North Indian,Veg,Trimester 2
+Tuesday,Dinner,Lauki Kofta Curry with Jeera Rice,North Indian,Veg,Trimester 2
+Wednesday,Dinner,Lemon Rice with Mixed Vegetable Stir Fry,North Indian,Veg,Trimester 2
+Wednesday,Dinner,Chapati with Paneer Bhurji & Snake Gourd Sabzi,North Indian,Veg,Trimester 2
+Wednesday,Dinner,Steamed Rice with Chole Curry & French Beans Sabzi,North Indian,Veg,Trimester 2
+Thursday,Dinner,Vegetable Oats Khichdi with Mint Raita,North Indian,Veg,Trimester 2
+Thursday,Dinner,Chapati with Mushroom Masala & Beetroot Sabzi,North Indian,Veg,Trimester 2
+Thursday,Dinner,Steamed Rice with Mixed Dal & Carrot Peas Sabzi,North Indian,Veg,Trimester 2
+Friday,Dinner,Vegetable Poha with Roasted Peanuts & Lemon,North Indian,Veg,Trimester 2
+Friday,Dinner,Chapati with Potato & Cauliflower Sabzi,North Indian,Veg,Trimester 2
+Friday,Dinner,Steamed Rice with Moong Dal & Spinach Sabzi,North Indian,Veg,Trimester 2
+Saturday,Dinner,Vegetable Pulao with Cucumber-Carrot Raita,North Indian,Veg,Trimester 2
+Saturday,Dinner,Chapati with Paneer Tikka Masala & Stir-fried Bottle Gourd,North Indian,Veg,Trimester 2
+Saturday,Dinner,Steamed Rice with Rajma Masala & French Beans Sabzi,North Indian,Veg,Trimester 2
+Monday,Breakfast,Sapodilla (Chikoo) Smoothie,North Indian,Veg,Trimester 3
+Monday,Breakfast,Vegetable Upma with Carrot & Peas,North Indian,Veg,Trimester 3
+Monday,Snack,Potato & Onion (Aloo Pyaaz) Parantha,North Indian,Veg,Trimester 3
+Monday,Snack,Curd (Dahi) with Coriander & Mint Chutney,North Indian,Veg,Trimester 3
+Monday,Lunch,Mango (Aam) Panna,North Indian,Veg,Trimester 3
+Monday,Lunch,Sprouted Green Gram (Hari Moong) Chaat,North Indian,Veg,Trimester 3
+Tuesday,Breakfast,Guava (Amrud) Slices,North Indian,Veg,Trimester 3
+Tuesday,Breakfast,Vegetable Dalia with Nuts,North Indian,Veg,Trimester 3
+Tuesday,Snack,Kidney Beans (Rajma) Curry,North Indian,Veg,Trimester 3
+Tuesday,Snack,Capsicum & Cauliflower (Shimla Mirch Gobhi) Sabzi,North Indian,Veg,Trimester 3
+Tuesday,Snack,Cucumber (Kheera) Raita,North Indian,Veg,Trimester 3
+Tuesday,Lunch,Almond (Badaam) Milk,North Indian,Veg,Trimester 3
+Tuesday,Lunch,Vegetable Pulao with Peas & Carrots,North Indian,Veg,Trimester 3
+Wednesday,Breakfast,Grapes (Angoor),North Indian,Veg,Trimester 3
+Wednesday,Breakfast,Ragi Porridge with Jaggery,North Indian,Veg,Trimester 3
+Wednesday,Snack,Potato & Peas (Aloo Matar) Curry,North Indian,Veg,Trimester 3
+Wednesday,Snack,Pumpkin (Kaddu) Sabzi,North Indian,Veg,Trimester 3
+Wednesday,Snack,Chapati,North Indian,Veg,Trimester 3
+Wednesday,Lunch,Buttermilk (Chhaach),North Indian,Veg,Trimester 3
+Wednesday,Lunch,Dhokla with Mint Chutney,North Indian,Veg,Trimester 3
+Thursday,Breakfast,Dried Figs (Anjeer) with Milk,North Indian,Veg,Trimester 3
+Thursday,Breakfast,Vegetable Poha,North Indian,Veg,Trimester 3
+Thursday,Snack,Vegetable Khichdi,North Indian,Veg,Trimester 3
+Thursday,Snack,Pomegranate (Anaar) Raita,North Indian,Veg,Trimester 3
+Thursday,Snack,Roasted Papad,North Indian,Veg,Trimester 3
+Thursday,Lunch,Coconut Water (Nariyal Pani),North Indian,Veg,Trimester 3
+Thursday,Lunch,Roasted Corn (Bhutta),North Indian,Veg,Trimester 3
+Friday,Breakfast,Mango (Aam) Smoothie,North Indian,Veg,Trimester 3
+Friday,Breakfast,Ragi Dosa with Coconut Chutney,North Indian,Veg,Trimester 3
+Friday,Snack,Black Gram (Urad) Dal,North Indian,Veg,Trimester 3
+Friday,Snack,Round Gourd (Tinda) Sabzi,North Indian,Veg,Trimester 3
+Friday,Snack,Chickpea Flour (Besan) Chilla with Spinach,North Indian,Veg,Trimester 3
+Friday,Lunch,Pineapple (Ananaas) Lassi,North Indian,Veg,Trimester 3
+Friday,Lunch,Puffed Rice (Murmura) with Roasted Peanuts (Moongphali),North Indian,Veg,Trimester 3
+Saturday,Breakfast,Papaya (Papita) Smoothie,North Indian,Veg,Trimester 3
+Saturday,Breakfast,Vegetable Dhokla,North Indian,Veg,Trimester 3
+Saturday,Snack,Mungbean (Moong) Dal,North Indian,Veg,Trimester 3
+Saturday,Snack,Carrot & Peas (Gajar Matar) Sabzi,North Indian,Veg,Trimester 3
+Saturday,Snack,Chapati/Rice,North Indian,Veg,Trimester 3
+Saturday,Lunch,Jal Jeera,North Indian,Veg,Trimester 3
+Saturday,Lunch,Sweet Potato (Shakarkandi) Chaat,North Indian,Veg,Trimester 3
+Saturday,Dinner,Soya & Mushroom (Khumb) Curry,North Indian,Veg,Trimester 3
+Saturday,Dinner,Okra (Bhindi) Sabzi,North Indian,Veg,Trimester 3
+Saturday,Dinner,Cucumber & Carrot (Kheera Gajar) Salad,North Indian,Veg,Trimester 3
+Saturday,Dinner,Chapati/Rice,North Indian,Veg,Trimester 3
+Saturday,Dinner,Red Lentil (Masoor) Dal,North Indian,Veg,Trimester 3
+Saturday,Dinner,Beans (Beens) Sabzi,North Indian,Veg,Trimester 3
+Saturday,Dinner,Spinach (Palak) Saag,North Indian,Veg,Trimester 3
+Saturday,Dinner,Beetroot (Chukandar) Raita,North Indian,Veg,Trimester 3
+Saturday,Dinner,Bottle Gourd (Lauki) Kofta Curry,North Indian,Veg,Trimester 3
+Saturday,Dinner,Crispy Lotus Stem (Kamal Kakri) Sabzi,North Indian,Veg,Trimester 3
+Saturday,Dinner,Pearl Millet (Bajra) Roti,North Indian,Veg,Trimester 3
+Saturday,Dinner,Horse Gram (Kala Chana) Curry,North Indian,Veg,Trimester 3
+Saturday,Dinner,Peas (Matar) Pulao,North Indian,Veg,Trimester 3
+Saturday,Dinner,Onion & Tomato (Tamatar Pyaaz) Raita,North Indian,Veg,Trimester 3
+Saturday,Dinner,Black-eyed Peas (Lobia) Curry,North Indian,Veg,Trimester 3
+Saturday,Dinner,Radish (Mooli) Sabzi,North Indian,Veg,Trimester 3
+Saturday,Dinner,Lamb's Quarter (Bathua) Roti,North Indian,Veg,Trimester 3
+Saturday,Dinner,Curd (Dahi),North Indian,Veg,Trimester 3
+Saturday,Dinner,Tomato (Tamatar) Sauce with Steamed Broccoli (Hari Gobhi) Sticks,North Indian,Veg,Trimester 3
+Monday,Breakfast,Grapes (Angoor) Smoothie,North Indian,Veg,Trimester 3
+Monday,Breakfast,Vegetable Dalia with Carrots & Peas,North Indian,Veg,Trimester 3
+Monday,Snack,Pigeon Pea (Arhar/Toor) Dal Curry,North Indian,Veg,Trimester 3
+Monday,Snack,Beans & Coconut (Beens Nariyal) Sabzi,North Indian,Veg,Trimester 3
+Monday,Snack,Mango Pulp (Aam Ras),North Indian,Veg,Trimester 3
+Monday,Lunch,Coconut Water (Nariyal Pani),North Indian,Veg,Trimester 3
+Monday,Lunch,Roasted Chickpeas (Chana),North Indian,Veg,Trimester 3
+Monday,Lunch,Vegetable Pulao with Mixed Beans,North Indian,Veg,Trimester 3
+Tuesday,Breakfast,Figs (Anjeer) with Milk,North Indian,Veg,Trimester 3
+Tuesday,Breakfast,Vegetable Poha,North Indian,Veg,Trimester 3
+Tuesday,Snack,Peas & Mushroom (Matar Khumb) Curry,North Indian,Veg,Trimester 3
+Tuesday,Snack,Okra (Bhindi) Sabzi,North Indian,Veg,Trimester 3
+Tuesday,Lunch,Buttermilk (Chhaach),North Indian,Veg,Trimester 3
+Tuesday,Lunch,Mixed Nuts & Dry Fruits,North Indian,Veg,Trimester 3
+Tuesday,Lunch,Sweet Corn & Carrot Salad,North Indian,Veg,Trimester 3
+Wednesday,Breakfast,Banana (Kela) Shake,North Indian,Veg,Trimester 3
+Wednesday,Breakfast,Ragi Porridge with Jaggery,North Indian,Veg,Trimester 3
+Wednesday,Snack,Red Lentil (Masoor) Dal,North Indian,Veg,Trimester 3
+Wednesday,Snack,Fenugreek Potato (Methi Aloo) Sabzi,North Indian,Veg,Trimester 3
+Wednesday,Snack,Curd (Dahi) with Mint,North Indian,Veg,Trimester 3
+Wednesday,Lunch,Pomegranate (Anaar) Juice,North Indian,Veg,Trimester 3
+Wednesday,Lunch,Flattened Rice (Poha) with Beans & Carrot,North Indian,Veg,Trimester 3
+Thursday,Breakfast,Dates (Khajoor) Smoothie,North Indian,Veg,Trimester 3
+Thursday,Breakfast,Vegetable Upma,North Indian,Veg,Trimester 3
+Thursday,Snack,Mixed Dal (Milijhuli Dal) Curry,North Indian,Veg,Trimester 3
+Thursday,Snack,Spring Onion & Tomato (Hari Pyaaz Tamatar) Sabzi,North Indian,Veg,Trimester 3
+Thursday,Snack,Chapati/Rice,North Indian,Veg,Trimester 3
+Thursday,Lunch,Lemonade (Nimbu Pani),North Indian,Veg,Trimester 3
+Thursday,Lunch,Sweet Potato (Shakarkandi) Chaat,North Indian,Veg,Trimester 3
+Thursday,Lunch,Vegetable Cutlet,North Indian,Veg,Trimester 3
+Friday,Breakfast,Apple (Seb) Slices,North Indian,Veg,Trimester 3
+Friday,Breakfast,Rice & Moong Dal Porridge,North Indian,Veg,Trimester 3
+Friday,Snack,Bottle Gourd (Lauki) Kofta Curry,North Indian,Veg,Trimester 3
+Friday,Snack,Cabbage (Patta Gobhi) Sabzi,North Indian,Veg,Trimester 3
+Friday,Snack,Roti Wrap with Mushroom (Khumb Masala),North Indian,Veg,Trimester 3
+Friday,Lunch,Papaya (Papita) Honey Smoothie,North Indian,Veg,Trimester 3
+Friday,Lunch,Roasted Peanuts (Moongphali),North Indian,Veg,Trimester 3
+Friday,Lunch,Steamed Green Gram (Hari Moong) Sprout Salad,North Indian,Veg,Trimester 3
+Saturday,Breakfast,Watermelon (Tarbooj) Chunks,North Indian,Veg,Trimester 3
+Saturday,Breakfast,Custard Apple (Sitaphal) Shake,North Indian,Veg,Trimester 3
+Saturday,Snack,Black-eyed Pea (Lobia) Curry,North Indian,Veg,Trimester 3
+Saturday,Snack,Runner Bean (Sem) Sabzi,North Indian,Veg,Trimester 3
+Saturday,Snack,Cucumber & Carrot (Kheera Gajar) Salad,North Indian,Veg,Trimester 3
+Saturday,Lunch,Baked Potato (Aloo) Wedges,North Indian,Veg,Trimester 3
+Saturday,Lunch,Almond (Badaam) Milk,North Indian,Veg,Trimester 3
+Saturday,Lunch,Sprouted Peas (Matar Chaat),North Indian,Veg,Trimester 3
+Saturday,Dinner,Kadhi with Steamed Rice,North Indian,Veg,Trimester 3
+Saturday,Dinner,Cumin Potato (Jeera Aloo) Sabzi,North Indian,Veg,Trimester 3
+Saturday,Dinner,Vegetable Chapati,North Indian,Veg,Trimester 3
+Saturday,Dinner,Curd (Dahi) with Mint,North Indian,Veg,Trimester 3
+Day,Meal Type,Food,Regional Type,Food Type,Trimester
+Sunday,Dinner,Vegetable Pulao with Cucumber-Carrot Raita,North Indian,Veg,Trimester 3
+Sunday,Dinner,Chapati with Paneer Makhani & Stir-fried Bottle Gourd,North Indian,Veg,Trimester 3
+Sunday,Dinner,Moong Dal Tadka with Spinach Sabzi,North Indian,Veg,Trimester 3
+Monday,Dinner,Ragi Roti with Mixed Vegetable Curry & Beetroot Sabzi,North Indian,Veg,Trimester 3
+Monday,Dinner,Chapati with Green Peas Masala & Carrot Beans Sabzi,North Indian,Veg,Trimester 3
+Monday,Dinner,Steamed Rice with Masoor Dal & Cabbage Sabzi,North Indian,Veg,Trimester 3
+Tuesday,Dinner,Vegetable Khichdi with Tomato-Onion Salad,North Indian,Veg,Trimester 3
+Tuesday,Dinner,Chapati with Rajma Curry & Ridge Gourd Sabzi,North Indian,Veg,Trimester 3
+Tuesday,Dinner,Lauki Kofta Curry with Jeera Rice,North Indian,Veg,Trimester 3
+Wednesday,Dinner,Lemon Rice with Mixed Vegetable Stir Fry,North Indian,Veg,Trimester 3
+Wednesday,Dinner,Chapati with Paneer Bhurji & Snake Gourd Sabzi,North Indian,Veg,Trimester 3
+Wednesday,Dinner,Steamed Rice with Chole Curry & French Beans Sabzi,North Indian,Veg,Trimester 3
+Thursday,Dinner,Vegetable Oats Khichdi with Mint Raita,North Indian,Veg,Trimester 3
+Thursday,Dinner,Chapati with Mushroom Masala & Spinach Sabzi,North Indian,Veg,Trimester 3
+Thursday,Dinner,Steamed Rice with Mixed Dal & Carrot Peas Sabzi,North Indian,Veg,Trimester 3
+Friday,Dinner,Vegetable Poha with Roasted Peanuts & Lemon,North Indian,Veg,Trimester 3
+Friday,Dinner,Chapati with Potato-Cauliflower Sabzi,North Indian,Veg,Trimester 3
+Friday,Dinner,Steamed Rice with Moong Dal & Bottle Gourd Sabzi,North Indian,Veg,Trimester 3
+Saturday,Dinner,Vegetable Pulao with Cucumber Raita,North Indian,Veg,Trimester 3
+Saturday,Dinner,Chapati with Paneer Tikka Masala & Carrot Beans Stir Fry,North Indian,Veg,Trimester 3
+Saturday,Dinner,Steamed Rice with Rajma Masala & Spinach Sabzi,North Indian,Veg,Trimester 3
+
+

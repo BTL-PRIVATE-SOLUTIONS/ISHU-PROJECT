@@ -1,0 +1,25 @@
+Trimester,Month,Category,Type,Item,Description,Quantity_Limit,Notes
+1st,1,Diet,Do,Organic & Homemade Food,"Consume organic and homemade food rich in vitamins, minerals, and protein",Balanced,"Prefer fresh, pesticide-free food"
+1st,1,Diet,Do,Water Intake,Drink adequate water to stay hydrated,2.5–3 liters/day,Prevents dehydration
+1st,1,Diet,Don't,Junk Food,Avoid junk and high-sugar foods,Avoid,Risk of gestational diabetes
+1st,1,Diet,Don't,Raw Papaya & Pineapple,Avoid raw papaya and pineapple,Avoid,May cause complications
+1st,1,Exercise,Do,Walking,Walking helps control blood sugar and keeps body active,30 minutes/day,Safe exercise
+1st,1,Exercise,Don't,Aggressive Exercise,Avoid strenuous or aggressive exercise,Avoid,Risk of overexertion
+1st,2,Medical,Do,Prenatal Supplements,"Take iron, calcium, and folic acid supplements",As prescribed,Consult gynecologist
+1st,2,Diet,Don't,Unpasteurized Dairy,Avoid unpasteurized milk and cheese,Avoid,Risk of infection
+1st,2,Lifestyle,Don't,Smoking & Alcohol,Avoid smoking and alcohol,Avoid,Harms fetal development
+1st,3,Diet,Do,Healthy Snacks,"Choose fruits, salads, soups, and steamed vegetables",As needed,Avoid packaged food
+1st,3,Diet,Don't,High Mercury Fish,"Avoid shark, swordfish, king mackerel",Avoid,Affects brain development
+2nd,4,Diet,Do,Protein Intake,Consume protein-rich foods for fetal growth,Daily,"Meat, fish, legumes"
+2nd,4,Diet,Do,Calcium Foods,Include calcium-rich foods for bone development,Daily,"Milk, leafy greens"
+2nd,4,Exercise,Do,Moderate Exercise,Stay physically active with safe exercises,30 minutes/day,Avoid overheating
+2nd,5,Diet,Do,Omega-3 Intake,Consume oily fish in moderation,1–2 times/week,Brain development
+2nd,5,Diet,Don't,Raw Meat & Eggs,Avoid raw or undercooked meat and eggs,Avoid,Risk of salmonella
+2nd,6,Diet,Do,Yogurt & Nuts,"Consume yogurt, nuts, seeds for calcium and magnesium",1 serving/day,Low-fat preferred
+2nd,6,Lifestyle,Don't,Hot Baths & Saunas,Avoid hot baths and saunas,Avoid,Risk to fetus
+3rd,7,Diet,Do,Balanced Meals,Eat small frequent balanced meals,Regular,Avoid skipping meals
+3rd,7,Diet,Don't,Spicy & Fried Foods,Avoid spicy and fried foods,Avoid,Causes heartburn
+3rd,8,Exercise,Do,Kegel Exercises,Practice pelvic floor exercises,Daily,Helps during delivery
+3rd,8,Diet,Don't,Alcohol & Drugs,"Avoid alcohol, smoking, and drugs",Avoid,Serious fetal harm
+3rd,9,Diet,Do,Whole Grains & Fiber,Consume whole grains and fiber-rich foods,Measured portions,Controls blood sugar
+3rd,9,Diet,Don't,Sugary Drinks,Avoid sugary drinks and desserts,Avoid,Raises blood sugar

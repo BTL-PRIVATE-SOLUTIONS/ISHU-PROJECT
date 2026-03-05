@@ -1,0 +1,13 @@
+Type,Food Group,Food Item,Nutrients,Health Benefit,Trimester,Remarks
+Eat,Dairy,Milk,"Calcium, Protein",Bone & fetal growth,All,Low-fat preferred
+Eat,Dairy,Yogurt,"Calcium, Probiotics","Gut health, immunity",All,Plain preferred
+Eat,Legumes,Lentils,"Iron, Folate, Protein",Prevents anemia,1st-3rd,Well cooked
+Eat,Vegetables,Sweet Potatoes,"Beta-carotene, Fiber",Vitamin A source,2nd-3rd,Avoid excess
+Eat,Protein,Eggs,"Protein, Choline",Brain development,All,Fully cooked
+Eat,Grains,Whole grains,"Fiber, B vitamins","Energy, digestion",All,"Oats, quinoa"
+Avoid,Seafood,Shark,Mercury,Prevents brain damage,All,High mercury
+Avoid,Meat,Undercooked meat,Bacteria,Prevents infections,All,Must cook fully
+Avoid,Seafood,Raw shellfish,Virus/Bacteria,Food poisoning risk,All,Avoid
+Avoid,Dairy,Soft cheese,Listeria,Prevents miscarriage,All,"Brie, Camembert"
+Avoid,Drinks,Alcohol,Ethanol,Prevents FASD,All,No safe limit
+Avoid,Drinks,Caffeine,Stimulant,Low birth weight risk,All,<100mg/day

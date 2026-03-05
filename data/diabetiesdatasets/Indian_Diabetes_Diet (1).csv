@@ -1,0 +1,31 @@
+Category,Sub-Category,Food/Dish,Serving Size,Carbohydrate Choice,GI,Nutrients/Benefits,Preparation Tips,Notes/Limitations,Meal Type,Snack Type
+Breads and Flours,Wholegrain Bread,Wholegrain/stoneground/multiseed bread,1 slice (30-35g),1,Low,"Fibre, B vitamins, Whole grains",Use toasted or plain,Aim ≤15g carbs per slice,Breakfast/Lunch/Dinner,
+Breads and Flours,Chapatti/ Roti,Wholewheat/gram flour/barley chapatti,"½ of 8"" chapatti (60g)",1,Low,"Fibre, Protein",Use minimal oil,Adjust carbs per meal,Breakfast/Lunch/Dinner,
+Breads and Flours,Idli,Basmati rice + lentils,100g (2 small),1,Low,"Protein, Fibre",Steam,Adjust carbs per meal,Breakfast/Lunch/Dinner,
+Breads and Flours,Dosa,Wholewheat/buckwheat dosa,50g cooked,1,Low,"Protein, Fibre",Use minimal oil,Adjust carbs per meal,Breakfast/Lunch/Dinner,
+Grains,Rice,Basmati/red/brown rice,50g uncooked / ½ cup cooked,1,Low,"Carbs, Fibre",Steam or boil,Portion: 150-200g cooked,Lunch/Dinner,
+Grains,Pasta,Whole-wheat/egg/soba noodles,50g uncooked / ½ cup cooked,1,Low,"Protein, Carbs",Boil,Limit sauce with sugar or cream,Lunch/Dinner,
+Grains,Quinoa,Whole quinoa,75g cooked,1,Low,"Protein, Fibre",Boil,Serve with vegetables,Lunch/Dinner,
+Grains,Barley,Whole barley,75g cooked,1,Low,"Fibre, B vitamins",Boil,Add to soups or salads,Lunch/Dinner,
+Vegetables,Leafy Greens,Spinach/Palak,100g,0,Low,"Iron, Fibre",Steam or sauté,Carb-free,Breakfast/Lunch/Dinner,Snack
+Vegetables,Cruciferous,Gobi/Cauliflower/Phul Gobi,100g,0,Low,Vitamins C & K,Steam or roast,Carb-free,Breakfast/Lunch/Dinner,Snack
+Vegetables,Others,Okra/Bhindi,100g,0,Low,"Fibre, Vitamin C",Grill or bake,Carb-free,Breakfast/Lunch/Dinner,Snack
+Vegetables,Others,Eggplant/Baingan,100g,0,Low,"Fibre, Vitamin B",Grill or bake,Carb-free,Breakfast/Lunch/Dinner,Snack
+Vegetables,Others,Bitter melon/Karela,100g,0,Low,"Fibre, Vitamin C",Steam or sauté,Carb-free,Breakfast/Lunch/Dinner,Snack
+Fruits,Fruits,Apple/Pear/Orange,1 medium,1,Low,"Fibre, Vitamin C",Eat raw or in salad,Limit 1 piece per meal,Snack/Beverage,
+Fruits,Fruits,Berries/Plums/Kiwi,1 cup / handful,1,Low,"Antioxidants, Vitamin C",Eat raw or in yogurt,Limit 1 cup per meal,Snack/Beverage,
+Dairy,Yogurt/Natural,Plain/Greek/Curd,125g pot,1,Low,"Protein, Calcium",Use plain/no sugar,Limit flavored sugar-added yogurts,Breakfast/Snack,
+Dairy,Milk/Milk alternatives,Cow's milk,200ml glass,1,Low,"Calcium, Protein",Use low-fat/skimmed milk,Aim ≤5g carbs/100ml,Snack/Beverage,
+Protein/Soups,Soups/Rasam,Rasam,200ml,0,Low,"Protein, Fibre",Boil with lentils/vegetables,Carb-free,Lunch/Dinner,
+Protein/Eggs,Panneer/Cheese,Panneer,50g,0,Low,"Protein, Calcium",Use fresh or in curry,Carb-free,Breakfast/Lunch/Dinner,
+Protein/Eggs,Egg,Boiled/omelette,1 egg,0,Low,"Protein, Iron",Boil or lightly fry,Carb-free,Breakfast/Lunch/Dinner,
+Protein/Nuts,Nuts/Roasted nuts,Almonds/Peanuts,15-20g,0,Low,"Protein, Healthy fats",Eat raw or roasted,Carb-free,Snack,
+Snacks,Wholegrain crackers,Ryvita/Oatcakes,2 crackers,1,Low,"Fibre, Protein",Eat as-is or with cheese,Limit processed versions,Snack,
+Snacks,Popcorn,Unsalted popcorn,15g bag,1,Low,"Fibre, Protein",Air-popped preferred,Avoid butter/salt,Snack,
+Root Vegetables,Potatoes/Sweet potatoes,Boiled/Baked sweet potato,75g,1,Low,"Carbs, Vitamin A",Boil or bake with skin,Avoid fried,Breakfast/Lunch/Dinner,
+Root Vegetables,Potatoes/New/Baby potatoes,Boiled new/baby potatoes,100g (3 small),1,Low,"Carbs, Fibre",Boil with skin,Limit portion size,Lunch/Dinner,
+Breakfast Ideas,Rice/Chapatti/Idli,100g idli / 60g chapatti / 140g millet,1-2,1-2,Low,"Protein, Fibre",Steam/cook as described,Breakfast,Breakfast,
+Snack Ideas,Fruit/Yogurt/Crackers,1 medium fruit or 125g yogurt or 2 crackers,1,1,Low,"Protein, Fibre",Eat raw or paired with nuts,Snack,Snack,
+Lunch/Dinner,Chapatti/Rice/Potato + Curry,1-1½ chapatti or 100-150g rice or 200-300g potatoes,3-4,3-4,Low,"Protein, Fibre",Boil/steam/roast vegetables,Lunch/Dinner,Lunch/Dinner,
+Supper,Bread + Protein,1 slice bread or 2 Ryvita + egg/panneer/peanut butter,1,1,Low,"Protein, Fibre",Use minimal oil,Supper,Supper,
+Carb-Free Snacks,Vegetables/Nuts/Egg,"Hard-boiled egg, cucumber, carrots, peanuts",1 serving,0,Low,"Protein, Fibre",Raw/eat as-is,Snack,Snack,
