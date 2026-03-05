@@ -1,0 +1,1099 @@
+{% extends "base.html" %}
+
+{% block title %}{{ get_translation('meal_planner', current_language) }} - MaternalCare AI{% endblock %}
+
+{% block extra_css %}
+<style>
+    .meal-planner-hero {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+        border-radius: 24px;
+        padding: 3rem 2rem;
+        margin-bottom: 3rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .meal-planner-hero::before {
+        content: '';
+        position: absolute;
+        top: -30%;
+        right: -30%;
+        width: 150%;
+        height: 150%;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
+        animation: gentle-float 8s ease-in-out infinite;
+    }
+
+    @keyframes gentle-float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(3deg); }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .meal-hero-image {
+        position: relative;
+    }
+
+    .meal-hero-image img {
+        transition: transform 0.3s ease;
+    }
+
+    .meal-hero-image:hover img {
+        transform: scale(1.02);
+    }
+
+    .hero-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--gray-800);
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        color: var(--gray-600);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+
+    .meal-form-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: none;
+        border-radius: 20px;
+        padding: 2.5rem;
+        box-shadow: var(--shadow-lg);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .meal-form-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-success);
+    }
+
+    .form-section {
+        margin-bottom: 2rem;
+    }
+
+    .form-section h4 {
+        color: var(--gray-800);
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .form-group-modern {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label-modern {
+        font-weight: 600;
+        color: var(--gray-700);
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+
+    .form-control-modern {
+        border: 2px solid var(--gray-200);
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .form-control-modern:focus {
+        border-color: var(--accent-emerald);
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        background: white;
+    }
+
+    .form-select-modern {
+        border: 2px solid var(--gray-200);
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .form-select-modern:focus {
+        border-color: var(--accent-emerald);
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        background: white;
+    }
+
+    .generate-btn {
+        background: var(--gradient-success);
+        border: none;
+        border-radius: 16px;
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: white;
+        width: 100%;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .generate-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .generate-btn:hover::before {
+        left: 100%;
+    }
+
+    .generate-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-xl);
+    }
+
+    .loading-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    .loading-spinner {
+        width: 80px;
+        height: 80px;
+        border: 4px solid var(--gray-200);
+        border-top: 4px solid var(--accent-emerald);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 2rem;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .initial-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    .initial-state i {
+        font-size: 4rem;
+        color: var(--gray-400);
+        margin-bottom: 1.5rem;
+    }
+
+    .nutrition-summary {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(249, 250, 251, 0.9));
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .nutrition-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .nutrition-card {
+        background: white;
+        border-radius: 16px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .nutrition-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-success);
+    }
+
+    .nutrition-card.status-good::before {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+
+    .nutrition-card.status-needs-attention::before {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    .nutrition-card.status-deficient::before {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    }
+
+    .nutrition-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--accent-emerald);
+    }
+
+    .nutrition-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .nutrition-icon {
+        font-size: 1.5rem;
+        margin-right: 0.75rem;
+    }
+
+    .nutrition-label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--gray-700);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .nutrition-value {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: var(--accent-emerald);
+        margin-bottom: 0.5rem;
+    }
+
+    .nutrition-target {
+        font-size: 0.8rem;
+        color: var(--gray-500);
+        margin-bottom: 0.75rem;
+    }
+
+    .nutrition-progress {
+        width: 100%;
+        height: 8px;
+        background: var(--gray-200);
+        border-radius: 4px;
+        overflow: hidden;
+        margin-bottom: 0.5rem;
+    }
+
+    .nutrition-progress-bar {
+        height: 100%;
+        border-radius: 4px;
+        transition: width 0.5s ease;
+    }
+
+    .progress-good {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+
+    .progress-needs-attention {
+        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    }
+
+    .progress-deficient {
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    }
+
+    .nutrition-status {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .status-good {
+        color: #10b981;
+    }
+
+    .status-needs-attention {
+        color: #f59e0b;
+    }
+
+    .status-deficient {
+        color: #ef4444;
+    }
+
+    .meal-plan-display {
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .meal-plan-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--gray-100);
+    }
+
+    .meal-plan-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin: 0;
+    }
+
+    .print-btn {
+        background: var(--gradient-primary);
+        border: none;
+        border-radius: 12px;
+        padding: 0.75rem 1.5rem;
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .print-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .meal-day-card {
+        background: white;
+        border-radius: 16px;
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow-sm);
+        border: 1px solid var(--gray-100);
+        transition: all 0.3s ease;
+    }
+
+    .meal-day-card:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+    }
+
+    .day-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid var(--gray-50);
+    }
+
+    .day-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--gray-800);
+        margin: 0;
+    }
+
+    .day-date {
+        color: var(--gray-500);
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .day-calories {
+        background: var(--gradient-success);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+
+    .meals-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+
+    .meal-item {
+        background: rgba(249, 250, 251, 0.8);
+        border-radius: 12px;
+        padding: 1rem;
+        border-left: 4px solid;
+        transition: all 0.3s ease;
+    }
+
+    .meal-item:hover {
+        background: rgba(16, 185, 129, 0.05);
+        transform: translateX(4px);
+    }
+
+    .meal-breakfast { border-left-color: #f59e0b; }
+    .meal-mid-morning { border-left-color: #3b82f6; }
+    .meal-lunch { border-left-color: #ef4444; }
+    .meal-evening { border-left-color: #8b5cf6; }
+    .meal-dinner { border-left-color: #06b6d4; }
+
+    .meal-type {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--gray-600);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.5rem;
+    }
+
+    .meal-name {
+        font-weight: 600;
+        color: var(--gray-800);
+        margin-bottom: 0.25rem;
+    }
+
+    .meal-description {
+        font-size: 0.85rem;
+        color: var(--gray-600);
+        line-height: 1.4;
+    }
+
+    .user-info-card {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+        border-radius: 16px;
+        padding: 2rem;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .user-info-title {
+        color: var(--accent-teal);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .user-info-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+    }
+
+    .user-info-item:last-child {
+        border-bottom: none;
+    }
+
+    .user-info-label {
+        font-weight: 600;
+        color: var(--gray-700);
+    }
+
+    .user-info-value {
+        color: var(--accent-teal);
+        font-weight: 700;
+    }
+
+    @media (max-width: 768px) {
+        .meal-planner-hero {
+            padding: 2rem 1.5rem;
+        }
+
+        .hero-title {
+            font-size: 2rem;
+        }
+
+        .meals-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .nutrition-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .meal-plan-header {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .nutrition-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .meal-form-card {
+            padding: 2rem;
+        }
+
+        .meal-day-card {
+            padding: 1.5rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-3 px-md-4">
+    <!-- Hero Section -->
+    <div class="meal-planner-hero animate__animated animate__fadeIn">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="hero-content">
+                    <div class="welcome-badge animate__animated animate__fadeInDown" style="background: var(--gradient-success);">
+                        <i class="fas fa-utensils"></i>
+                        {% if session.get('language') == 'te' %}
+                            ఆహార ప్రణాళిక రూపకర్త
+                        {% else %}
+                            Meal Plan Generator
+                        {% endif %}
+                    </div>
+                    <h1 class="hero-title animate__animated animate__fadeInUp">
+                        {% if session.get('language') == 'te' %}
+                            మీ గర్భం కోసం వ్యక్తిగతీకరించిన ఆహార ప్రణాళికలు
+                        {% else %}
+                            Personalized Meal Plans for Your Pregnancy
+                        {% endif %}
+                    </h1>
+                    <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-1s">
+                        {% if session.get('language') == 'te' %}
+                            AI-ఆధారిత ఆహార సిఫారసులతో మీ గర్భం యొక్క ప్రతి దశకు అనుకూలమైన సమతుల్య ఆహార ప్రణాళికలు రూపొందించండి
+                        {% else %}
+                            Create balanced meal plans tailored to each stage of your pregnancy with AI-powered food recommendations
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-5 text-center">
+                <div class="meal-hero-image animate__animated animate__fadeInRight animate__delay-1s">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                         alt="Meal Planning"
+                         class="img-fluid rounded-3 shadow-lg"
+                         style="max-height: 350px; object-fit: cover; border-radius: 20px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Form Section -->
+        <div class="col-lg-4 mb-4">
+            <div class="meal-form-card animate__animated animate__fadeInLeft">
+                <div class="form-section">
+                    <h4>
+                        <i class="fas fa-sliders-h" style="color: var(--accent-emerald);"></i>
+                        {% if session.get('language') == 'te' %}ప్రణాళిక సెట్టింగులు{% else %}Plan Settings{% endif %}
+                    </h4>
+
+                    <form id="meal-plan-form">
+                        <div class="form-group-modern">
+                            <label for="days" class="form-label-modern">
+                                <i class="fas fa-calendar-alt me-2" style="color: var(--accent-emerald);"></i>
+                                {{ get_translation('meal_number_of_days', current_language) }}
+                            </label>
+                            <input
+                                type="number"
+                                class="form-control-modern"
+                                id="days"
+                                min="1"
+                                max="30"
+                                value="7"
+                                required
+                            >
+                            <small class="text-muted d-block mt-1">
+                                <i class="fas fa-info-circle me-1"></i>
+                                {{ get_translation('meal_days_range', current_language) }}
+                            </small>
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label for="region" class="form-label-modern">
+                                <i class="fas fa-map-marker-alt me-2" style="color: var(--accent-emerald);"></i>
+                                {{ get_translation('meal_regional_preference', current_language) }} <span style="color: red;">*</span>
+                            </label>
+                            <select class="form-select-modern" id="region" required>
+                                <option value="">
+                                    {% if session.get('language') == 'te' %}ప్రాంతం ఎంచుకోండి{% else %}Select Region{% endif %}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label for="diet-type" class="form-label-modern">
+                                <i class="fas fa-leaf me-2" style="color: var(--accent-emerald);"></i>
+                                {{ get_translation('meal_diet_type', current_language) }} <span style="color: red;">*</span>
+                            </label>
+                            <select class="form-select-modern" id="diet-type" required>
+                                <option value="">
+                                    {% if session.get('language') == 'te' %}ఆహార రకం ఎంచుకోండి{% else %}Select Diet Type{% endif %}
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label for="meal-frequency" class="form-label-modern">
+                                <i class="fas fa-utensils me-2" style="color: var(--accent-emerald);"></i>
+                                {% if session.get('language') == 'te' %}భోజనాల సంఖ్య{% else %}Meals Per Day{% endif %}
+                            </label>
+                            <select class="form-select-modern" id="meal-frequency" required>
+                                <option value="">{% if session.get('language') == 'te' %}రోజుకు భోజనాలు ఎంచుకోండి{% else %}Select Meals Per Day{% endif %}</option>
+                                <option value="3meals">{% if session.get('language') == 'te' %}3 భోజనాలు{% else %}3 Meals{% endif %}</option>
+                                <option value="5meals">{% if session.get('language') == 'te' %}5 భోజనాలు{% else %}5 Meals (with snacks){% endif %}</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="generate-btn">
+                            <i class="fas fa-magic me-2"></i>
+                            {% if session.get('language') == 'te' %}ఆహార ప్రణాళిక రూపొందించు{% else %}Generate Meal Plan{% endif %}
+                        </button>
+                    </form>
+                </div>
+
+                <!-- User Information Card -->
+                <div class="user-info-card">
+                    <h5 class="user-info-title">
+                        <i class="fas fa-user-circle"></i>
+                        {% if session.get('language') == 'te' %}మీ సమాచారం{% else %}Your Information{% endif %}
+                    </h5>
+                    <div class="user-info-item">
+                        <span class="user-info-label">
+                            {% if session.get('language') == 'te' %}ట్రైమెస్టర్{% else %}Trimester{% endif %}:
+                        </span>
+                        <span class="user-info-value" id="current-trimester" data-trimester="{{ current_user.current_trimester }}">
+                            {{ current_user.current_trimester }}
+                        </span>
+                    </div>
+                    <div class="user-info-item">
+                        <span class="user-info-label">
+                            {% if session.get('language') == 'te' %}వ్యక్తిగతీకరణ{% else %}Personalized{% endif %}:
+                        </span>
+                        <span class="user-info-value">
+                            <i class="fas fa-check-circle"></i>
+                        </span>
+                    </div>
+                    <p class="text-muted small mt-3 mb-0">
+                        <i class="fas fa-info-circle me-1"></i>
+                        {% if session.get('language') == 'te' %}
+                            మీ గర్భం దశకు అనుగుణంగా ఆహారాలు సిఫారసు చేయబడతాయి
+                        {% else %}
+                            Foods are recommended according to your pregnancy stage
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="col-lg-8">
+            <!-- Loading State -->
+            <div id="loading-state" class="loading-state animate__animated animate__fadeIn" style="display: none;">
+                <div class="loading-spinner"></div>
+                <h4 class="text-muted mb-3">
+                    {% if session.get('language') == 'te' %}మీ ఆహార ప్రణాళికను రూపొందిస్తున్నాము...{% else %}Generating Your Meal Plan...{% endif %}
+                </h4>
+                <p class="text-muted">
+                    {% if session.get('language') == 'te' %}
+                        AI మీ గర్భం దశ మరియు ప్రాధాన్యతలకు అనుగుణంగా సురక్షితమైన మరియు పోషకమైన ఆహారాలను ఎంచుకుంటోంది
+                    {% else %}
+                        AI is selecting safe and nutritious foods based on your pregnancy stage and preferences
+                    {% endif %}
+                </p>
+            </div>
+
+            <!-- Initial State -->
+            <div id="initial-state" class="initial-state animate__animated animate__fadeIn">
+                <i class="fas fa-utensils"></i>
+                <h4 class="text-muted mb-3">
+                    {% if session.get('language') == 'te' %}మీ ఆహార ప్రణాళిక సిద్ధంగా లేదు{% else %}Your Meal Plan is Ready{% endif %}
+                </h4>
+                <p class="text-muted mb-4">
+                    {% if session.get('language') == 'te' %}
+                        పైన ఉన్న ఫారమ్‌ను పూరించి మీ వ్యక్తిగతీకరించిన ఆహార ప్రణాళికను రూపొందించండి
+                    {% else %}
+                        Fill out the form above to generate your personalized meal plan
+                    {% endif %}
+                </p>
+                <div class="d-flex justify-content-center gap-3">
+                    <div class="text-center">
+                        <i class="fas fa-brain fa-2x text-primary mb-2"></i>
+                        <div class="small text-muted">
+                            {% if session.get('language') == 'te' %}AI ఆధారిత{% else %}AI-Powered{% endif %}
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-shield-alt fa-2x text-success mb-2"></i>
+                        <div class="small text-muted">
+                            {% if session.get('language') == 'te' %}సురక్షితమైన ఆహారాలు{% else %}Safe Foods{% endif %}
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-heart fa-2x text-danger mb-2"></i>
+                        <div class="small text-muted">
+                            {% if session.get('language') == 'te' %}మాతృ సంరక్షణ{% else %}Maternal Care{% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nutrition Summary -->
+            <div id="nutrition-summary" style="display: none;" class="nutrition-summary animate__animated animate__fadeIn">
+                <h4 class="mb-4 text-center" style="color: var(--gray-800); font-weight: 600;">
+                    <i class="fas fa-chart-pie me-2" style="color: var(--accent-emerald);"></i>
+                    {% if session.get('language') == 'te' %}పోషక సారాంశం{% else %}Nutrition Summary{% endif %}
+                </h4>
+                <div class="nutrition-grid" id="nutrition-grid">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Meal Plan Display -->
+            <div id="meal-plan-result" style="display: none;" class="meal-plan-display animate__animated animate__fadeIn">
+                <div class="meal-plan-header">
+                    <h3 class="meal-plan-title">
+                        <i class="fas fa-calendar-check me-2" style="color: var(--accent-emerald);"></i>
+                        {% if session.get('language') == 'te' %}మీ ఆహార ప్రణాళిక{% else %}Your Meal Plan{% endif %}
+                    </h3>
+                    <button class="print-btn" onclick="printMealPlan()">
+                        <i class="fas fa-print me-2"></i>
+                        {% if session.get('language') == 'te' %}ముద్రించు{% else %}Print{% endif %}
+                    </button>
+                </div>
+                <div id="meal-plan-content">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    let currentMealPlan = null;
+
+    // Load preferences on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        loadPreferences();
+
+        // Form submit handler
+        document.getElementById('meal-plan-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            generateMealPlan();
+        });
+    });
+
+    function loadPreferences() {
+        console.log('Loading preferences from API...');
+        
+        fetch('/meal-plans/api/preferences/available')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('API Response:', data);
+                
+                if (data.success) {
+                    // Filter out empty arrays and provide fallbacks
+                    const regions = (data.regions && data.regions.length > 0) ? data.regions : ['North', 'South'];
+                    const diets = (data.diets && data.diets.length > 0) ? data.diets : ['veg', 'nonveg'];
+                    
+                    console.log('Regions:', regions);
+                    console.log('Diets:', diets);
+                    
+                    // Populate regions
+                    const regionSelect = document.getElementById('region');
+                    if (regionSelect) {
+                        regions.forEach(region => {
+                            const option = document.createElement('option');
+                            option.value = region;
+                            option.textContent = region.toLowerCase().includes('north') ? 'North Indian' :
+                                                 region.toLowerCase().includes('south') ? 'South Indian' : region;
+                            regionSelect.appendChild(option);
+                        });
+                    }
+
+                    // Populate diet types
+                    const dietSelect = document.getElementById('diet-type');
+                    if (dietSelect) {
+                        diets.forEach(diet => {
+                            const option = document.createElement('option');
+                            option.value = diet;
+                            option.textContent = diet === 'veg' ? 'Vegetarian' :
+                                                 diet === 'nonveg' ? 'Non-Vegetarian' :
+                                                 diet.charAt(0).toUpperCase() + diet.slice(1);
+                            dietSelect.appendChild(option);
+                        });
+                    }
+                } else {
+                    console.error('API returned success=false');
+                    applyFallbackPreferences();
+                }
+            })
+            .catch(error => {
+                console.error('Error loading preferences:', error);
+                applyFallbackPreferences();
+            });
+    }
+
+    function applyFallbackPreferences() {
+        // Fallback - add hardcoded options
+        const regions = ['North', 'South'];
+        const diets = ['veg', 'nonveg'];
+        
+        const regionSelect = document.getElementById('region');
+        if (regionSelect) {
+            regions.forEach(region => {
+                const option = document.createElement('option');
+                option.value = region;
+                option.textContent = region === 'North' ? 'North Indian' : 'South Indian';
+                regionSelect.appendChild(option);
+            });
+        }
+        
+        const dietSelect = document.getElementById('diet-type');
+        if (dietSelect) {
+            diets.forEach(diet => {
+                const option = document.createElement('option');
+                option.value = diet;
+                option.textContent = diet === 'veg' ? 'Vegetarian' : 'Non-Vegetarian';
+                dietSelect.appendChild(option);
+            });
+        }
+    }
+
+    function generateMealPlan() {
+        const days = parseInt(document.getElementById('days').value);
+        const region = document.getElementById('region').value;
+        const dietType = document.getElementById('diet-type').value;
+        const mealFrequency = document.getElementById('meal-frequency').value;
+
+        // Validation
+        if (days < 1 || days > 30) {
+            alert('Please enter a valid number of days (1-30)');
+            return;
+        }
+
+        if (!region) {
+            alert('Please select a region');
+            return;
+        }
+
+        if (!dietType) {
+            alert('Please select a diet type');
+            return;
+        }
+
+        if (!mealFrequency) {
+            alert('Please select meals per day');
+            return;
+        }
+
+        // Show loading state
+        document.getElementById('initial-state').style.display = 'none';
+        document.getElementById('meal-plan-result').style.display = 'none';
+        document.getElementById('nutrition-summary').style.display = 'none';
+        document.getElementById('loading-state').style.display = 'block';
+
+        // Prepare request payload
+        const payload = {
+            days: days,
+            region: region,
+            diet_type: dietType,
+            meal_frequency: mealFrequency
+        };
+
+        // Call API
+        fetch('/meal-plans/api/generate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('loading-state').style.display = 'none';
+
+            if (data.success) {
+                currentMealPlan = data;
+                displayMealPlan(data);
+            } else {
+                alert('Error: ' + (data.error || 'Could not generate meal plan'));
+                document.getElementById('initial-state').style.display = 'block';
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('initial-state').style.display = 'block';
+            alert('An error occurred. Please try again.');
+        });
+    }
+
+    function displayMealPlan(data) {
+        // Display nutrition summary if available
+        if (data.nutrition_summary) {
+            displayNutritionSummary(data.nutrition_summary);
+        }
+
+        // Display meal plan if available
+        if (data.table_format) {
+            displayMealPlanContent(data.table_format);
+        }
+
+        document.getElementById('meal-plan-result').style.display = 'block';
+        document.getElementById('nutrition-summary').style.display = 'block';
+    }
+
+    function displayNutritionSummary(summary) {
+        if (!summary) return;
+
+        const container = document.getElementById('nutrition-grid');
+        const dailyAvg = summary.daily_average || {};
+        const compliance = summary.compliance || {};
+        
+        const nutrients = [
+            { key: 'calories', label: 'Calories', icon: 'fas fa-fire', color: 'var(--accent-emerald)' },
+            { key: 'protein', label: 'Protein', icon: 'fas fa-dumbbell', color: 'var(--primary-pink)' },
+            { key: 'carbs', label: 'Carbs', icon: 'fas fa-bread-slice', color: 'var(--accent-teal)' },
+            { key: 'fat', label: 'Fat', icon: 'fas fa-oil-can', color: '#f59e0b' },
+            { key: 'fiber', label: 'Fiber', icon: 'fas fa-leaf', color: '#10b981' },
+            { key: 'iron', label: 'Iron', icon: 'fas fa-magnet', color: '#dc2626' },
+            { key: 'calcium', label: 'Calcium', icon: 'fas fa-bone', color: '#6366f1' },
+            { key: 'folic_acid', label: 'Folic Acid', icon: 'fas fa-pills', color: '#ec4899' },
+            { key: 'vitamin_a', label: 'Vitamin A', icon: 'fas fa-eye', color: '#f97316' },
+            { key: 'vitamin_b6', label: 'Vitamin B6', icon: 'fas fa-brain', color: '#8b5cf6' },
+            { key: 'vitamin_b12', label: 'Vitamin B12', icon: 'fas fa-heartbeat', color: '#ef4444' },
+            { key: 'vitamin_c', label: 'Vitamin C', icon: 'fas fa-lemon', color: '#eab308' },
+            { key: 'vitamin_d', label: 'Vitamin D', icon: 'fas fa-sun', color: '#f59e0b' },
+            { key: 'zinc', label: 'Zinc', icon: 'fas fa-shield-alt', color: '#14b8a6' },
+            { key: 'magnesium', label: 'Magnesium', icon: 'fas fa-atom', color: '#06b6d4' },
+            { key: 'omega3', label: 'Omega-3', icon: 'fas fa-fish', color: '#0ea5e9' }
+        ];
+
+        let html = '';
+        nutrients.forEach(nutrient => {
+            const avgData = dailyAvg[nutrient.key] || {};
+            const compData = compliance[nutrient.key] || {};
+            
+            const value = Number(avgData.value) || 0;
+            const unit = avgData.unit || '';
+            const target = Number(avgData.target) || 0;
+            const percentage = Number(compData.percentage) || 0;
+            const status = compData.status || 'Good';
+            
+            // Ensure valid numbers for display
+            const safeValue = isNaN(value) ? 0 : value;
+            const safePercentage = isNaN(percentage) ? 0 : percentage;
+            
+            // Determine status class and progress color
+            let statusClass = 'status-good';
+            let progressClass = 'progress-good';
+            if (safePercentage < 80) {
+                statusClass = 'status-deficient';
+                progressClass = 'progress-deficient';
+            } else if (safePercentage < 90 || safePercentage > 110) {
+                statusClass = 'status-needs-attention';
+                progressClass = 'progress-needs-attention';
+            }
+            
+            // Cap percentage display at 150% for visual clarity
+            const displayPercentage = Math.min(safePercentage, 150);
+            
+            html += `
+                <div class="nutrition-card ${statusClass}">
+                    <div class="nutrition-header">
+                        <i class="${nutrient.icon} nutrition-icon" style="color: ${nutrient.color};"></i>
+                        <div class="nutrition-label">${nutrient.label}</div>
+                    </div>
+                    <div class="nutrition-value">${safeValue.toFixed(1)} <span style="font-size: 0.6em;">${unit}</span></div>
+                    <div class="nutrition-target">Target: ${target} ${unit}</div>
+                    <div class="nutrition-progress">
+                        <div class="nutrition-progress-bar ${progressClass}" style="width: ${displayPercentage}%"></div>
+                    </div>
+                    <div class="nutrition-status ${statusClass}">
+                        ${safePercentage.toFixed(0)}% of daily target
+                    </div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+    }
+
+    function displayMealPlanContent(mealPlan) {
+        if (!mealPlan || mealPlan.length === 0) return;
+
+        const container = document.getElementById('meal-plan-content');
+        let html = '';
+
+        mealPlan.forEach(day => {
+            html += `
+                <div class="meal-day-card">
+                    <div class="day-header">
+                        <div>
+                            <h4 class="day-title">${day.day || 'Day'}</h4>
+                            <div class="day-date">${day.date || ''}</div>
+                        </div>
+                        <div class="day-calories">
+                            <i class="fas fa-fire me-1"></i>
+                            ${Math.round(day.calories || 0)} kcal
+                        </div>
+                    </div>
+                    <div class="meals-grid">
+                        ${getMealItemHTML('Breakfast', day.breakfast, 'meal-breakfast')}
+                        ${getMealItemHTML('Mid-Morning Snack', day.mid_morning_snack, 'meal-mid-morning')}
+                        ${getMealItemHTML('Lunch', day.lunch, 'meal-lunch')}
+                        ${getMealItemHTML('Evening Snack', day.evening_snack, 'meal-evening')}
+                        ${getMealItemHTML('Dinner', day.dinner, 'meal-dinner')}
+                    </div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+    }
+
+    function getMealItemHTML(type, meal, className) {
+        if (!meal || meal === '-') {
+            return `
+                <div class="meal-item ${className}" style="opacity: 0.5;">
+                    <div class="meal-type">${type}</div>
+                    <div class="meal-name">No meal planned</div>
+                    <div class="meal-description">Rest or light activity recommended</div>
+                </div>
+            `;
+        }
+
+        return `
+            <div class="meal-item ${className}">
+                <div class="meal-type">${type}</div>
+                <div class="meal-name">${meal}</div>
+                <div class="meal-description">Nutritious and safe for your pregnancy stage</div>
+            </div>
+        `;
+    }
+
+    function printMealPlan() {
+        window.print();
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,531 @@
+{% extends "base.html" %}
+
+{% block title %}{{ get_translation('chatbot_title', current_language) }} - Maternal Food Recommendation AI{% endblock %}
+
+{% block extra_css %}
+<style>
+    #chat-container {
+        height: 600px;
+        overflow-y: auto;
+        border-radius: 12px;
+        padding: 1.5rem;
+        background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+        box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .message {
+        margin-bottom: 1.5rem;
+        padding: 1rem 1.25rem;
+        border-radius: 12px;
+        max-width: 90%;
+        animation: fadeIn 0.3s ease-in;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .user-message {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        margin-left: auto;
+        text-align: left;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    }
+    
+    .bot-message {
+        background-color: #ffffff;
+        border-left: 4px solid #28a745;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .bot-message strong {
+        color: #28a745;
+    }
+    
+    .bot-message p {
+        margin-bottom: 0.5rem;
+        line-height: 1.6;
+    }
+    
+    .bot-message ul, .bot-message ol {
+        margin: 0.5rem 0;
+        padding-left: 1.5rem;
+    }
+    
+    .bot-message li {
+        margin-bottom: 0.3rem;
+    }
+    
+    .suggestion-btn {
+        margin: 0.35rem;
+        white-space: normal;
+        text-align: left;
+        font-size: 0.9rem;
+        padding: 0.6rem 0.8rem;
+        transition: all 0.2s ease;
+    }
+    
+    .suggestion-btn:hover {
+        background-color: #e7f1ff;
+        transform: translateX(4px);
+    }
+    
+    .loading-dots::after {
+        content: '.';
+        animation: dots 1.5s steps(4, end) infinite;
+    }
+    
+    @keyframes dots {
+        0%, 20% { content: '.'; }
+        40% { content: '..'; }
+        60%, 100% { content: '...'; }
+    }
+    
+    .section-header {
+        color: #28a745;
+        font-weight: 700;
+        margin-top: 0.8rem;
+        margin-bottom: 0.4rem;
+        font-size: 0.95rem;
+    }
+    
+    .emoji-icon {
+        margin-right: 0.3rem;
+    }
+    
+    .trimester-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    #suggestions-container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .history-item {
+        padding: 0.75rem;
+        border-left: 3px solid #667eea;
+        border-bottom: 1px solid #e9ecef;
+        cursor: pointer;
+        transition: background 0.2s ease;
+    }
+
+    .history-item:hover {
+        background: #f8f9fa;
+    }
+
+    .history-item p {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+        color: #333;
+    }
+
+    .history-item small {
+        color: #999;
+        font-size: 0.8rem;
+    }
+
+    .thinking-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .thinking-dots {
+        display: flex;
+        gap: 0.3rem;
+    }
+
+    .dot {
+        width: 6px;
+        height: 6px;
+        background: #28a745;
+        border-radius: 50%;
+        animation: bounce 1.4s infinite;
+    }
+
+    .dot:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .dot:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+        0%, 80%, 100% {
+            opacity: 0.5;
+            transform: translateY(0);
+        }
+        40% {
+            opacity: 1;
+            transform: translateY(-8px);
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <div class="card-body py-4">
+                    <h1 class="mb-2">
+                        <i class="fas fa-robot"></i> {{ get_translation('chatbot_title', current_language) }}
+                    </h1>
+                    <p class="lead mb-0">
+                        <i class="fas fa-baby"></i> {{ get_translation('trimester', current_language) }} {{ current_user.current_trimester }} | 
+                        <i class="fas fa-question-circle"></i> {{ get_translation('chatbot_subtitle', current_language) }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8 mb-4">
+            <!-- Chat Container -->
+            <div id="chat-container" class="card border-0 shadow-sm mb-3">
+                <div class="message bot-message">
+                    <strong><i class="fas fa-robot emoji-icon"></i>{{ get_translation('chatbot_bot', current_language) }}</strong>
+                    <p class="mb-0">
+                        👋 {{ get_translation('chatbot_greeting', current_language).format(name=current_user.full_name) }}
+                    </p>
+                    <p class="mb-0">
+                        {{ get_translation('chatbot_can_help', current_language) }}
+                    </p>
+                    <ul class="mb-0" style="font-size: 0.95rem;">
+                        <li>{{ get_translation('chatbot_food_safety', current_language) }}</li>
+                        <li>{{ get_translation('chatbot_health_benefits', current_language) }}</li>
+                        <li>{{ get_translation('chatbot_nutrition_info', current_language) }}</li>
+                        <li>{{ get_translation('chatbot_cooking_tips', current_language) }}</li>
+                        <li>{{ get_translation('chatbot_portion_sizes', current_language) }}</li>
+                        <li>{{ get_translation('chatbot_precautions', current_language) }}</li>
+                        <li>{{ get_translation('chatbot_manage_conditions', current_language) }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="input-group mb-2">
+                        <input 
+                            type="text" 
+                            id="question-input" 
+                            class="form-control form-control-lg" 
+                            placeholder="{{ get_translation('chatbot_placeholder', current_language) }}"
+                            onkeypress="handleKeyPress(event)"
+                            autocomplete="off"
+                        >
+                        <button class="btn btn-success btn-lg" onclick="sendQuestion()" title="{{ get_translation('send', current_language) }}">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <small class="text-muted">
+                        <i class="fas fa-lightbulb"></i> {{ get_translation('chatbot_hint', current_language) }}
+                    </small>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <!-- Suggested Questions -->
+            <div class="card border-0 shadow-sm mb-3">
+                <div class="card-header bg-success text-white">
+                    <i class="fas fa-magic"></i> {{ get_translation('chatbot_popular_questions', current_language) }}
+                </div>
+                <div class="card-body" id="suggestions-container">
+                    <div class="text-center py-3">
+                        <div class="spinner-border spinner-border-sm text-success" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="text-muted small mt-2">{{ get_translation('chatbot_loading_suggestions', current_language) }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Questions -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <i class="fas fa-history"></i> {{ get_translation('chatbot_recent_questions', current_language) }}
+                </div>
+                <div class="card-body" id="history-container" style="max-height: 350px; overflow-y: auto;">
+                    <p class="text-muted small mb-0">{{ get_translation('chatbot_no_recent', current_language) }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // State management
+    let messageHistory = [];
+
+    // Load suggestions and history on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        loadSuggestions();
+        loadHistory();
+        
+        // Focus on input
+        document.getElementById('question-input').focus();
+    });
+
+    function loadSuggestions() {
+        fetch('/chatbot/api/suggestions')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('suggestions-container');
+                if (data.success && data.suggestions && data.suggestions.length > 0) {
+                    container.innerHTML = '';
+                    data.suggestions.forEach((suggestion, idx) => {
+                        const btn = document.createElement('button');
+                        btn.className = 'btn btn-outline-success btn-sm suggestion-btn w-100';
+                        btn.innerHTML = `<span class="emoji-icon">❓</span>${suggestion}`;
+                        btn.onclick = () => askSuggestion(suggestion);
+                        btn.title = 'Click to ask';
+                        container.appendChild(btn);
+                    });
+                } else {
+                    container.innerHTML = '<p class="text-muted small">{{ get_translation("chatbot_no_suggestions", current_language) }}</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error loading suggestions:', error);
+                document.getElementById('suggestions-container').innerHTML = 
+                    '<p class="text-muted small">{{ get_translation("chatbot_no_suggestions", current_language) }}</p>';
+            });
+    }
+
+    function loadHistory() {
+        fetch('/chatbot/api/history?limit=8')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('history-container');
+                if (data.success && data.history && data.history.length > 0) {
+                    container.innerHTML = '';
+                    data.history.forEach(item => {
+                        const div = document.createElement('div');
+                        div.className = 'history-item';
+                        div.innerHTML = `
+                            <p class="mb-0"><strong>${item.question}</strong></p>
+                            <small>${new Date(item.timestamp).toLocaleDateString()} ${new Date(item.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</small>
+                        `;
+                        div.onclick = () => askSuggestion(item.question);
+                        div.style.cursor = 'pointer';
+                        container.appendChild(div);
+                    });
+                } else {
+                    container.innerHTML = '<p class="text-muted small">{{ get_translation("chatbot_no_recent", current_language) }}</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Error loading history:', error);
+            });
+    }
+
+    function askSuggestion(question) {
+        document.getElementById('question-input').value = question;
+        sendQuestion();
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            sendQuestion();
+        }
+    }
+
+    function sendQuestion() {
+        const input = document.getElementById('question-input');
+        const question = input.value.trim();
+        
+        if (!question) {
+            input.focus();
+            return;
+        }
+
+        // Add user message to chat
+        addMessage('user', question);
+        
+        // Store in history
+        messageHistory.push(question);
+        
+        // Clear input
+        input.value = '';
+        input.focus();
+
+        // Show thinking indicator
+        const loadingId = addMessage('bot', '<div class="thinking-indicator"><span>🤔 Analyzing your question...</span><div class="thinking-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>');
+
+        // Send to API with better error handling
+        fetch('/chatbot/api/ask', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ question: question }),
+            timeout: 30000 // 30 second timeout
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Remove loading message
+            removeMessage(loadingId);
+            
+            if (data.success) {
+                // Display Query Reflection first (Shows bot understood the question)
+                if (data.query_reflection) {
+                    const reflectionMsg = `<div style="background-color: #e8f4f8; border-left: 4px solid #17a2b8; padding: 0.75rem; margin-bottom: 1rem; border-radius: 4px;">
+                        <small style="color: #0c5460;"><strong>👁️ I understand:</strong> ${escapeHtml(data.query_reflection)}</small>
+                    </div>`;
+                    addMessage('bot', reflectionMsg);
+                }
+                
+                // Format answer with proper markdown rendering
+                const formattedAnswer = formatAnswerAsHTML(data.answer);
+                addMessage('bot', formattedAnswer);
+                
+                // Reload history
+                loadHistory();
+            } else {
+                const errorMsg = data.error || 'Could not get an answer. Please try rephrasing your question.';
+                addMessage('bot', `<span class="text-danger"><strong>⚠️ Error:</strong> ${escapeHtml(errorMsg)}</span>`);
+            }
+        })
+        .catch(error => {
+            removeMessage(loadingId);
+            console.error('Error:', error);
+            addMessage('bot', '<span class="text-danger"><strong>⚠️ Error:</strong> Something went wrong. Please try again or rephrase your question.</span>');
+        });
+    }
+
+    function formatAnswerAsHTML(text) {
+        // Better formatting for chatbot responses
+        
+        // Preserve line structure first
+        let html = escapeHtml(text);
+        
+        // Handle headers (### becomes h5)
+        html = html.replace(/^###\s+(.*?)$/gm, '<h5 class="section-header mt-3 mb-2">$1</h5>');
+        html = html.replace(/^##\s+(.*?)$/gm, '<h4 class="section-header mt-3 mb-2">$1</h4>');
+        html = html.replace(/^#\s+(.*?)$/gm, '<h3 class="section-header mt-3 mb-2">$1</h3>');
+        
+        // Handle **bold**
+        html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        
+        // Handle bullet points and create proper lists
+        const lines = html.split('<br>');
+        let inList = false;
+        let listHtml = '';
+        
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i].trim();
+            
+            if (line.match(/^[•\-\*]\s+/)) {
+                if (!inList) {
+                    listHtml = '<ul class="mt-2 mb-2">';
+                    inList = true;
+                }
+                const itemText = line.replace(/^[•\-\*]\s+/, '');
+                listHtml += `<li class="mb-2">${itemText}</li>`;
+            } else {
+                if (inList) {
+                    listHtml += '</ul>';
+                    html = html.replace(/<br>/g, '\n'); // Mark for replacement
+                    inList = false;
+                }
+            }
+        }
+        if (inList) {
+            listHtml += '</ul>';
+        }
+        
+        // Convert numbered lists
+        html = html.replace(/^\d+\.\s+(.*?)$/gm, '<li>$1</li>');
+        html = html.replace(/(<li>.*?<\/li>)/s, function(match) {
+            if (!match.includes('<ol>') && match.includes('<li>')) {
+                return '<ol class="mt-2 mb-2">' + match + '</ol>';
+            }
+            return match;
+        });
+        
+        // Handle inline code blocks
+        html = html.replace(/`([^`]+)`/g, '<code style="background: #f0f0f0; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.9em;">$1</code>');
+        
+        // Handle emojis - preserve them
+        // Already in text after escaping
+        
+        // Handle line breaks - convert remaining newlines
+        html = html.replace(/\n/g, '<br>');
+        
+        // Add spacing to paragraph-like sections
+        html = html.replace(/(<br><br>)/g, '</p><p class="mt-3">');
+        
+        // Wrap in paragraph if not already
+        if (!html.includes('<p>') && !html.includes('<h')) {
+            html = `<p>${html}</p>`;
+        }
+        
+        return html;
+    }
+
+    function addMessage(type, content) {
+        const container = document.getElementById('chat-container');
+        const messageDiv = document.createElement('div');
+        const messageId = 'msg-' + Date.now();
+        messageDiv.id = messageId;
+        messageDiv.className = `message ${type}-message`;
+        
+        if (type === 'user') {
+            messageDiv.innerHTML = `<strong>👤 {{ get_translation("chatbot_you", current_language) }}</strong><p class="mb-0">${escapeHtml(content)}</p>`;
+        } else {
+            messageDiv.innerHTML = `<strong><i class="fas fa-robot emoji-icon"></i>{{ get_translation("chatbot_bot", current_language) }}</strong><div class="mt-2">${content}</div>`;
+        }
+        
+        container.appendChild(messageDiv);
+        
+        // Scroll to bottom
+        setTimeout(() => {
+            container.scrollTop = container.scrollHeight;
+        }, 100);
+        
+        return messageId;
+    }
+
+    function removeMessage(messageId) {
+        const msg = document.getElementById(messageId);
+        if (msg) {
+            msg.remove();
+        }
+    }
+
+    function escapeHtml(text) {
+        const map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+        return text.replace(/[&<>"']/g, m => map[m]);
+    }
+</script>
+{% endblock %}

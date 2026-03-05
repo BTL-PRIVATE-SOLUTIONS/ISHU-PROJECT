@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="{% if session.get('language') == 'te' %}te{% else %}en{% endif %}" dir="ltr" class="{% if session.get('language') == 'te' %}lang-te{% else %}lang-en{% endif %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MaternalCare AI - Your Pregnancy Nutrition Companion{% endblock %}</title>
+
+    <!-- Google Fonts - Modern & Elegant -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3 with Custom Theme -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome 6.5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Animate.css for smooth animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    {% block extra_css %}{% endblock %}
+
+    <style>
+        :root {
+            /* Modern Maternal Health Color Palette */
+            --primary-pink: #FF6B9D;
+            --primary-purple: #8B5CF6;
+            --primary-blue: #3B82F6;
+            --accent-teal: #06B6D4;
+            --accent-emerald: #10B981;
+            --accent-rose: #F43F5E;
+
+            /* Neutral Colors */
+            --gray-50: #F9FAFB;
+            --gray-100: #F3F4F6;
+            --gray-200: #E5E7EB;
+            --gray-300: #D1D5DB;
+            --gray-400: #9CA3AF;
+            --gray-500: #6B7280;
+            --gray-600: #4B5563;
+            --gray-700: #374151;
+            --gray-800: #1F2937;
+            --gray-900: #111827;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary-pink) 0%, var(--primary-purple) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
+            --gradient-success: linear-gradient(135deg, var(--accent-emerald) 0%, var(--primary-blue) 100%);
+            --gradient-warm: linear-gradient(135deg, #FFE5E5 0%, #FFF8E1 100%);
+
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-glow: 0 0 20px rgba(255, 107, 157, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: var(--gradient-warm);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            direction: ltr;
+            text-align: left;
+            overflow-x: hidden;
+        }
+
+        /* Telugu Language Support */
+        body.lang-te {
+            font-family: 'Noto Sans Telugu', 'Inter', sans-serif;
+            direction: ltr;
+            text-align: left;
+        }
+
+        /* Modern Navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 1rem 0;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .navbar-brand i {
+            color: var(--primary-pink);
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--gray-700) !important;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 0 2px;
+            padding: 0.5rem 1rem !important;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-pink) !important;
+            background: rgba(255, 107, 157, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active {
+            background: var(--gradient-primary);
+            color: white !important;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Modern Cards */
+        .card {
+            border: none;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card-header {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        /* Modern Buttons */
+        .btn {
+            border-radius: 12px;
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+
+        .btn-success {
+            background: var(--gradient-success);
+            color: white;
+        }
+
+        .btn-outline-primary {
+            border: 2px solid var(--primary-pink);
+            color: var(--primary-pink);
+            background: transparent;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-pink);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Modern Form Elements */
+        .form-control {
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-pink);
+            box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.1);
+            background: white;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Modern Alerts */
+        .alert {
+            border: none;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+        }
+
+        .alert-success {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+            color: var(--accent-emerald);
+            border-left: 4px solid var(--accent-emerald);
+        }
+
+        .alert-danger {
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0.1), rgba(255, 107, 157, 0.1));
+            color: var(--accent-rose);
+            border-left: 4px solid var(--accent-rose);
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            flex: 1;
+            padding: 2rem 0;
+            background: var(--gradient-warm);
+        }
+
+        /* Modern Footer */
+        footer {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: auto;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        footer a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--primary-pink);
+            transform: translateY(-2px);
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--gray-200);
+            border-top: 4px solid var(--primary-pink);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+
+            .card-body {
+                padding: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.625rem 1.25rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus states for accessibility */
+        .btn:focus,
+        .form-control:focus,
+        .nav-link:focus {
+            outline: 2px solid var(--primary-pink);
+            outline-offset: 2px;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--gray-100);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-purple);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand animate__animated animate__fadeIn" href="/">
+                <i class="fas fa-heartbeat"></i>
+                {% if session.get('language') == 'te' %}
+                    ప్రసూతి సంరక్షణ AI
+                {% else %}
+                    MaternalCare AI
+                {% endif %}
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    {% if current_user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/dashboard' %}active{% endif %}" href="/dashboard">
+                                <i class="fas fa-home"></i>
+                                <span class="d-none d-lg-inline">{{ get_translation('dashboard', current_language) }}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if '/chatbot' in request.path %}active{% endif %}" href="/chatbot">
+                                <i class="fas fa-comments"></i>
+                                <span class="d-none d-lg-inline">{{ get_translation('chatbot', current_language) }}</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if '/meal-plans' in request.path %}active{% endif %}" href="/meal-plans">
+                                <i class="fas fa-utensils"></i>
+                                <span class="d-none d-lg-inline">{{ get_translation('meal_plans', current_language) }}</span>
+                            </a>
+                        </li>
+
+                        <!-- Language Selector -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-globe"></i>
+                                <span class="d-none d-lg-inline">
+                                    {% if session.get('language') == 'te' %}తెలుగు
+                                    {% else %}English{% endif %}
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeIn shadow-lg border-0">
+                                <li><a class="dropdown-item {% if not session.get('language') or session.get('language') == 'en' %}active{% endif %}" href="/language/set/en">
+                                    🇬🇧 English</a></li>
+                                <li><a class="dropdown-item {% if session.get('language') == 'te' %}active{% endif %}" href="/language/set/te">
+                                    🇮🇳 తెలుగు (Telugu)</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- User Profile Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                                <div class="user-avatar me-2">
+                                    <i class="fas fa-user-circle fa-lg"></i>
+                                </div>
+                                <span class="d-none d-lg-inline">{{ current_user.username }}</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeIn shadow-lg border-0">
+                                <li class="dropdown-header">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-user-circle fa-2x me-2 text-primary"></i>
+                                        <div>
+                                            <div class="fw-bold">{{ current_user.username }}</div>
+                                            <small class="text-muted">{{ get_translation('trimester', current_language) }} {{ current_user.current_trimester }}</small>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="/profile">
+                                    <i class="fas fa-user-edit me-2"></i>{{ get_translation('profile', current_language) or 'Profile' }}</a></li>
+                                <li><a class="dropdown-item" href="/logout">
+                                    <i class="fas fa-sign-out-alt me-2"></i>{{ get_translation('logout', current_language) or 'Logout' }}</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">
+                                <i class="fas fa-sign-in-alt"></i> {{ get_translation('login', current_language) }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary ms-2" href="/register">
+                                <i class="fas fa-user-plus"></i> {{ get_translation('register', current_language) }}
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <h5 class="fw-bold mb-3"><i class="fas fa-heartbeat"></i> {{ get_translation('app_name', current_language) }}</h5>
+                    <p class="opacity-75">{{ get_translation('app_description', current_language) }}</p>
+                </div>
+                <div class="col-md-3 mb-3 mb-md-0">
+                    <h6 class="fw-bold mb-3">{{ get_translation('quick_links', current_language) }}</h6>
+                    <ul class="list-unstyled">
+                        {% if current_user.is_authenticated %}
+                            <li><a href="/dashboard"><i class="fas fa-home"></i> {{ get_translation('dashboard', current_language) }}</a></li>
+                            <li><a href="/chatbot"><i class="fas fa-comments"></i> {{ get_translation('chatbot', current_language) }}</a></li>
+                            <li><a href="/meal-plans"><i class="fas fa-utensils"></i> {{ get_translation('meal_plans', current_language) }}</a></li>
+                        {% else %}
+                            <li><a href="/auth/login"><i class="fas fa-sign-in-alt"></i> {{ get_translation('login', current_language) }}</a></li>
+                            <li><a href="/auth/register"><i class="fas fa-user-plus"></i> {{ get_translation('register', current_language) }}</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="fw-bold mb-3">{{ get_translation('important_note', current_language) }}</h6>
+                    <p class="small opacity-75"><i class="fas fa-info-circle"></i> {{ get_translation('disclaimer', current_language) }}</p>
+                </div>
+            </div>
+            <hr class="my-4 opacity-25">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="mb-0 opacity-75">
+                        {{ get_translation('copyright', current_language) }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
