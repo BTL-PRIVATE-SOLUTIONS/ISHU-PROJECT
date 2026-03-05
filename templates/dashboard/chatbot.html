@@ -12,7 +12,7 @@
         background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
         box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
     }
-    
+
     .message {
         margin-bottom: 1.5rem;
         padding: 1rem 1.25rem;
@@ -20,12 +20,12 @@
         max-width: 90%;
         animation: fadeIn 0.3s ease-in;
     }
-    
+
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
-    
+
     .user-message {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
@@ -33,31 +33,41 @@
         text-align: left;
         box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
     }
-    
+
     .bot-message {
         background-color: #ffffff;
         border-left: 4px solid #28a745;
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    
+
+    .bot-message.domain-restriction {
+        border-left-color: #ffc107;
+        background-color: #fffbf0;
+    }
+
+    .bot-message.awaiting-followup {
+        border-left-color: #17a2b8;
+        background-color: #f0f9fb;
+    }
+
     .bot-message strong {
         color: #28a745;
     }
-    
+
     .bot-message p {
         margin-bottom: 0.5rem;
         line-height: 1.6;
     }
-    
+
     .bot-message ul, .bot-message ol {
         margin: 0.5rem 0;
         padding-left: 1.5rem;
     }
-    
+
     .bot-message li {
         margin-bottom: 0.3rem;
     }
-    
+
     .suggestion-btn {
         margin: 0.35rem;
         white-space: normal;
@@ -66,23 +76,23 @@
         padding: 0.6rem 0.8rem;
         transition: all 0.2s ease;
     }
-    
+
     .suggestion-btn:hover {
         background-color: #e7f1ff;
         transform: translateX(4px);
     }
-    
+
     .loading-dots::after {
         content: '.';
         animation: dots 1.5s steps(4, end) infinite;
     }
-    
+
     @keyframes dots {
         0%, 20% { content: '.'; }
         40% { content: '..'; }
         60%, 100% { content: '...'; }
     }
-    
+
     .section-header {
         color: #28a745;
         font-weight: 700;
@@ -90,11 +100,11 @@
         margin-bottom: 0.4rem;
         font-size: 0.95rem;
     }
-    
+
     .emoji-icon {
         margin-right: 0.3rem;
     }
-    
+
     .trimester-badge {
         display: inline-block;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -154,23 +164,71 @@
         animation: bounce 1.4s infinite;
     }
 
-    .dot:nth-child(2) {
-        animation-delay: 0.2s;
-    }
-
-    .dot:nth-child(3) {
-        animation-delay: 0.4s;
-    }
+    .dot:nth-child(2) { animation-delay: 0.2s; }
+    .dot:nth-child(3) { animation-delay: 0.4s; }
 
     @keyframes bounce {
-        0%, 80%, 100% {
-            opacity: 0.5;
-            transform: translateY(0);
-        }
-        40% {
-            opacity: 1;
-            transform: translateY(-8px);
-        }
+        0%, 80%, 100% { opacity: 0.5; transform: translateY(0); }
+        40% { opacity: 1; transform: translateY(-8px); }
+    }
+
+    /* Feedback bar */
+    .feedback-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+        padding-top: 0.6rem;
+        border-top: 1px solid #e9ecef;
+        flex-wrap: wrap;
+    }
+
+    .feedback-bar .feedback-label {
+        font-size: 0.8rem;
+        color: #666;
+    }
+
+    .star-rating {
+        display: inline-flex;
+        gap: 2px;
+    }
+
+    .star-btn {
+        background: none;
+        border: none;
+        font-size: 1.1rem;
+        cursor: pointer;
+        color: #ccc;
+        transition: color 0.15s, transform 0.1s;
+        padding: 0 2px;
+        line-height: 1;
+    }
+
+    .star-btn:hover,
+    .star-btn.active {
+        color: #ffc107;
+        transform: scale(1.2);
+    }
+
+    .star-btn.rated {
+        color: #ffc107;
+    }
+
+    .regenerate-btn {
+        font-size: 0.78rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: 20px;
+        margin-left: auto;
+    }
+
+    .feedback-thanks {
+        font-size: 0.78rem;
+        color: #28a745;
+        font-style: italic;
+    }
+
+    .language-toggle {
+        font-size: 0.8rem;
     }
 </style>
 {% endblock %}
@@ -180,14 +238,24 @@
     <div class="row mb-4">
         <div class="col-12">
             <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                <div class="card-body py-4">
-                    <h1 class="mb-2">
-                        <i class="fas fa-robot"></i> {{ get_translation('chatbot_title', current_language) }}
-                    </h1>
-                    <p class="lead mb-0">
-                        <i class="fas fa-baby"></i> {{ get_translation('trimester', current_language) }} {{ current_user.current_trimester }} | 
-                        <i class="fas fa-question-circle"></i> {{ get_translation('chatbot_subtitle', current_language) }}
-                    </p>
+                <div class="card-body py-4 d-flex justify-content-between align-items-center flex-wrap gap-2">
+                    <div>
+                        <h1 class="mb-2">
+                            <i class="fas fa-robot"></i> {{ get_translation('chatbot_title', current_language) }}
+                        </h1>
+                        <p class="lead mb-0">
+                            <i class="fas fa-baby"></i> {{ get_translation('trimester', current_language) }} {{ current_user.current_trimester }} |
+                            <i class="fas fa-question-circle"></i> {{ get_translation('chatbot_subtitle', current_language) }}
+                        </p>
+                    </div>
+                    <!-- Language toggle -->
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="text-white-50 small">Language:</span>
+                        <select id="language-select" class="form-select form-select-sm language-toggle" style="width: auto;">
+                            <option value="en" selected>English</option>
+                            <option value="te">తెలుగు (Telugu)</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -221,10 +289,10 @@
             <div class="card border-0 shadow-sm">
                 <div class="card-body">
                     <div class="input-group mb-2">
-                        <input 
-                            type="text" 
-                            id="question-input" 
-                            class="form-control form-control-lg" 
+                        <input
+                            type="text"
+                            id="question-input"
+                            class="form-control form-control-lg"
                             placeholder="{{ get_translation('chatbot_placeholder', current_language) }}"
                             onkeypress="handleKeyPress(event)"
                             autocomplete="off"
@@ -272,29 +340,39 @@
 
 {% block extra_js %}
 <script>
-    // State management
+    // -----------------------------------------------------------------------
+    // State
+    // -----------------------------------------------------------------------
     let messageHistory = [];
+    let selectedLanguage = 'en';
 
-    // Load suggestions and history on page load
-    document.addEventListener('DOMContentLoaded', function() {
+    // -----------------------------------------------------------------------
+    // Initialisation
+    // -----------------------------------------------------------------------
+    document.addEventListener('DOMContentLoaded', function () {
         loadSuggestions();
         loadHistory();
-        
-        // Focus on input
         document.getElementById('question-input').focus();
+
+        document.getElementById('language-select').addEventListener('change', function () {
+            selectedLanguage = this.value;
+        });
     });
 
+    // -----------------------------------------------------------------------
+    // Suggestions & History
+    // -----------------------------------------------------------------------
     function loadSuggestions() {
         fetch('/chatbot/api/suggestions')
-            .then(response => response.json())
+            .then(r => r.json())
             .then(data => {
                 const container = document.getElementById('suggestions-container');
                 if (data.success && data.suggestions && data.suggestions.length > 0) {
                     container.innerHTML = '';
-                    data.suggestions.forEach((suggestion, idx) => {
+                    data.suggestions.forEach(suggestion => {
                         const btn = document.createElement('button');
                         btn.className = 'btn btn-outline-success btn-sm suggestion-btn w-100';
-                        btn.innerHTML = `<span class="emoji-icon">❓</span>${suggestion}`;
+                        btn.innerHTML = `<span class="emoji-icon">❓</span>${escapeHtml(suggestion)}`;
                         btn.onclick = () => askSuggestion(suggestion);
                         btn.title = 'Click to ask';
                         container.appendChild(btn);
@@ -303,16 +381,15 @@
                     container.innerHTML = '<p class="text-muted small">{{ get_translation("chatbot_no_suggestions", current_language) }}</p>';
                 }
             })
-            .catch(error => {
-                console.error('Error loading suggestions:', error);
-                document.getElementById('suggestions-container').innerHTML = 
+            .catch(() => {
+                document.getElementById('suggestions-container').innerHTML =
                     '<p class="text-muted small">{{ get_translation("chatbot_no_suggestions", current_language) }}</p>';
             });
     }
 
     function loadHistory() {
         fetch('/chatbot/api/history?limit=8')
-            .then(response => response.json())
+            .then(r => r.json())
             .then(data => {
                 const container = document.getElementById('history-container');
                 if (data.success && data.history && data.history.length > 0) {
@@ -321,20 +398,17 @@
                         const div = document.createElement('div');
                         div.className = 'history-item';
                         div.innerHTML = `
-                            <p class="mb-0"><strong>${item.question}</strong></p>
-                            <small>${new Date(item.timestamp).toLocaleDateString()} ${new Date(item.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</small>
+                            <p class="mb-0"><strong>${escapeHtml(item.question)}</strong></p>
+                            <small>${new Date(item.timestamp).toLocaleDateString()} ${new Date(item.timestamp).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})}</small>
                         `;
                         div.onclick = () => askSuggestion(item.question);
-                        div.style.cursor = 'pointer';
                         container.appendChild(div);
                     });
                 } else {
                     container.innerHTML = '<p class="text-muted small">{{ get_translation("chatbot_no_recent", current_language) }}</p>';
                 }
             })
-            .catch(error => {
-                console.error('Error loading history:', error);
-            });
+            .catch(() => {});
     }
 
     function askSuggestion(question) {
@@ -349,183 +423,273 @@
         }
     }
 
+    // -----------------------------------------------------------------------
+    // Send question
+    // -----------------------------------------------------------------------
     function sendQuestion() {
         const input = document.getElementById('question-input');
         const question = input.value.trim();
-        
-        if (!question) {
-            input.focus();
-            return;
-        }
+        if (!question) { input.focus(); return; }
 
-        // Add user message to chat
         addMessage('user', question);
-        
-        // Store in history
         messageHistory.push(question);
-        
-        // Clear input
         input.value = '';
         input.focus();
 
-        // Show thinking indicator
-        const loadingId = addMessage('bot', '<div class="thinking-indicator"><span>🤔 Analyzing your question...</span><div class="thinking-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>');
+        const loadingId = addMessage('bot', '<div class="thinking-indicator"><span>🤔 Analyzing your question…</span><div class="thinking-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>');
 
-        // Send to API with better error handling
         fetch('/chatbot/api/ask', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ question: question }),
-            timeout: 30000 // 30 second timeout
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question: question, language: selectedLanguage }),
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}`);
-            }
-            return response.json();
-        })
+        .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
         .then(data => {
-            // Remove loading message
             removeMessage(loadingId);
-            
             if (data.success) {
-                // Display Query Reflection first (Shows bot understood the question)
-                if (data.query_reflection) {
-                    const reflectionMsg = `<div style="background-color: #e8f4f8; border-left: 4px solid #17a2b8; padding: 0.75rem; margin-bottom: 1rem; border-radius: 4px;">
-                        <small style="color: #0c5460;"><strong>👁️ I understand:</strong> ${escapeHtml(data.query_reflection)}</small>
-                    </div>`;
-                    addMessage('bot', reflectionMsg);
-                }
-                
-                // Format answer with proper markdown rendering
-                const formattedAnswer = formatAnswerAsHTML(data.answer);
-                addMessage('bot', formattedAnswer);
-                
-                // Reload history
+                handleBotResponse(data);
                 loadHistory();
             } else {
                 const errorMsg = data.error || 'Could not get an answer. Please try rephrasing your question.';
                 addMessage('bot', `<span class="text-danger"><strong>⚠️ Error:</strong> ${escapeHtml(errorMsg)}</span>`);
             }
         })
-        .catch(error => {
+        .catch(err => {
             removeMessage(loadingId);
-            console.error('Error:', error);
-            addMessage('bot', '<span class="text-danger"><strong>⚠️ Error:</strong> Something went wrong. Please try again or rephrase your question.</span>');
+            console.error('Error:', err);
+            addMessage('bot', '<span class="text-danger"><strong>⚠️ Error:</strong> Something went wrong. Please try again.</span>');
         });
     }
 
+    // -----------------------------------------------------------------------
+    // Handle bot response (with domain restriction + awaiting followup states)
+    // -----------------------------------------------------------------------
+    function handleBotResponse(data) {
+        // Show query reflection (bot understood the question)
+        if (data.query_reflection) {
+            const reflBox = `<div style="background:#e8f4f8;border-left:4px solid #17a2b8;padding:0.65rem 0.75rem;margin-bottom:0.8rem;border-radius:4px;">
+                <small style="color:#0c5460;"><strong>👁️ I understand:</strong> ${escapeHtml(data.query_reflection)}</small>
+            </div>`;
+            addMessage('bot', reflBox);
+        }
+
+        // Determine message style
+        let extraClass = '';
+        if (data.source === 'domain_restriction') extraClass = 'domain-restriction';
+        else if (data.awaiting_followup) extraClass = 'awaiting-followup';
+
+        const formattedAnswer = formatAnswerAsHTML(data.answer);
+        const questionId = data.question_id || '';
+
+        // Build feedback bar (only for real answers, not domain restriction)
+        let feedbackHtml = '';
+        if (questionId && data.source !== 'domain_restriction') {
+            feedbackHtml = buildFeedbackBar(questionId);
+        }
+
+        const msgId = addBotMessage(formattedAnswer + feedbackHtml, extraClass);
+
+        // Activate star buttons after DOM insertion
+        if (questionId && data.source !== 'domain_restriction') {
+            activateStars(msgId, questionId);
+        }
+    }
+
+    // -----------------------------------------------------------------------
+    // Feedback bar builder
+    // -----------------------------------------------------------------------
+    function buildFeedbackBar(questionId) {
+        const stars = [1,2,3,4,5].map(i =>
+            `<button class="star-btn" data-val="${i}" title="Rate ${i} star${i>1?'s':''}">★</button>`
+        ).join('');
+        return `
+        <div class="feedback-bar" id="fb-${questionId}">
+            <span class="feedback-label">Was this helpful?</span>
+            <span class="star-rating" id="stars-${questionId}">${stars}</span>
+            <button class="btn btn-outline-secondary btn-sm regenerate-btn"
+                    onclick="regenerateAnswer('${questionId}')" title="Get a different answer">
+                🔄 Try again
+            </button>
+        </div>`;
+    }
+
+    function activateStars(msgId, questionId) {
+        const starsContainer = document.getElementById(`stars-${questionId}`);
+        if (!starsContainer) return;
+
+        const buttons = starsContainer.querySelectorAll('.star-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => highlightStars(starsContainer, parseInt(btn.dataset.val)));
+            btn.addEventListener('mouseleave', () => resetStarHighlight(starsContainer));
+            btn.addEventListener('click', () => submitRating(questionId, parseInt(btn.dataset.val), starsContainer));
+        });
+    }
+
+    function highlightStars(container, val) {
+        container.querySelectorAll('.star-btn').forEach(b => {
+            b.classList.toggle('active', parseInt(b.dataset.val) <= val);
+        });
+    }
+
+    function resetStarHighlight(container) {
+        container.querySelectorAll('.star-btn').forEach(b => {
+            if (!b.classList.contains('rated')) b.classList.remove('active');
+        });
+    }
+
+    function submitRating(questionId, rating, starsContainer) {
+        // Visual feedback immediately
+        starsContainer.querySelectorAll('.star-btn').forEach(b => {
+            b.classList.toggle('rated', parseInt(b.dataset.val) <= rating);
+            b.classList.remove('active');
+            b.disabled = true;
+        });
+
+        const fbBar = document.getElementById(`fb-${questionId}`);
+        if (fbBar) {
+            const thanks = document.createElement('span');
+            thanks.className = 'feedback-thanks';
+            thanks.textContent = '✓ Thank you for your feedback!';
+            // Remove star container, keep regenerate button
+            const starsEl = document.getElementById(`stars-${questionId}`);
+            if (starsEl) starsEl.replaceWith(thanks);
+        }
+
+        // Send to API
+        fetch('/chatbot/api/feedback', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question_id: questionId, rating: rating }),
+        }).catch(err => console.error('Feedback error:', err));
+    }
+
+    // -----------------------------------------------------------------------
+    // Regenerate answer
+    // -----------------------------------------------------------------------
+    function regenerateAnswer(questionId) {
+        const fbBar = document.getElementById(`fb-${questionId}`);
+        if (fbBar) {
+            const btn = fbBar.querySelector('.regenerate-btn');
+            if (btn) { btn.disabled = true; btn.textContent = '⏳ Getting another answer…'; }
+        }
+
+        const loadingId = addMessage('bot', '<div class="thinking-indicator"><span>🔄 Generating alternative answer…</span><div class="thinking-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>');
+
+        fetch('/chatbot/api/regenerate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question_id: questionId }),
+        })
+        .then(r => r.json())
+        .then(data => {
+            removeMessage(loadingId);
+            if (data.success) {
+                handleBotResponse(data);
+                // Disable old feedback bar regenerate button permanently
+                if (fbBar) fbBar.querySelector('.regenerate-btn') && (fbBar.querySelector('.regenerate-btn').style.display = 'none');
+            } else {
+                addMessage('bot', `<span class="text-warning"><strong>ℹ️ Note:</strong> ${escapeHtml(data.error || 'Could not generate an alternative answer.')}</span>`);
+                if (fbBar) {
+                    const btn = fbBar.querySelector('.regenerate-btn');
+                    if (btn) { btn.disabled = false; btn.textContent = '🔄 Try again'; }
+                }
+            }
+        })
+        .catch(err => {
+            removeMessage(loadingId);
+            console.error('Regenerate error:', err);
+            if (fbBar) {
+                const btn = fbBar.querySelector('.regenerate-btn');
+                if (btn) { btn.disabled = false; btn.textContent = '🔄 Try again'; }
+            }
+        });
+    }
+
+    // -----------------------------------------------------------------------
+    // Message helpers
+    // -----------------------------------------------------------------------
+    function addMessage(type, content) {
+        const container = document.getElementById('chat-container');
+        const div = document.createElement('div');
+        const id = 'msg-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6);
+        div.id = id;
+        div.className = `message ${type}-message`;
+
+        if (type === 'user') {
+            div.innerHTML = `<strong>👤 {{ get_translation("chatbot_you", current_language) }}</strong><p class="mb-0">${escapeHtml(content)}</p>`;
+        } else {
+            div.innerHTML = `<strong><i class="fas fa-robot emoji-icon"></i>{{ get_translation("chatbot_bot", current_language) }}</strong><div class="mt-2">${content}</div>`;
+        }
+
+        container.appendChild(div);
+        setTimeout(() => { container.scrollTop = container.scrollHeight; }, 100);
+        return id;
+    }
+
+    function addBotMessage(content, extraClass) {
+        const container = document.getElementById('chat-container');
+        const div = document.createElement('div');
+        const id = 'msg-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6);
+        div.id = id;
+        div.className = `message bot-message${extraClass ? ' ' + extraClass : ''}`;
+        div.innerHTML = `<strong><i class="fas fa-robot emoji-icon"></i>{{ get_translation("chatbot_bot", current_language) }}</strong><div class="mt-2">${content}</div>`;
+        container.appendChild(div);
+        setTimeout(() => { container.scrollTop = container.scrollHeight; }, 100);
+        return id;
+    }
+
+    function removeMessage(id) {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+    }
+
+    // -----------------------------------------------------------------------
+    // Markdown → HTML formatter
+    // -----------------------------------------------------------------------
     function formatAnswerAsHTML(text) {
-        // Better formatting for chatbot responses
-        
-        // Preserve line structure first
+        if (!text) return '<em class="text-muted">No answer available.</em>';
+
         let html = escapeHtml(text);
-        
-        // Handle headers (### becomes h5)
+
+        // Headers
         html = html.replace(/^###\s+(.*?)$/gm, '<h5 class="section-header mt-3 mb-2">$1</h5>');
         html = html.replace(/^##\s+(.*?)$/gm, '<h4 class="section-header mt-3 mb-2">$1</h4>');
         html = html.replace(/^#\s+(.*?)$/gm, '<h3 class="section-header mt-3 mb-2">$1</h3>');
-        
-        // Handle **bold**
+
+        // Bold
         html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-        
-        // Handle bullet points and create proper lists
-        const lines = html.split('<br>');
-        let inList = false;
-        let listHtml = '';
-        
-        for (let i = 0; i < lines.length; i++) {
-            const line = lines[i].trim();
-            
-            if (line.match(/^[•\-\*]\s+/)) {
-                if (!inList) {
-                    listHtml = '<ul class="mt-2 mb-2">';
-                    inList = true;
-                }
-                const itemText = line.replace(/^[•\-\*]\s+/, '');
-                listHtml += `<li class="mb-2">${itemText}</li>`;
-            } else {
-                if (inList) {
-                    listHtml += '</ul>';
-                    html = html.replace(/<br>/g, '\n'); // Mark for replacement
-                    inList = false;
-                }
-            }
-        }
-        if (inList) {
-            listHtml += '</ul>';
-        }
-        
-        // Convert numbered lists
-        html = html.replace(/^\d+\.\s+(.*?)$/gm, '<li>$1</li>');
-        html = html.replace(/(<li>.*?<\/li>)/s, function(match) {
-            if (!match.includes('<ol>') && match.includes('<li>')) {
-                return '<ol class="mt-2 mb-2">' + match + '</ol>';
-            }
-            return match;
+
+        // Bullet lists (convert consecutive bullet lines to a <ul>)
+        html = html.replace(/((?:^[•\-\*]\s+.+\n?)+)/gm, (block) => {
+            const items = block.trim().split('\n').map(l => `<li>${l.replace(/^[•\-\*]\s+/, '')}</li>`).join('');
+            return `<ul class="mt-2 mb-2">${items}</ul>`;
         });
-        
-        // Handle inline code blocks
-        html = html.replace(/`([^`]+)`/g, '<code style="background: #f0f0f0; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.9em;">$1</code>');
-        
-        // Handle emojis - preserve them
-        // Already in text after escaping
-        
-        // Handle line breaks - convert remaining newlines
+
+        // Numbered lists
+        html = html.replace(/((?:^\d+\.\s+.+\n?)+)/gm, (block) => {
+            const items = block.trim().split('\n').map(l => `<li>${l.replace(/^\d+\.\s+/, '')}</li>`).join('');
+            return `<ol class="mt-2 mb-2">${items}</ol>`;
+        });
+
+        // Inline code
+        html = html.replace(/`([^`]+)`/g, '<code style="background:#f0f0f0;padding:0.2rem 0.4rem;border-radius:3px;font-size:0.9em;">$1</code>');
+
+        // Line breaks to <br>
         html = html.replace(/\n/g, '<br>');
-        
-        // Add spacing to paragraph-like sections
-        html = html.replace(/(<br><br>)/g, '</p><p class="mt-3">');
-        
-        // Wrap in paragraph if not already
-        if (!html.includes('<p>') && !html.includes('<h')) {
+
+        // Double line-breaks to paragraphs
+        html = html.replace(/(<br>){2,}/g, '</p><p class="mt-2">');
+
+        if (!html.includes('<p>') && !html.includes('<h') && !html.includes('<ul>') && !html.includes('<ol>')) {
             html = `<p>${html}</p>`;
         }
-        
+
         return html;
     }
 
-    function addMessage(type, content) {
-        const container = document.getElementById('chat-container');
-        const messageDiv = document.createElement('div');
-        const messageId = 'msg-' + Date.now();
-        messageDiv.id = messageId;
-        messageDiv.className = `message ${type}-message`;
-        
-        if (type === 'user') {
-            messageDiv.innerHTML = `<strong>👤 {{ get_translation("chatbot_you", current_language) }}</strong><p class="mb-0">${escapeHtml(content)}</p>`;
-        } else {
-            messageDiv.innerHTML = `<strong><i class="fas fa-robot emoji-icon"></i>{{ get_translation("chatbot_bot", current_language) }}</strong><div class="mt-2">${content}</div>`;
-        }
-        
-        container.appendChild(messageDiv);
-        
-        // Scroll to bottom
-        setTimeout(() => {
-            container.scrollTop = container.scrollHeight;
-        }, 100);
-        
-        return messageId;
-    }
-
-    function removeMessage(messageId) {
-        const msg = document.getElementById(messageId);
-        if (msg) {
-            msg.remove();
-        }
-    }
-
     function escapeHtml(text) {
-        const map = {
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            '"': '&quot;',
-            "'": '&#039;'
-        };
-        return text.replace(/[&<>"']/g, m => map[m]);
+        if (typeof text !== 'string') return '';
+        return text.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
     }
 </script>
 {% endblock %}
