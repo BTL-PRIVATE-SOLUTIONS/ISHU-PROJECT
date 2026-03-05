@@ -1,21 +1,21 @@
 """Chatbot routes for AI-powered food recommendations with external API fallback."""
-from flask import Blueprint, render_template, request, jsonify
+from flask import Blueprint, render_template, request, jsonify, session as flask_session
 from flask_login import login_required, current_user
 from datetime import datetime
 from models import db
 from models.interaction import UserInteraction
 
-# Lazy load chatbots
-_comprehensive_chatbot = None
+# Lazy-loaded ChatbotEngine singleton
+_chatbot_engine = None
 
 
-def get_comprehensive_chatbot():
-    """Get comprehensive chatbot with all datasets (lazy loading)."""
-    global _comprehensive_chatbot
-    if _comprehensive_chatbot is None:
-        from ai_engine.comprehensive_chatbot import get_comprehensive_chatbot as load_chatbot
-        _comprehensive_chatbot = load_chatbot()
-    return _comprehensive_chatbot
+def get_chatbot_engine():
+    """Get the ChatbotEngine singleton (lazy loading)."""
+    global _chatbot_engine
+    if _chatbot_engine is None:
+        from ai_engine.chatbot_engine import get_chatbot_engine as load_engine
+        _chatbot_engine = load_engine()
+    return _chatbot_engine
 
 
 chatbot_bp = Blueprint('chatbot', __name__)
@@ -32,44 +32,53 @@ def chatbot_page():
 @login_required
 def ask_question():
     """
-    Answer user questions with FAST responses (< 3 seconds).
-    Uses dataset + Gemini AI fallback.
-    
+    Answer user questions using the ChatbotEngine (dataset + AI fallback).
+
     Expects JSON:
         {
             "question": "Can I eat eggs during pregnancy?",
-            "trimester": 2 (optional)
+            "trimester": 2 (optional),
+            "language": "en" (optional, "en" or "te")
         }
-    
-    Automatically returns Do's and Don'Ts format with fast response times.
+
+    Returns Do's and Don'Ts format, domain restriction, diabetes follow-up,
+    and a question_id for feedback/regeneration.
     """
     try:
         data = request.get_json()
-        
+
         if not data or 'question' not in data:
             return jsonify({'success': False, 'error': 'Question is required'}), 400
-        
+
         question = data['question'].strip()
-        
+
         if not question or len(question) < 3:
             return jsonify({'success': False, 'error': 'Question too short (min 3 chars)'}), 400
-        
+
         if len(question) > 500:
             return jsonify({'success': False, 'error': 'Question too long (max 500 chars)'}), 400
-        
+
         # Get user context
         trimester = data.get('trimester')
         if trimester is None and hasattr(current_user, 'current_trimester'):
             trimester = current_user.current_trimester
-        
+
         region = data.get('region')
         season = data.get('season')
-        
-        # Get comprehensive chatbot with all datasets + Gemini AI fallback
+        language = data.get('language', 'en')
+
+        # Use a stable session ID keyed to the current Flask session
+        session_id = flask_session.get('chatbot_session_id')
+        if not session_id:
+            import uuid
+            session_id = str(uuid.uuid4())
+            flask_session['chatbot_session_id'] = session_id
+
+        # Initialise ChatbotEngine
         try:
-            chatbot = get_comprehensive_chatbot()
+            engine = get_chatbot_engine()
         except Exception as e:
-            print(f"❌ Failed to initialize chatbot: {e}")
+            print(f"❌ Failed to initialize chatbot engine: {e}")
             import traceback
             traceback.print_exc()
             return jsonify({
@@ -78,14 +87,18 @@ def ask_question():
                 'answer': 'Sorry, the chatbot is temporarily unavailable. Please try again later.'
             }), 500
 
-        # Use structured answer to include dos/donts and intent metadata
+        # Generate answer
         try:
-            result = chatbot.answer_question_structured(
+            result = engine.ask(
                 question=question,
-                trimester=trimester
+                trimester=trimester,
+                region=region,
+                season=season,
+                session_id=session_id,
+                language=language,
             )
         except Exception as e:
-            print(f"❌ Error generating answer for question '{question}': {e}")
+            print(f"❌ Error generating answer for '{question}': {e}")
             import traceback
             traceback.print_exc()
             return jsonify({
@@ -93,23 +106,8 @@ def ask_question():
                 'error': 'Error generating answer',
                 'answer': 'Sorry, I encountered an error processing your question. Please try rephrasing it or try again later.'
             }), 500
-        
-        # Determine AI backend used based on answer content
-        ai_backend = 'rule_based'
-        answer_text = result.get('answer', '')
-        if 'BERT+Flan-T5' in answer_text:
-            ai_backend = 'bert_flan_t5'
-        elif 'AI-Powered Answer' in answer_text:
-            ai_backend = 'ai_model'  # Gemini or LangChain
-        elif result.get('source') == 'database_cache':
-            ai_backend = 'database'
-        
-        # Inject region/season for logging context
-        result['region'] = region
-        result['season'] = season
-        result['ai_backend'] = ai_backend
-        
-        # Log interaction
+
+        # Log interaction (non-blocking)
         try:
             interaction = UserInteraction(
                 user_id=current_user.id,
@@ -122,15 +120,15 @@ def ask_question():
                 'response_time': result.get('response_time'),
                 'answer_length': len(result.get('answer', '')),
                 'keywords': result.get('keywords', []),
-                'intent': result.get('intent')
+                'intent': result.get('intent'),
+                'question_id': result.get('question_id'),
             })
-            
             db.session.add(interaction)
             db.session.commit()
         except Exception as e:
             print(f"⚠️ Could not log interaction: {e}")
             db.session.rollback()
-        
+
         return jsonify({
             'success': True,
             'question': question,
@@ -139,16 +137,18 @@ def ask_question():
             'donts': result.get('donts', []),
             'query_reflection': result.get('query_reflection', ''),
             'keywords': result.get('keywords', []),
-            'intent': result.get('intent'),
-            'source': result.get('source'),  # 'dataset', 'ai_model', 'fallback'
-            'ai_backend': result.get('ai_backend', 'rule_based'),  # 'bert_flan_t5', 'ai_model', 'database', 'rule_based'
+            'intent': result.get('intent', ''),
+            'source': result.get('source', ''),
+            'question_id': result.get('question_id', ''),
+            'session_id': session_id,
+            'awaiting_followup': result.get('awaiting_followup', False),
             'response_time': round(result.get('response_time', 0), 2),
             'trimester': trimester,
             'region': region,
             'season': season,
             'timestamp': datetime.now().isoformat()
         }), 200
-        
+
     except Exception as e:
         import traceback
         print(f"❌ Error in chatbot ask: {e}")
@@ -160,72 +160,158 @@ def ask_question():
         }), 500
 
 
+@chatbot_bp.route('/api/feedback', methods=['POST'])
+@login_required
+def submit_feedback():
+    """
+    Record user feedback for a chatbot response.
+
+    Expects JSON:
+        {
+            "question_id": "uuid-string",
+            "rating": 4  (1-5, where 5 is most helpful)
+        }
+    """
+    try:
+        data = request.get_json()
+        if not data or 'question_id' not in data or 'rating' not in data:
+            return jsonify({'success': False, 'error': 'question_id and rating are required'}), 400
+
+        rating = int(data['rating'])
+        if rating < 1 or rating > 5:
+            return jsonify({'success': False, 'error': 'rating must be between 1 and 5'}), 400
+
+        try:
+            engine = get_chatbot_engine()
+        except Exception as e:
+            return jsonify({'success': False, 'error': 'Chatbot not available'}), 500
+
+        recorded = engine.record_feedback(data['question_id'], rating)
+        if not recorded:
+            return jsonify({'success': False, 'error': 'question_id not found'}), 404
+
+        return jsonify({'success': True, 'message': 'Feedback recorded. Thank you!'}), 200
+
+    except Exception as e:
+        print(f"❌ Error recording feedback: {e}")
+        return jsonify({'success': False, 'error': 'Error recording feedback'}), 500
+
+
+@chatbot_bp.route('/api/regenerate', methods=['POST'])
+@login_required
+def regenerate_answer():
+    """
+    Regenerate a chatbot response using a different source tier.
+
+    Expects JSON:
+        {
+            "question_id": "uuid-string"
+        }
+    """
+    try:
+        data = request.get_json()
+        if not data or 'question_id' not in data:
+            return jsonify({'success': False, 'error': 'question_id is required'}), 400
+
+        try:
+            engine = get_chatbot_engine()
+        except Exception as e:
+            return jsonify({'success': False, 'error': 'Chatbot not available'}), 500
+
+        result = engine.regenerate(data['question_id'])
+        if result is None:
+            return jsonify({'success': False, 'error': 'Original question not found for regeneration'}), 404
+
+        if 'error' in result:
+            return jsonify({'success': False, 'error': result['error']}), 500
+
+        return jsonify({
+            'success': True,
+            'question': result.get('question', ''),
+            'answer': result.get('answer', ''),
+            'dos': result.get('dos', []),
+            'donts': result.get('donts', []),
+            'query_reflection': result.get('query_reflection', ''),
+            'keywords': result.get('keywords', []),
+            'intent': result.get('intent', ''),
+            'source': result.get('source', ''),
+            'question_id': result.get('question_id', ''),
+            'awaiting_followup': result.get('awaiting_followup', False),
+            'response_time': round(result.get('response_time', 0), 2),
+            'timestamp': datetime.now().isoformat()
+        }), 200
+
+    except Exception as e:
+        print(f"❌ Error regenerating answer: {e}")
+        return jsonify({'success': False, 'error': 'Error regenerating answer'}), 500
+
+
 @chatbot_bp.route('/api/suggestions', methods=['GET'])
 @login_required
 def get_suggestions():
     """
-    Get trimester-specific and contextual suggested questions.
-    
+    Get trimester-specific and contextual suggested questions covering all query formats.
+
     Returns:
         {
             "suggestions": ["Question 1", "Question 2", ...]
         }
     """
     try:
-        trimester = current_user.current_trimester if hasattr(current_user, 'current_trimester') and current_user.current_trimester else 2
-        region = current_user.region_preference if hasattr(current_user, 'region_preference') else None
-        
-        # Trimester-specific questions that are answerable by the chatbot
+        trimester = (
+            current_user.current_trimester
+            if hasattr(current_user, 'current_trimester') and current_user.current_trimester
+            else 2
+        )
+        region = getattr(current_user, 'region_preference', None)
+
+        # Comprehensive trimester-specific questions in various formats
         trimester_questions = {
             1: [
                 "What foods help with morning sickness?",
                 "What should I eat in first trimester?",
-                "Can I eat eggs during pregnancy?",
                 "Which fruits are best for first trimester?",
+                "What are good sources of folic acid?",
                 "What foods should I avoid in early pregnancy?",
                 "Is fish safe during pregnancy?",
-                "What are good sources of folic acid?",
-                "Can I drink milk during pregnancy?"
+                "How much water should I drink during pregnancy?",
+                "What snacks are healthy for early pregnancy?",
             ],
             2: [
                 f"What should I eat in trimester {trimester}?",
+                "What foods help prevent anemia during pregnancy?",
+                "Which vegetables are best during second trimester?",
+                "What are good sources of iron for pregnancy?",
+                "How much protein do I need during pregnancy?",
                 "What foods should I avoid during pregnancy?",
-                "Can I eat eggs during pregnancy?",
-                "Is fish safe during pregnancy?",
-                "What are good sources of iron?",
-                "Which fruits are best for pregnancy?",
-                "What foods help prevent anemia?",
-                "Can I eat seafood during pregnancy?"
+                "How do I manage heartburn during pregnancy?",
+                "What foods help with pregnancy swelling?",
             ],
             3: [
                 "What should I eat in third trimester?",
-                "What foods should I avoid in late pregnancy?",
-                "What foods help with energy in third trimester?",
-                "Can I eat spicy food in third trimester?",
-                "What are good sources of calcium?",
                 "Which foods help prepare for labor?",
                 "Is it safe to eat dates in third trimester?",
-                "What foods prevent swelling during pregnancy?"
-            ]
+                "What foods give energy in late pregnancy?",
+                "What are good sources of calcium for third trimester?",
+                "What foods prevent swelling during pregnancy?",
+                "What should I eat in the last month of pregnancy?",
+                "How do I manage constipation during pregnancy?",
+            ],
         }
-        
-        # Get trimester-specific questions
-        base_suggestions = trimester_questions.get(trimester, trimester_questions[2])
-        
-        # Add region-specific question if region is set
+
+        base_suggestions = list(trimester_questions.get(trimester, trimester_questions[2]))
+
+        # Prepend region-specific suggestion if available
         if region:
             base_suggestions.insert(0, f"What are good {region} Indian foods for pregnancy?")
-        
-        # Limit to 8 suggestions
-        suggestions = base_suggestions[:8]
-        
+
         return jsonify({
             'success': True,
-            'suggestions': suggestions,
+            'suggestions': base_suggestions[:8],
             'trimester': trimester,
-            'region': region
+            'region': region,
         })
-        
+
     except Exception as e:
         print(f"Error getting suggestions: {e}")
         return jsonify({
@@ -233,10 +319,10 @@ def get_suggestions():
             'suggestions': [
                 "What should I eat during pregnancy?",
                 "What foods should I avoid?",
-                "Can I eat eggs during pregnancy?",
-                "Is fish safe during pregnancy?"
-            ]
-        }), 200  # Return 200 with default suggestions instead of error
+                "What are good sources of iron?",
+                "How much water should I drink?",
+            ],
+        }), 200  # Return 200 with default suggestions on error
 
 
 @chatbot_bp.route('/api/history', methods=['GET'])
@@ -244,35 +330,26 @@ def get_suggestions():
 def get_history():
     """
     Get user's chat history.
-    
+
     Query params:
         limit: Number of recent interactions (default: 20)
-    
+
     Returns:
         {
-            "history": [
-                {
-                    "id": 1,
-                    "question": "...",
-                    "timestamp": "2024-01-01T12:00:00",
-                    "source": "dataset"
-                },
-                ...
-            ]
+            "history": [{"id": 1, "question": "...", "timestamp": "...", "source": "dataset"}, ...]
         }
     """
     try:
         limit = request.args.get('limit', 20, type=int)
         limit = min(limit, 100)  # Max 100 items
-        
-        # Get user's chatbot interactions
+
         interactions = UserInteraction.query.filter_by(
             user_id=current_user.id,
             interaction_type='chatbot_query'
         ).order_by(
             UserInteraction.timestamp.desc()
         ).limit(limit).all()
-        
+
         history = []
         for interaction in interactions:
             details = interaction.get_details()
@@ -280,19 +357,20 @@ def get_history():
                 'id': interaction.id,
                 'question': details.get('question', ''),
                 'intent': details.get('intent', ''),
-                'foods_mentioned': details.get('foods_mentioned', []),
-                'timestamp': interaction.timestamp.isoformat()
+                'source': details.get('source', ''),
+                'question_id': details.get('question_id', ''),
+                'timestamp': interaction.timestamp.isoformat(),
             })
-        
+
         return jsonify({
             'success': True,
             'history': history,
-            'total': len(history)
+            'total': len(history),
         })
-        
+
     except Exception as e:
         print(f"Error getting history: {e}")
         return jsonify({
             'error': 'Could not load chat history',
-            'history': []
+            'history': [],
         }), 500
