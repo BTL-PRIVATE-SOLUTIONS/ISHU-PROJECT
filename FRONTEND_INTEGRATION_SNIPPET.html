@@ -1,0 +1,190 @@
+<!-- HTML snippet for frontend integration of Do's and Don'Ts chatbot -->
+<!-- Add this to templates/dashboard/chatbot.html to support the new format toggle -->
+
+<div class="format-selector" style="margin-bottom: 15px; padding: 10px; background: linear-gradient(to right, #f8f9fa, #ffffff); border-radius: 8px; border-left: 4px solid #667eea;">
+    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 500;">
+        <input type="radio" name="response-format" value="comprehensive" checked style="width: 18px; height: 18px;">
+        <span>📖 Comprehensive Answer</span>
+    </label>
+    <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 500; margin-top: 8px;">
+        <input type="radio" name="response-format" value="dos-donts" style="width: 18px; height: 18px;">
+        <span>✅ Do's & Don'Ts Format</span>
+    </label>
+    <p style="margin-top: 8px; font-size: 0.85em; color: #666;">
+        💡 Tip: Choose "Do's & Don'Ts" for clear recommendations on what to do and avoid
+    </p>
+</div>
+
+<style>
+    .dos-donts-response {
+        background: linear-gradient(135deg, rgba(40, 167, 69, 0.05), rgba(220, 53, 69, 0.05));
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #28a745;
+        margin: 10px 0;
+    }
+    
+    .dos-section {
+        margin: 10px 0;
+    }
+    
+    .dos-section h4 {
+        color: #28a745;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+    
+    .donts-section {
+        margin: 15px 0;
+    }
+    
+    .donts-section h4 {
+        color: #dc3545;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+    
+    .dos-item, .donts-item {
+        padding: 8px 12px;
+        margin: 6px 0;
+        border-radius: 4px;
+        border-left: 3px solid;
+    }
+    
+    .dos-item {
+        background: rgba(40, 167, 69, 0.1);
+        border-left-color: #28a745;
+    }
+    
+    .donts-item {
+        background: rgba(220, 53, 69, 0.1);
+        border-left-color: #dc3545;
+    }
+</style>
+
+<!-- JavaScript to handle format selection -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get format radio buttons
+        const formatRadios = document.querySelectorAll('input[name="response-format"]');
+        
+        // Update ask function to include format
+        formatRadios.forEach(radio => {
+            radio.addEventListener('change', function(e) {
+                // Store preference
+                localStorage.setItem('chatbot-format', e.target.value);
+            });
+        });
+        
+        // Load saved preference
+        const savedFormat = localStorage.getItem('chatbot-format') || 'comprehensive';
+        const savedRadio = document.querySelector(`input[name="response-format"][value="${savedFormat}"]`);
+        if (savedRadio) {
+            savedRadio.checked = true;
+        }
+        
+        // Modify the send question function
+        const originalSendQuestion = window.sendQuestion || function() {};
+        window.sendQuestion = function(question) {
+            const format = document.querySelector('input[name="response-format"]:checked')?.value || 'comprehensive';
+            const data = {
+                question: question,
+                format: format  // Include format in request
+            };
+            // Send to /chatbot/api/ask with format
+            sendQuestionWithFormat(data);
+        };
+    });
+    
+    function sendQuestionWithFormat(data) {
+        // Send to chatbot API with format parameter
+        fetch('/chatbot/api/ask', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                displayAnswer(result, data.format);
+            } else {
+                console.error('Error:', result.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+    
+    function displayAnswer(result, format) {
+        const chatContainer = document.getElementById('chat-container');
+        
+        // Add user message
+        const userMsg = document.createElement('div');
+        userMsg.className = 'message user-message';
+        userMsg.textContent = result.question;
+        chatContainer.appendChild(userMsg);
+        
+        // Add bot response
+        const botMsg = document.createElement('div');
+        botMsg.className = 'message bot-message';
+        
+        if (format === 'dos-donts' && (result.dos || result.donts)) {
+            // Format as Do's and Don'Ts
+            botMsg.innerHTML = formatDosDontsResponse(result.answer, result.dos, result.donts);
+        } else {
+            // Format as regular answer
+            botMsg.innerHTML = marked(result.answer); // Use marked.js if available
+        }
+        
+        chatContainer.appendChild(botMsg);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+    
+    function formatDosDontsResponse(answer, dos, donts) {
+        let html = '<div class="dos-donts-response">';
+        
+        if (dos && dos.length > 0) {
+            html += '<div class="dos-section">';
+            html += '<h4>✅ DO\'s (Safe & Recommended)</h4>';
+            dos.forEach(item => {
+                html += `<div class="dos-item">`;
+                html += `<strong>${item.description}</strong>`;
+                if (item.notes) {
+                    html += `<br><small>💡 ${item.notes}</small>`;
+                }
+                html += `</div>`;
+            });
+            html += '</div>';
+        }
+        
+        if (donts && donts.length > 0) {
+            html += '<div class="donts-section">';
+            html += '<h4>❌ DON\'Ts (Avoid)</h4>';
+            donts.forEach(item => {
+                html += `<div class="donts-item">`;
+                html += `<strong>${item.description}</strong>`;
+                if (item.notes) {
+                    html += `<br><small>⚠️ ${item.notes}</small>`;
+                }
+                html += `</div>`;
+            });
+            html += '</div>';
+        }
+        
+        if (answer) {
+            html += '<div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd;">';
+            html += answer;
+            html += '</div>';
+        }
+        
+        html += '</div>';
+        return html;
+    }
+</script>

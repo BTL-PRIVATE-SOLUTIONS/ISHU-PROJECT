@@ -1,0 +1,35 @@
+....E
+=================================== ERRORS ====================================
+____________________ ERROR at setup of test_meal_filtering ____________________
+file c:\Users\balin\Downloads\ishuproject-main (1)\ishuproject-main\test_full_datasets.py, line 30
+  def test_meal_filtering(loader):
+E       fixture 'loader' not found
+>       available fixtures: anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, capteesys, doctest_namespace, free_tcp_port, free_tcp_port_factory, free_udp_port, free_udp_port_factory, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, subtests, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory
+>       use 'pytest --fixtures [testpath]' for help on them.
+
+c:\Users\balin\Downloads\ishuproject-main (1)\ishuproject-main\test_full_datasets.py:30
+============================== warnings summary ===============================
+test_enhanced_chatbot.py::test_enhanced_chatbot
+  C:\Users\balin\Downloads\ishuproject-main (1)\.venv\Lib\site-packages\_pytest\python.py:170: PytestReturnNotNoneWarning: Test functions should return None, but test_enhanced_chatbot.py::test_enhanced_chatbot returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+test_enhanced_chatbot.py::test_api_configuration
+  C:\Users\balin\Downloads\ishuproject-main (1)\.venv\Lib\site-packages\_pytest\python.py:170: PytestReturnNotNoneWarning: Test functions should return None, but test_enhanced_chatbot.py::test_api_configuration returned <class 'bool'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+test_full_datasets.py::test_dataset_loading
+  C:\Users\balin\Downloads\ishuproject-main (1)\.venv\Lib\site-packages\_pytest\python.py:170: PytestReturnNotNoneWarning: Test functions should return None, but test_full_datasets.py::test_dataset_loading returned <class 'ai_engine.unified_dataset_loader.UnifiedDatasetLoader'>.
+  Did you mean to use `assert` instead of `return`?
+  See https://docs.pytest.org/en/stable/how-to/assert.html#return-not-none for more information.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+ERROR test_full_datasets.py::test_meal_filtering
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!
+4 passed, 3 warnings, 1 error in 322.29s (0:05:22)
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute
