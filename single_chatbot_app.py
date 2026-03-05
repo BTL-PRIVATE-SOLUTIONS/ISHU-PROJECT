@@ -72,6 +72,38 @@ PREGNANCY_KEYWORDS = [
 DIABETES_KEYWORDS = ["diabetes", "diabetic", "sugar", "blood sugar", "glucose"]
 
 # ---------------------------------------------------------------------------
+# Intent classification keyword lists
+# ---------------------------------------------------------------------------
+SYMPTOM_KEYWORDS = [
+    "morning sickness", "nausea", "vomit", "back pain", "swelling", "edema",
+    "heartburn", "constipation", "cramp", "headache", "fatigue", "tired",
+]
+EXERCISE_KEYWORDS = ["exercise", "yoga", "walk", "swim", "gym", "workout", "physical activity"]
+MEAL_PLAN_KEYWORDS = ["meal plan", "diet plan", "what to eat", "menu", "breakfast", "lunch", "dinner"]
+MEDICATION_KEYWORDS = ["medicine", "medication", "paracetamol", "tablet", "drug", "pill", "supplement"]
+MENTAL_HEALTH_KEYWORDS = ["stress", "anxiety", "mood", "depress", "mental", "emotion", "worry", "fear"]
+SEASONAL_KEYWORDS = ["monsoon", "summer", "winter", "rainy", "season", "weather"]
+POSTPARTUM_KEYWORDS = ["after delivery", "postpartum", "postnatal", "breastfeed", "lactation", "after birth"]
+TRIMESTER_KEYWORDS = [
+    "trimester", "1st", "2nd", "3rd",
+    "first trimester", "second trimester", "third trimester",
+]
+SAFETY_KEYWORDS = ["can i", "safe", "avoid", "dangerous", "should i", "is it okay", "allowed"]
+BENEFITS_KEYWORDS = ["benefit", "good for", "nutrient", "vitamin", "protein", "iron", "calcium", "folic"]
+
+# ---------------------------------------------------------------------------
+# Thresholds for AI providers
+# ---------------------------------------------------------------------------
+BERT_MATCH_THRESHOLD = 0.45         # minimum cosine similarity to use a BERT corpus match
+DOMAIN_SIMILARITY_THRESHOLD = 0.25  # minimum score to consider a query pregnancy-related via BERT
+MAX_BERT_CORPUS_SIZE = 5000         # maximum number of corpus entries to encode at startup
+
+# ---------------------------------------------------------------------------
+# Supported response languages
+# ---------------------------------------------------------------------------
+SUPPORTED_LANGUAGES = {"en", "te"}
+
+# ---------------------------------------------------------------------------
 # Answer store: maps question_id -> full answer payload (for feedback regeneration)
 # ---------------------------------------------------------------------------
 _answer_store: Dict[str, Dict] = {}
@@ -172,8 +204,8 @@ class GeminiAIProvider:
 
     def __init__(self):
         self._model = None
-        api_key = os.getenv("GEMINI_API_KEY", "")
-        if _GEMINI_AVAILABLE and api_key and api_key not in ("your-gemini-api-key-here", ""):
+        api_key = os.getenv("GEMINI_API_KEY", "").strip()
+        if _GEMINI_AVAILABLE and api_key:
             try:
                 genai.configure(api_key=api_key)
                 self._model = genai.GenerativeModel("gemini-1.5-flash")
@@ -540,7 +572,7 @@ class SingleChatbot:
         # Build BERT corpus from food index keys for semantic search
         if self.bert.available:
             corpus = list(self.loader.food_index.keys()) + list(self.loader.dos_donts_index.keys())
-            self.bert.build_corpus(corpus[:5000])  # limit to avoid memory issues
+            self.bert.build_corpus(corpus[:MAX_BERT_CORPUS_SIZE])
 
     # ------------------------------------------------------------------
     # Intent classification
@@ -549,28 +581,27 @@ class SingleChatbot:
     def classify_intent(self, question: str) -> str:
         q = question.lower()
         # Check specific intents FIRST before generic safety/benefits
-        if any(w in q for w in ["morning sickness", "nausea", "vomit", "back pain", "swelling", "edema",
-                                  "heartburn", "constipation", "cramp", "headache", "fatigue", "tired"]):
+        if any(w in q for w in SYMPTOM_KEYWORDS):
             return "symptoms"
-        if any(w in q for w in ["meal plan", "diet plan", "what to eat", "menu", "breakfast", "lunch", "dinner"]):
+        if any(w in q for w in MEAL_PLAN_KEYWORDS):
             return "meal_plan"
-        if any(w in q for w in ["exercise", "yoga", "walk", "swim", "gym", "workout", "physical activity"]):
+        if any(w in q for w in EXERCISE_KEYWORDS):
             return "exercise"
-        if any(w in q for w in ["medicine", "medication", "paracetamol", "tablet", "drug", "pill", "supplement"]):
+        if any(w in q for w in MEDICATION_KEYWORDS):
             return "medication"
-        if any(w in q for w in ["stress", "anxiety", "mood", "depress", "mental", "emotion", "worry", "fear"]):
+        if any(w in q for w in MENTAL_HEALTH_KEYWORDS):
             return "mental_health"
-        if any(w in q for w in ["monsoon", "summer", "winter", "rainy", "season", "weather"]):
+        if any(w in q for w in SEASONAL_KEYWORDS):
             return "seasonal"
-        if any(w in q for w in ["after delivery", "postpartum", "postnatal", "breastfeed", "lactation", "after birth"]):
+        if any(w in q for w in POSTPARTUM_KEYWORDS):
             return "postpartum"
         if any(w in q for w in DIABETES_KEYWORDS):
             return "diabetes"
-        if any(w in q for w in ["trimester", "1st", "2nd", "3rd", "first trimester", "second trimester", "third trimester"]):
+        if any(w in q for w in TRIMESTER_KEYWORDS):
             return "trimester"
-        if any(w in q for w in ["can i", "safe", "avoid", "dangerous", "should i", "is it okay", "allowed"]):
+        if any(w in q for w in SAFETY_KEYWORDS):
             return "safety"
-        if any(w in q for w in ["benefit", "good for", "nutrient", "vitamin", "protein", "iron", "calcium", "folic"]):
+        if any(w in q for w in BENEFITS_KEYWORDS):
             return "benefits"
         return "general"
 
@@ -582,7 +613,9 @@ class SingleChatbot:
                 return True
         # BERT semantic check as secondary (only when keyword check fails)
         if self.bert.available:
-            return self.bert.is_related_to_domain(question, self._DOMAIN_DESCRIPTIONS, threshold=0.25)
+            return self.bert.is_related_to_domain(
+                question, self._DOMAIN_DESCRIPTIONS, threshold=DOMAIN_SIMILARITY_THRESHOLD
+            )
         return False
 
     def _has_diabetes_keyword(self, question: str) -> bool:
@@ -868,7 +901,7 @@ class SingleChatbot:
         # Tier 2: BERT semantic similarity
         # ------------------------------------------------------------------
         if not answer_text and "bert" not in skip_sources and self.bert.available:
-            best_text, score = self.bert.find_best_match(question, threshold=0.45)
+            best_text, score = self.bert.find_best_match(question, threshold=BERT_MATCH_THRESHOLD)
             if best_text and score > 0:
                 if best_text in self.loader.food_index:
                     meal_data = self.loader.food_index[best_text]
@@ -1130,6 +1163,8 @@ def create_app() -> Flask:
         season = data.get("season")
         session_id = data.get("session_id") or str(uuid.uuid4())
         language = str(data.get("language", "en")).lower()
+        if language not in SUPPORTED_LANGUAGES:
+            language = "en"
         result = bot.answer(
             question=question,
             trimester=trimester,
@@ -1195,7 +1230,10 @@ def create_app() -> Flask:
         trimester = data.get("trimester")
         season = data.get("season")
         condition = data.get("condition")
-        limit = int(data.get("limit", 5))
+        try:
+            limit = int(data.get("limit", 5))
+        except (ValueError, TypeError):
+            return jsonify({"error": "limit must be a valid integer"}), 400
         preview = bot.meal_plan_preview(
             region=region,
             diet_type=diet_type,
@@ -1245,6 +1283,8 @@ def create_app() -> Flask:
         season = data.get("season")
         session_id = data.get("session_id") or str(uuid.uuid4())
         language = str(data.get("language", "en")).lower()
+        if language not in SUPPORTED_LANGUAGES:
+            language = "en"
 
         answer_result = bot.answer(
             question=question,
