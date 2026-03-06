@@ -1,9 +1,13 @@
 """AI-Powered Meal Plan Generator using Unified Dataset Integration and Gemini AI."""
+import json
+import logging
 import random
 from typing import Dict, List, Optional
 from datetime import datetime, timedelta
 from ai_engine.unified_dataset_loader import UnifiedDatasetLoader
 from ai_engine.gemini_integration import GeminiNutritionAI
+
+logger = logging.getLogger(__name__)
 
 
 class MealPlanner:
@@ -95,6 +99,8 @@ class MealPlanner:
                 'omega3': 0
             }
             
+            generation_warnings = []
+
             for day in range(1, days + 1):
                 day_meals = self._generate_day_meals(
                     user=user,
@@ -109,7 +115,11 @@ class MealPlanner:
                 )
                 
                 if 'error' in day_meals:
-                    return day_meals
+                    # Log warning and skip this day rather than aborting the whole plan
+                    warning_msg = f"Day {day} skipped: {day_meals['error']}"
+                    logger.warning(warning_msg)
+                    generation_warnings.append(warning_msg)
+                    continue
                 
                 meal_plan.append(day_meals)
                 
@@ -117,6 +127,14 @@ class MealPlanner:
                 day_nutrition = self._calculate_day_nutrition(day_meals['meals'])
                 for key in nutrition_totals:
                     nutrition_totals[key] += day_nutrition.get(key, 0)
+
+            # If no days were generated at all, return an error
+            if not meal_plan:
+                return {
+                    'error': 'No meals could be generated with your current preferences. '
+                             'Please try different region or diet settings.',
+                    'warnings': generation_warnings
+                }
             
             # Calculate averages and targets
             pregnancy_targets = self._get_pregnancy_nutrition_targets(trimester)
@@ -150,6 +168,7 @@ class MealPlanner:
                 'table_format': table_format,
                 'data_sources_used': list(data_sources_used),
                 'ai_enhanced': ai_enhanced,
+                'warnings': generation_warnings if generation_warnings else [],
                 'preferences': {
                     'region': region,
                     'diet_type': diet_type,
@@ -285,7 +304,10 @@ class MealPlanner:
             if col in meal and meal[col]:
                 return str(meal[col]).strip().lower()
         # Fallback: use hash of meal dict (less ideal but works)
-        return str(hash(frozenset(meal.items())))
+        try:
+            return str(hash(frozenset(meal.items())))
+        except TypeError:
+            return json.dumps(meal, sort_keys=True, default=str)
     
     def _get_meal_for_type(
         self,
@@ -650,10 +672,11 @@ class MealPlanner:
         if not diet:
             return None
         value = diet.strip().lower()
+        # Check 'vegan' before 'veg' because 'vegan' also contains 'veg'
+        if 'vegan' in value:
+            return 'vegan'
         if 'veg' in value and 'non' not in value:
             return 'veg'
         if 'non' in value:
             return 'nonveg'
-        if 'vegan' in value:
-            return 'vegan'
         return value
