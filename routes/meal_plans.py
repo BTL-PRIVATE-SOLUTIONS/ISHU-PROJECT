@@ -1,4 +1,5 @@
 """Meal plan routes for generating personalized meal plans with comprehensive user preferences."""
+import logging
 from flask import Blueprint, render_template, request, jsonify
 from flask_login import login_required, current_user
 from datetime import datetime
@@ -6,6 +7,8 @@ from models import db
 from models.interaction import UserInteraction
 from ai_engine.meal_planner import MealPlanner
 from ai_engine.unified_dataset_loader import UnifiedDatasetLoader
+
+logger = logging.getLogger(__name__)
 
 meal_plans_bp = Blueprint('meal_plans', __name__)
 
@@ -241,6 +244,10 @@ def generate_meal_plan():
         
         # Check for errors
         if 'error' in result:
+            logger.error(
+                "Meal plan generation failed for user %s: %s",
+                current_user.id, result['error']
+            )
             return jsonify({
                 'success': False,
                 'error': result['error']
@@ -271,6 +278,7 @@ def generate_meal_plan():
             'meal_plan': result['meal_plan'],
             'nutrition_summary': result['nutrition_summary'],
             'table_format': result['table_format'],
+            'warnings': result.get('warnings', []),
             'preferences_used': {
                 'region': current_user.region_preference,
                 'diet': current_user.dietary_preferences,
@@ -283,9 +291,7 @@ def generate_meal_plan():
         })
         
     except Exception as e:
-        print(f"Error generating meal plan: {e}")
-        import traceback
-        traceback.print_exc()
+        logger.exception("Unexpected error generating meal plan for user %s: %s", current_user.id, e)
         return jsonify({
             'success': False,
             'error': 'An error occurred generating the meal plan. Please try again.'
