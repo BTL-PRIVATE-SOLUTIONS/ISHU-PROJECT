@@ -646,6 +646,19 @@
                         </div>
 
                         <div class="form-group-modern">
+                            <label for="trimester" class="form-label-modern">
+                                <i class="fas fa-baby me-2" style="color: var(--accent-emerald);"></i>
+                                {% if session.get('language') == 'te' %}ట్రైమెస్టర్{% else %}Trimester{% endif %} <span style="color: red;">*</span>
+                            </label>
+                            <select class="form-select-modern" id="trimester" required>
+                                <option value="">{% if session.get('language') == 'te' %}ట్రైమెస్టర్ ఎంచుకోండి{% else %}Select Trimester{% endif %}</option>
+                                <option value="1" {% if current_user.current_trimester == 1 %}selected{% endif %}>{% if session.get('language') == 'te' %}1వ ట్రైమెస్టర్ (వారాలు 1-12){% else %}1st Trimester (Weeks 1–12){% endif %}</option>
+                                <option value="2" {% if current_user.current_trimester == 2 %}selected{% endif %}>{% if session.get('language') == 'te' %}2వ ట్రైమెస్టర్ (వారాలు 13-26){% else %}2nd Trimester (Weeks 13–26){% endif %}</option>
+                                <option value="3" {% if current_user.current_trimester == 3 %}selected{% endif %}>{% if session.get('language') == 'te' %}3వ ట్రైమెస్టర్ (వారాలు 27-40){% else %}3rd Trimester (Weeks 27–40){% endif %}</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group-modern">
                             <label for="meal-frequency" class="form-label-modern">
                                 <i class="fas fa-utensils me-2" style="color: var(--accent-emerald);"></i>
                                 {% if session.get('language') == 'te' %}భోజనాల సంఖ్య{% else %}Meals Per Day{% endif %}
@@ -655,6 +668,34 @@
                                 <option value="3meals">{% if session.get('language') == 'te' %}3 భోజనాలు{% else %}3 Meals{% endif %}</option>
                                 <option value="5meals">{% if session.get('language') == 'te' %}5 భోజనాలు{% else %}5 Meals (with snacks){% endif %}</option>
                             </select>
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label class="form-label-modern">
+                                <i class="fas fa-heartbeat me-2" style="color: var(--accent-emerald);"></i>
+                                {% if session.get('language') == 'te' %}ప్రత్యేక పరిస్థితులు{% else %}Special Conditions{% endif %}
+                                <small class="text-muted ms-1">({% if session.get('language') == 'te' %}ఐచ్ఛికం{% else %}optional{% endif %})</small>
+                            </label>
+                            <div class="d-flex flex-column gap-2 mt-1">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cond-diabetes" value="diabetes">
+                                    <label class="form-check-label" for="cond-diabetes">
+                                        {% if session.get('language') == 'te' %}మధుమేహం{% else %}Diabetes{% endif %}
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cond-gest-diabetes" value="gestational_diabetes">
+                                    <label class="form-check-label" for="cond-gest-diabetes">
+                                        {% if session.get('language') == 'te' %}గర్భకాల మధుమేహం{% else %}Gestational Diabetes{% endif %}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Error message area -->
+                        <div id="form-error" class="alert alert-danger d-none py-2 mb-3" role="alert" style="border-radius: 10px; font-size: 0.9rem;">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <span id="form-error-text"></span>
                         </div>
 
                         <button type="submit" class="generate-btn">
@@ -719,7 +760,7 @@
             <div id="initial-state" class="initial-state animate__animated animate__fadeIn">
                 <i class="fas fa-utensils"></i>
                 <h4 class="text-muted mb-3">
-                    {% if session.get('language') == 'te' %}మీ ఆహార ప్రణాళిక సిద్ధంగా లేదు{% else %}Your Meal Plan is Ready{% endif %}
+                    {% if session.get('language') == 'te' %}మీ ఆహార ప్రణాళిక సిద్ధంగా లేదు{% else %}Generate Your Meal Plan{% endif %}
                 </h4>
                 <p class="text-muted mb-4">
                     {% if session.get('language') == 'te' %}
@@ -883,26 +924,37 @@
         const days = parseInt(document.getElementById('days').value);
         const region = document.getElementById('region').value;
         const dietType = document.getElementById('diet-type').value;
+        const trimester = document.getElementById('trimester').value;
         const mealFrequency = document.getElementById('meal-frequency').value;
 
+        // Collect special conditions from checkboxes
+        const specialConditions = [];
+        document.querySelectorAll('#meal-plan-form input[type="checkbox"]:checked').forEach(cb => {
+            specialConditions.push(cb.value);
+        });
+
+        // Hide any previous error
+        showFormError(null);
+
         // Validation
-        if (days < 1 || days > 30) {
-            alert('Please enter a valid number of days (1-30)');
+        if (isNaN(days) || days < 1 || days > 30) {
+            showFormError('Please enter a valid number of days (1–30)');
             return;
         }
-
         if (!region) {
-            alert('Please select a region');
+            showFormError('Please select a region');
             return;
         }
-
         if (!dietType) {
-            alert('Please select a diet type');
+            showFormError('Please select a diet type');
             return;
         }
-
+        if (!trimester) {
+            showFormError('Please select your trimester');
+            return;
+        }
         if (!mealFrequency) {
-            alert('Please select meals per day');
+            showFormError('Please select meals per day');
             return;
         }
 
@@ -917,15 +969,15 @@
             days: days,
             region: region,
             diet_type: dietType,
-            meal_frequency: mealFrequency
+            trimester: parseInt(trimester),
+            meal_frequency: mealFrequency,
+            special_conditions: specialConditions
         };
 
         // Call API
         fetch('/meal-plans/api/generate', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         })
         .then(response => response.json())
@@ -936,7 +988,7 @@
                 currentMealPlan = data;
                 displayMealPlan(data);
             } else {
-                alert('Error: ' + (data.error || 'Could not generate meal plan'));
+                showFormError(data.error || 'Could not generate meal plan. Please try again.');
                 document.getElementById('initial-state').style.display = 'block';
             }
         })
@@ -944,8 +996,20 @@
             console.error('Error:', error);
             document.getElementById('loading-state').style.display = 'none';
             document.getElementById('initial-state').style.display = 'block';
-            alert('An error occurred. Please try again.');
+            showFormError('A network error occurred. Please check your connection and try again.');
         });
+    }
+
+    function showFormError(message) {
+        const errorEl = document.getElementById('form-error');
+        const errorText = document.getElementById('form-error-text');
+        if (!message) {
+            errorEl.classList.add('d-none');
+            return;
+        }
+        errorText.textContent = message;
+        errorEl.classList.remove('d-none');
+        errorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
     function displayMealPlan(data) {

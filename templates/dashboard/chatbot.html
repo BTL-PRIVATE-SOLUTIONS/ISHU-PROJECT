@@ -5,20 +5,21 @@
 {% block extra_css %}
 <style>
     #chat-container {
-        height: 600px;
+        height: 580px;
         overflow-y: auto;
-        border-radius: 12px;
+        border-radius: 16px;
         padding: 1.5rem;
-        background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+        background: linear-gradient(to bottom, var(--gray-50) 0%, #ffffff 100%);
         box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+        scroll-behavior: smooth;
     }
 
     .message {
         margin-bottom: 1.5rem;
         padding: 1rem 1.25rem;
-        border-radius: 12px;
-        max-width: 90%;
-        animation: fadeIn 0.3s ease-in;
+        border-radius: 16px;
+        max-width: 92%;
+        animation: fadeIn 0.35s ease-out;
     }
 
     @keyframes fadeIn {
@@ -27,31 +28,32 @@
     }
 
     .user-message {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: var(--gradient-primary);
         color: white;
         margin-left: auto;
         text-align: left;
-        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        box-shadow: var(--shadow-md);
     }
 
     .bot-message {
-        background-color: #ffffff;
-        border-left: 4px solid #28a745;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        background: rgba(255,255,255,0.95);
+        backdrop-filter: blur(10px);
+        border-left: 4px solid var(--accent-emerald);
+        box-shadow: var(--shadow-sm);
     }
 
     .bot-message.domain-restriction {
-        border-left-color: #ffc107;
+        border-left-color: #f59e0b;
         background-color: #fffbf0;
     }
 
     .bot-message.awaiting-followup {
-        border-left-color: #17a2b8;
-        background-color: #f0f9fb;
+        border-left-color: var(--accent-teal);
+        background-color: rgba(6,182,212,0.05);
     }
 
     .bot-message strong {
-        color: #28a745;
+        color: var(--accent-emerald);
     }
 
     .bot-message p {
@@ -65,21 +67,41 @@
     }
 
     .bot-message li {
-        margin-bottom: 0.3rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .dos-section, .donts-section {
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .dos-section {
+        background: rgba(16,185,129,0.07);
+        border-left: 3px solid var(--accent-emerald);
+    }
+
+    .donts-section {
+        background: rgba(239,68,68,0.07);
+        border-left: 3px solid var(--accent-rose);
     }
 
     .suggestion-btn {
-        margin: 0.35rem;
+        margin: 0.3rem;
         white-space: normal;
         text-align: left;
-        font-size: 0.9rem;
-        padding: 0.6rem 0.8rem;
+        font-size: 0.88rem;
+        padding: 0.55rem 0.85rem;
         transition: all 0.2s ease;
+        border-radius: 10px !important;
+        border-color: var(--accent-emerald) !important;
+        color: var(--accent-emerald) !important;
     }
 
     .suggestion-btn:hover {
-        background-color: #e7f1ff;
+        background-color: rgba(16,185,129,0.1) !important;
         transform: translateX(4px);
+        color: var(--accent-emerald) !important;
     }
 
     .loading-dots::after {
@@ -94,7 +116,7 @@
     }
 
     .section-header {
-        color: #28a745;
+        color: var(--accent-emerald);
         font-weight: 700;
         margin-top: 0.8rem;
         margin-bottom: 0.4rem;
@@ -105,44 +127,34 @@
         margin-right: 0.3rem;
     }
 
-    .trimester-badge {
-        display: inline-block;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 0.3rem 0.8rem;
-        border-radius: 20px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-    }
-
     #suggestions-container {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 0.5rem;
+        gap: 0.4rem;
     }
 
     .history-item {
         padding: 0.75rem;
-        border-left: 3px solid #667eea;
-        border-bottom: 1px solid #e9ecef;
+        border-left: 3px solid var(--primary-purple);
+        border-bottom: 1px solid var(--gray-200);
         cursor: pointer;
         transition: background 0.2s ease;
+        border-radius: 0 8px 8px 0;
     }
 
     .history-item:hover {
-        background: #f8f9fa;
+        background: var(--gray-50);
     }
 
     .history-item p {
-        font-size: 0.9rem;
-        margin-bottom: 0.3rem;
-        color: #333;
+        font-size: 0.88rem;
+        margin-bottom: 0.25rem;
+        color: var(--gray-700);
     }
 
     .history-item small {
-        color: #999;
-        font-size: 0.8rem;
+        color: var(--gray-400);
+        font-size: 0.78rem;
     }
 
     .thinking-indicator {
@@ -159,7 +171,7 @@
     .dot {
         width: 6px;
         height: 6px;
-        background: #28a745;
+        background: var(--accent-emerald);
         border-radius: 50%;
         animation: bounce 1.4s infinite;
     }
@@ -179,13 +191,13 @@
         gap: 0.5rem;
         margin-top: 0.75rem;
         padding-top: 0.6rem;
-        border-top: 1px solid #e9ecef;
+        border-top: 1px solid var(--gray-200);
         flex-wrap: wrap;
     }
 
     .feedback-bar .feedback-label {
         font-size: 0.8rem;
-        color: #666;
+        color: var(--gray-500);
     }
 
     .star-rating {
@@ -198,7 +210,7 @@
         border: none;
         font-size: 1.1rem;
         cursor: pointer;
-        color: #ccc;
+        color: var(--gray-300);
         transition: color 0.15s, transform 0.1s;
         padding: 0 2px;
         line-height: 1;
@@ -206,12 +218,12 @@
 
     .star-btn:hover,
     .star-btn.active {
-        color: #ffc107;
+        color: #fbbf24;
         transform: scale(1.2);
     }
 
     .star-btn.rated {
-        color: #ffc107;
+        color: #fbbf24;
     }
 
     .regenerate-btn {
@@ -223,38 +235,98 @@
 
     .feedback-thanks {
         font-size: 0.78rem;
-        color: #28a745;
+        color: var(--accent-emerald);
         font-style: italic;
     }
 
     .language-toggle {
         font-size: 0.8rem;
     }
+
+    .response-meta .badge {
+        border-radius: 20px;
+        font-weight: 500;
+        text-transform: capitalize;
+    }
+
+    /* Chat card header */
+    .chat-card-header {
+        background: var(--gradient-success);
+        color: white;
+        border-radius: 12px 12px 0 0;
+        padding: 0.75rem 1.25rem;
+        font-weight: 600;
+    }
+
+    /* Input area */
+    .chat-input-card {
+        border-radius: 0 0 16px 16px !important;
+        border-top: 1px solid var(--gray-200) !important;
+    }
+
+    #question-input:focus {
+        border-color: var(--accent-emerald);
+        box-shadow: 0 0 0 3px rgba(16,185,129,0.15);
+    }
+
+    .btn-send {
+        background: var(--gradient-success);
+        border: none;
+        border-radius: 0 12px 12px 0 !important;
+        padding: 0.75rem 1.25rem;
+        color: white;
+        transition: opacity 0.2s;
+    }
+
+    .btn-send:hover {
+        opacity: 0.9;
+        color: white;
+    }
+
+    @media (max-width: 768px) {
+        #chat-container { height: 420px; }
+    }
 </style>
 {% endblock %}
+
 
 {% block content %}
 <div class="container py-4">
     <div class="row mb-4">
         <div class="col-12">
-            <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-                <div class="card-body py-4 d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <div class="card border-0 shadow-lg animate__animated animate__fadeIn"
+                 style="background: var(--gradient-primary); color: white; border-radius: 20px; overflow: hidden;">
+                <div class="card-body py-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
                     <div>
-                        <h1 class="mb-2">
-                            <i class="fas fa-robot"></i> {{ get_translation('chatbot_title', current_language) }}
+                        <h1 class="mb-2" style="font-family: 'Playfair Display', serif;">
+                            <i class="fas fa-robot me-2"></i> {{ get_translation('chatbot_title', current_language) }}
                         </h1>
-                        <p class="lead mb-0">
-                            <i class="fas fa-baby"></i> {{ get_translation('trimester', current_language) }} {{ current_user.current_trimester }} |
-                            <i class="fas fa-question-circle"></i> {{ get_translation('chatbot_subtitle', current_language) }}
+                        <p class="lead mb-0" style="opacity: 0.9;">
+                            <i class="fas fa-baby me-1"></i> {{ get_translation('chatbot_subtitle', current_language) }}
                         </p>
                     </div>
-                    <!-- Language toggle -->
-                    <div class="d-flex align-items-center gap-2">
-                        <span class="text-white-50 small">Language:</span>
-                        <select id="language-select" class="form-select form-select-sm language-toggle" style="width: auto;">
-                            <option value="en" selected>English</option>
-                            <option value="te">తెలుగు (Telugu)</option>
-                        </select>
+                    <!-- Trimester + Language toggle -->
+                    <div class="d-flex align-items-center gap-3 flex-wrap">
+                        <div class="d-flex align-items-center gap-2">
+                            <label class="text-white-50 small mb-0" for="trimester-select">
+                                <i class="fas fa-baby-carriage me-1"></i>Trimester:
+                            </label>
+                            <select id="trimester-select" class="form-select form-select-sm" style="width: auto; background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3);">
+                                <option value="" style="color:#333;">Auto</option>
+                                <option value="1" {% if current_user.current_trimester == 1 %}selected{% endif %} style="color:#333;">T1</option>
+                                <option value="2" {% if current_user.current_trimester == 2 %}selected{% endif %} style="color:#333;">T2</option>
+                                <option value="3" {% if current_user.current_trimester == 3 %}selected{% endif %} style="color:#333;">T3</option>
+                            </select>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <label class="text-white-50 small mb-0" for="language-select">
+                                <i class="fas fa-globe me-1"></i>Language:
+                            </label>
+                            <select id="language-select" class="form-select form-select-sm language-toggle" style="width: auto; background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3);">
+                                <option value="en" selected style="color:#333;">English</option>
+                                <option value="te" style="color:#333;">తెలుగు (Telugu)</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -264,30 +336,36 @@
     <div class="row">
         <div class="col-lg-8 mb-4">
             <!-- Chat Container -->
-            <div id="chat-container" class="card border-0 shadow-sm mb-3">
-                <div class="message bot-message">
-                    <strong><i class="fas fa-robot emoji-icon"></i>{{ get_translation('chatbot_bot', current_language) }}</strong>
-                    <p class="mb-0">
-                        👋 {{ get_translation('chatbot_greeting', current_language).format(name=current_user.full_name) }}
-                    </p>
-                    <p class="mb-0">
-                        {{ get_translation('chatbot_can_help', current_language) }}
-                    </p>
-                    <ul class="mb-0" style="font-size: 0.95rem;">
-                        <li>{{ get_translation('chatbot_food_safety', current_language) }}</li>
-                        <li>{{ get_translation('chatbot_health_benefits', current_language) }}</li>
-                        <li>{{ get_translation('chatbot_nutrition_info', current_language) }}</li>
-                        <li>{{ get_translation('chatbot_cooking_tips', current_language) }}</li>
-                        <li>{{ get_translation('chatbot_portion_sizes', current_language) }}</li>
-                        <li>{{ get_translation('chatbot_precautions', current_language) }}</li>
-                        <li>{{ get_translation('chatbot_manage_conditions', current_language) }}</li>
-                    </ul>
+            <div class="card border-0 shadow-md mb-3" style="border-radius: 16px; overflow: hidden;">
+                <div class="chat-card-header d-flex align-items-center gap-2">
+                    <i class="fas fa-comments"></i>
+                    <span>{{ get_translation('chatbot_title', current_language) }}</span>
+                </div>
+                <div id="chat-container">
+                    <div class="message bot-message">
+                        <strong><i class="fas fa-robot emoji-icon"></i>{{ get_translation('chatbot_bot', current_language) }}</strong>
+                        <p class="mb-0 mt-1">
+                            👋 {{ get_translation('chatbot_greeting', current_language).format(name=current_user.full_name) }}
+                        </p>
+                        <p class="mb-0">
+                            {{ get_translation('chatbot_can_help', current_language) }}
+                        </p>
+                        <ul class="mb-0 mt-1" style="font-size: 0.92rem;">
+                            <li>{{ get_translation('chatbot_food_safety', current_language) }}</li>
+                            <li>{{ get_translation('chatbot_health_benefits', current_language) }}</li>
+                            <li>{{ get_translation('chatbot_nutrition_info', current_language) }}</li>
+                            <li>{{ get_translation('chatbot_cooking_tips', current_language) }}</li>
+                            <li>{{ get_translation('chatbot_portion_sizes', current_language) }}</li>
+                            <li>{{ get_translation('chatbot_precautions', current_language) }}</li>
+                            <li>{{ get_translation('chatbot_manage_conditions', current_language) }}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
             <!-- Input Area -->
-            <div class="card border-0 shadow-sm">
-                <div class="card-body">
+            <div class="card border-0 shadow-sm chat-input-card" style="border-radius: 16px !important;">
+                <div class="card-body py-3">
                     <div class="input-group mb-2">
                         <input
                             type="text"
@@ -296,13 +374,14 @@
                             placeholder="{{ get_translation('chatbot_placeholder', current_language) }}"
                             onkeypress="handleKeyPress(event)"
                             autocomplete="off"
+                            style="border-radius: 12px 0 0 12px; border-color: var(--gray-300);"
                         >
-                        <button class="btn btn-success btn-lg" onclick="sendQuestion()" title="{{ get_translation('send', current_language) }}">
+                        <button class="btn btn-send" onclick="sendQuestion()" title="{{ get_translation('send', current_language) }}">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
                     <small class="text-muted">
-                        <i class="fas fa-lightbulb"></i> {{ get_translation('chatbot_hint', current_language) }}
+                        <i class="fas fa-lightbulb text-warning me-1"></i> {{ get_translation('chatbot_hint', current_language) }}
                     </small>
                 </div>
             </div>
@@ -310,11 +389,12 @@
 
         <div class="col-lg-4">
             <!-- Suggested Questions -->
-            <div class="card border-0 shadow-sm mb-3">
-                <div class="card-header bg-success text-white">
-                    <i class="fas fa-magic"></i> {{ get_translation('chatbot_popular_questions', current_language) }}
+            <div class="card border-0 shadow-sm mb-3 animate__animated animate__fadeInRight" style="border-radius: 16px; overflow: hidden;">
+                <div class="card-header text-white d-flex align-items-center gap-2" style="background: var(--gradient-success); border-radius: 0;">
+                    <i class="fas fa-magic"></i>
+                    <span>{{ get_translation('chatbot_popular_questions', current_language) }}</span>
                 </div>
-                <div class="card-body" id="suggestions-container">
+                <div class="card-body p-2" id="suggestions-container">
                     <div class="text-center py-3">
                         <div class="spinner-border spinner-border-sm text-success" role="status">
                             <span class="visually-hidden">Loading...</span>
@@ -325,12 +405,13 @@
             </div>
 
             <!-- Recent Questions -->
-            <div class="card border-0 shadow-sm">
-                <div class="card-header bg-info text-white">
-                    <i class="fas fa-history"></i> {{ get_translation('chatbot_recent_questions', current_language) }}
+            <div class="card border-0 shadow-sm animate__animated animate__fadeInRight animate__delay-1s" style="border-radius: 16px; overflow: hidden;">
+                <div class="card-header text-white d-flex align-items-center gap-2" style="background: var(--gradient-secondary); border-radius: 0;">
+                    <i class="fas fa-history"></i>
+                    <span>{{ get_translation('chatbot_recent_questions', current_language) }}</span>
                 </div>
-                <div class="card-body" id="history-container" style="max-height: 350px; overflow-y: auto;">
-                    <p class="text-muted small mb-0">{{ get_translation('chatbot_no_recent', current_language) }}</p>
+                <div class="card-body p-2" id="history-container" style="max-height: 350px; overflow-y: auto;">
+                    <p class="text-muted small mb-0 p-2">{{ get_translation('chatbot_no_recent', current_language) }}</p>
                 </div>
             </div>
         </div>
@@ -345,6 +426,7 @@
     // -----------------------------------------------------------------------
     let messageHistory = [];
     let selectedLanguage = 'en';
+    let selectedTrimester = '{{ current_user.current_trimester or "" }}';
 
     // -----------------------------------------------------------------------
     // Initialisation
@@ -356,6 +438,11 @@
 
         document.getElementById('language-select').addEventListener('change', function () {
             selectedLanguage = this.value;
+        });
+
+        document.getElementById('trimester-select').addEventListener('change', function () {
+            selectedTrimester = this.value;
+            loadSuggestions();
         });
     });
 
@@ -438,10 +525,15 @@
 
         const loadingId = addMessage('bot', '<div class="thinking-indicator"><span>🤔 Analyzing your question…</span><div class="thinking-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>');
 
+        const payload = { question: question, language: selectedLanguage };
+        if (selectedTrimester) {
+            payload.trimester = parseInt(selectedTrimester);
+        }
+
         fetch('/chatbot/api/ask', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ question: question, language: selectedLanguage }),
+            body: JSON.stringify(payload),
         })
         .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
         .then(data => {
@@ -467,7 +559,7 @@
     function handleBotResponse(data) {
         // Show query reflection (bot understood the question)
         if (data.query_reflection) {
-            const reflBox = `<div style="background:#e8f4f8;border-left:4px solid #17a2b8;padding:0.65rem 0.75rem;margin-bottom:0.8rem;border-radius:4px;">
+            const reflBox = `<div style="background:rgba(6,182,212,0.08);border-left:4px solid var(--accent-teal);padding:0.65rem 0.75rem;margin-bottom:0.8rem;border-radius:8px;">
                 <small style="color:#0c5460;"><strong>👁️ I understand:</strong> ${escapeHtml(data.query_reflection)}</small>
             </div>`;
             addMessage('bot', reflBox);
@@ -478,8 +570,36 @@
         if (data.source === 'domain_restriction') extraClass = 'domain-restriction';
         else if (data.awaiting_followup) extraClass = 'awaiting-followup';
 
+        // Build Do's section
+        let dosHtml = '';
+        if (data.dos && data.dos.length > 0) {
+            const items = data.dos.map(d => `<li><i class="fas fa-check-circle text-success me-2"></i>${escapeHtml(d)}</li>`).join('');
+            dosHtml = `<div class="dos-section mb-2"><strong class="text-success"><i class="fas fa-thumbs-up me-1"></i>Do's:</strong><ul class="mt-1 mb-0 ps-3">${items}</ul></div>`;
+        }
+
+        // Build Don'ts section
+        let dontsHtml = '';
+        if (data.donts && data.donts.length > 0) {
+            const items = data.donts.map(d => `<li><i class="fas fa-times-circle text-danger me-2"></i>${escapeHtml(d)}</li>`).join('');
+            dontsHtml = `<div class="donts-section mb-2"><strong class="text-danger"><i class="fas fa-thumbs-down me-1"></i>Don'ts:</strong><ul class="mt-1 mb-0 ps-3">${items}</ul></div>`;
+        }
+
         const formattedAnswer = formatAnswerAsHTML(data.answer);
         const questionId = data.question_id || '';
+
+        // Source + time badge
+        let metaHtml = '';
+        if (data.source || data.response_time) {
+            const sourceLabel = data.source ? escapeHtml(data.source.replace(/_/g, ' ')) : '';
+            const timeLabel = data.response_time ? `${data.response_time}s` : '';
+            const badgeColor = data.source === 'domain_restriction' ? '#ffc107' :
+                               data.source === 'gemini' ? '#4285f4' :
+                               data.source === 'dataset' ? '#10b981' : '#6b7280';
+            metaHtml = `<div class="response-meta mt-2 d-flex gap-2 flex-wrap">
+                ${sourceLabel ? `<span class="badge" style="background:${badgeColor};font-size:0.7rem;"><i class="fas fa-database me-1"></i>${sourceLabel}</span>` : ''}
+                ${timeLabel ? `<span class="badge bg-secondary" style="font-size:0.7rem;"><i class="fas fa-clock me-1"></i>${timeLabel}</span>` : ''}
+            </div>`;
+        }
 
         // Build feedback bar (only for real answers, not domain restriction)
         let feedbackHtml = '';
@@ -487,7 +607,8 @@
             feedbackHtml = buildFeedbackBar(questionId);
         }
 
-        const msgId = addBotMessage(formattedAnswer + feedbackHtml, extraClass);
+        const fullContent = dosHtml + dontsHtml + formattedAnswer + metaHtml + feedbackHtml;
+        const msgId = addBotMessage(fullContent, extraClass);
 
         // Activate star buttons after DOM insertion
         if (questionId && data.source !== 'domain_restriction') {
