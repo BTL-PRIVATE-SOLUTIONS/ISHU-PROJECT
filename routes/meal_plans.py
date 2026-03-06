@@ -174,7 +174,24 @@ def generate_meal_plan():
             current_user.region_preference = data['region']
         if data.get('diet_type'):
             current_user.dietary_preferences = data['diet_type']
-        
+
+        # Allow the form to override the stored trimester
+        if data.get('trimester'):
+            try:
+                trimester_val = int(data['trimester'])
+                if 1 <= trimester_val <= 3:
+                    current_user.current_trimester = trimester_val
+            except (TypeError, ValueError):
+                pass
+
+        # Allow the form to override special conditions
+        if 'special_conditions' in data:
+            conditions = data['special_conditions']
+            if isinstance(conditions, list):
+                current_user.set_special_conditions(conditions)
+                current_user.is_diabetic = 'diabetes' in conditions
+                current_user.is_gestational_diabetic = 'gestational_diabetes' in conditions
+
         # Ensure trimester is set
         if not current_user.current_trimester or current_user.current_trimester <= 0:
             current_user.current_trimester = 1
