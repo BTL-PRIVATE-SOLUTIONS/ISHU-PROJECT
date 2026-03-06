@@ -525,14 +525,15 @@
 
         const loadingId = addMessage('bot', '<div class="thinking-indicator"><span>🤔 Analyzing your question…</span><div class="thinking-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></div>');
 
+        const payload = { question: question, language: selectedLanguage };
+        if (selectedTrimester) {
+            payload.trimester = parseInt(selectedTrimester);
+        }
+
         fetch('/chatbot/api/ask', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                question: question,
-                language: selectedLanguage,
-                trimester: selectedTrimester ? parseInt(selectedTrimester) : undefined,
-            }),
+            body: JSON.stringify(payload),
         })
         .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
         .then(data => {
