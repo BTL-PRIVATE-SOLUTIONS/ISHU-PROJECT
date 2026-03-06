@@ -10,6 +10,7 @@ from models import db
 from models.user import User
 from models.food import FoodItem
 from models.interaction import UserInteraction
+from models.recommendation import Recommendation
 
 # Import blueprints
 from routes.auth import auth_bp, bcrypt as auth_bcrypt

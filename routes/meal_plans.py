@@ -98,6 +98,7 @@ def validate_preferences():
             }), 400
     
     except Exception as e:
+        db.session.rollback()
         print(f"Error validating preferences: {e}")
         return jsonify({
             'success': False,
@@ -291,7 +292,8 @@ def generate_meal_plan():
         })
         
     except Exception as e:
-        logger.exception("Unexpected error generating meal plan for user %s: %s", current_user.id, e)
+        db.session.rollback()
+        logger.exception("Unexpected error generating meal plan for user")
         return jsonify({
             'success': False,
             'error': 'An error occurred generating the meal plan. Please try again.'
